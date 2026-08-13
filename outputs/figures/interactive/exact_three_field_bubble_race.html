@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Exact Three-Field Collaboration Timelapse</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f7fafc;
+      color: #17324d;
+    }
+    .wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 24px 28px 32px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.15;
+    }
+    .sub {
+      margin: 0 0 18px;
+      font-size: 15px;
+      color: #52657a;
+      max-width: 980px;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    button {
+      border: 1px solid #cbd5e1;
+      background: white;
+      color: #17324d;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #eef4f8;
+    }
+    #periodLabel {
+      font-weight: 700;
+      margin-left: 6px;
+      min-width: 110px;
+    }
+    #slider {
+      width: 260px;
+    }
+    .chart-card {
+      background: white;
+      border: 1px solid #dbe5ee;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(23, 50, 77, 0.08);
+      padding: 14px 14px 12px;
+    }
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .foot {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #52657a;
+    }
+    .tooltip {
+      position: fixed;
+      pointer-events: none;
+      background: rgba(17, 24, 39, 0.95);
+      color: white;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      line-height: 1.45;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      opacity: 0;
+      transform: translate(12px, 12px);
+      transition: opacity 100ms ease;
+      max-width: 280px;
+      z-index: 10;
+    }
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px 18px;
+      margin-top: 14px;
+      font-size: 12px;
+      color: #35516d;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .legend-chip {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+    }
+    .legend-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Exact three-field collaboration timelapse</h1>
+    <p class="sub">This interactive bubble race tracks the leading exact three-field connected-component combinations across manuscript periods. Bubble position and size both encode absolute component counts, so the chart is designed to show persistence, intensification, and late emergence rather than within-period percentages alone.</p>
+    <div class="controls">
+      <button id="prevBtn" type="button">Previous</button>
+      <button id="playBtn" type="button">Play</button>
+      <button id="pauseBtn" type="button">Pause</button>
+      <button id="nextBtn" type="button">Next</button>
+      <input id="slider" type="range" min="0" max="5" value="0" step="1" />
+      <span id="periodLabel"></span>
+    </div>
+    <div class="chart-card">
+      <svg id="chart" viewBox="0 0 1280 840" aria-label="Exact three-field collaboration bubble race"></svg>
+      <div class="legend" id="legend"></div>
+      <div class="foot">Each bubble represents one exact three-field connected-component combination from the display union of the top 12 triads. Absolute counts drive the axis and bubble size; hovering reveals the full triad label, count, within-period share, and first/last observed period.</div>
+    </div>
+  </div>
+  <div class="tooltip" id="tooltip"></div>
+  <script>
+    const payload = {"periods": ["1988-2015", "2016-2019", "2020-2021", "2022-2023", "2024-2024", "2025-2025"], "maxCount": 39, "ticks": [0, 5, 10, 15, 20, 25, 30, 35, 40], "frames": {"1988-2015": [{"combination_label": "General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Public Health + Tech/AI", "component_count": 8, "component_share_pct": 0.34349506225848, "rank_within_period": 1, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 8, "color": "#1f77b4"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Endocrino + Clinical Med + Public Health", "component_count": 4, "component_share_pct": 0.17174753112924, "rank_within_period": 2, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 4, "color": "#ff7f0e"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Complications + Clinical Med + Tech/AI", "component_count": 3, "component_share_pct": 0.12881064834693, "rank_within_period": 3, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 3, "color": "#2ca02c"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine", "short_combination_label": "Complications + Endocrino + Clinical Med", "component_count": 2, "component_share_pct": 0.08587376556462, "rank_within_period": 4, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 2, "color": "#d62728"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Complications + Clinical Med + Public Health", "component_count": 2, "component_share_pct": 0.08587376556462, "rank_within_period": 5, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 2, "color": "#9467bd"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Endocrino + Clinical Med + Tech/AI", "component_count": 2, "component_share_pct": 0.08587376556462, "rank_within_period": 6, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 2, "color": "#8c564b"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Complications + Clinical Med + Industry", "component_count": 1, "component_share_pct": 0.04293688278231, "rank_within_period": 7, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 1, "color": "#e377c2"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Endocrino + Clinical Med + Industry", "component_count": 1, "component_share_pct": 0.04293688278231, "rank_within_period": 8, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 1, "color": "#7f7f7f"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Ophthal + Public Health", "component_count": 1, "component_share_pct": 0.04293688278231, "rank_within_period": 9, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 1, "color": "#bcbd22"}, {"combination_label": "General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Peds/Maternal + Public Health", "component_count": 1, "component_share_pct": 0.04293688278231, "rank_within_period": 10, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 1, "color": "#17becf"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health", "short_combination_label": "Endocrino + Clinical Med + Peds/Maternal", "component_count": 0, "component_share_pct": 0.0, "rank_within_period": 11, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": 0, "color": "#2563eb"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Ophthal + Tech/AI", "component_count": 0, "component_share_pct": 0.0, "rank_within_period": 12, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": 0, "color": "#059669"}], "2016-2019": [{"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Endocrino + Clinical Med + Public Health", "component_count": 22, "component_share_pct": 1.014760147601476, "rank_within_period": 1, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 18, "color": "#ff7f0e"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Endocrino + Clinical Med + Tech/AI", "component_count": 19, "component_share_pct": 0.8763837638376384, "rank_within_period": 2, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 17, "color": "#8c564b"}, {"combination_label": "General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Public Health + Tech/AI", "component_count": 16, "component_share_pct": 0.7380073800738007, "rank_within_period": 3, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 8, "color": "#1f77b4"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Complications + Clinical Med + Tech/AI", "component_count": 12, "component_share_pct": 0.5535055350553506, "rank_within_period": 4, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 9, "color": "#2ca02c"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Endocrino + Clinical Med + Industry", "component_count": 12, "component_share_pct": 0.5535055350553506, "rank_within_period": 5, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 11, "color": "#7f7f7f"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Complications + Clinical Med + Public Health", "component_count": 8, "component_share_pct": 0.3690036900369003, "rank_within_period": 6, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 6, "color": "#9467bd"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Ophthal + Tech/AI", "component_count": 8, "component_share_pct": 0.3690036900369003, "rank_within_period": 7, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": 8, "color": "#059669"}, {"combination_label": "General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Peds/Maternal + Public Health", "component_count": 8, "component_share_pct": 0.3690036900369003, "rank_within_period": 8, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 7, "color": "#17becf"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine", "short_combination_label": "Complications + Endocrino + Clinical Med", "component_count": 5, "component_share_pct": 0.2306273062730627, "rank_within_period": 9, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 3, "color": "#d62728"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health", "short_combination_label": "Endocrino + Clinical Med + Peds/Maternal", "component_count": 5, "component_share_pct": 0.2306273062730627, "rank_within_period": 10, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": 5, "color": "#2563eb"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Complications + Clinical Med + Industry", "component_count": 4, "component_share_pct": 0.1845018450184501, "rank_within_period": 11, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 3, "color": "#e377c2"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Ophthal + Public Health", "component_count": 2, "component_share_pct": 0.092250922509225, "rank_within_period": 12, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 1, "color": "#bcbd22"}], "2020-2021": [{"combination_label": "General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Public Health + Tech/AI", "component_count": 21, "component_share_pct": 0.8864499788940481, "rank_within_period": 1, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 5, "color": "#1f77b4"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Complications + Clinical Med + Tech/AI", "component_count": 20, "component_share_pct": 0.8442380751371887, "rank_within_period": 2, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 8, "color": "#2ca02c"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Endocrino + Clinical Med + Tech/AI", "component_count": 20, "component_share_pct": 0.8442380751371887, "rank_within_period": 3, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 1, "color": "#8c564b"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Complications + Clinical Med + Public Health", "component_count": 12, "component_share_pct": 0.5065428450823132, "rank_within_period": 4, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 4, "color": "#9467bd"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Endocrino + Clinical Med + Industry", "component_count": 12, "component_share_pct": 0.5065428450823132, "rank_within_period": 5, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 0, "color": "#7f7f7f"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Endocrino + Clinical Med + Public Health", "component_count": 12, "component_share_pct": 0.5065428450823132, "rank_within_period": 6, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -10, "color": "#ff7f0e"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Ophthal + Public Health", "component_count": 12, "component_share_pct": 0.5065428450823132, "rank_within_period": 7, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 10, "color": "#bcbd22"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Ophthal + Tech/AI", "component_count": 11, "component_share_pct": 0.4643309413254537, "rank_within_period": 8, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": 3, "color": "#059669"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine", "short_combination_label": "Complications + Endocrino + Clinical Med", "component_count": 9, "component_share_pct": 0.3799071338117349, "rank_within_period": 9, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 4, "color": "#d62728"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health", "short_combination_label": "Endocrino + Clinical Med + Peds/Maternal", "component_count": 9, "component_share_pct": 0.3799071338117349, "rank_within_period": 10, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": 4, "color": "#2563eb"}, {"combination_label": "General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Peds/Maternal + Public Health", "component_count": 8, "component_share_pct": 0.3376952300548754, "rank_within_period": 11, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 0, "color": "#17becf"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Complications + Clinical Med + Industry", "component_count": 5, "component_share_pct": 0.2110595187842971, "rank_within_period": 12, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 1, "color": "#e377c2"}], "2022-2023": [{"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Endocrino + Clinical Med + Tech/AI", "component_count": 35, "component_share_pct": 1.109350237717908, "rank_within_period": 1, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 15, "color": "#8c564b"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Complications + Clinical Med + Tech/AI", "component_count": 25, "component_share_pct": 0.7923930269413629, "rank_within_period": 2, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 5, "color": "#2ca02c"}, {"combination_label": "General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Public Health + Tech/AI", "component_count": 24, "component_share_pct": 0.7606973058637084, "rank_within_period": 3, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 3, "color": "#1f77b4"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Endocrino + Clinical Med + Public Health", "component_count": 20, "component_share_pct": 0.6339144215530903, "rank_within_period": 4, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 8, "color": "#ff7f0e"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Ophthal + Tech/AI", "component_count": 20, "component_share_pct": 0.6339144215530903, "rank_within_period": 5, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": 9, "color": "#059669"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Complications + Clinical Med + Public Health", "component_count": 17, "component_share_pct": 0.5388272583201268, "rank_within_period": 6, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 5, "color": "#9467bd"}, {"combination_label": "General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Peds/Maternal + Public Health", "component_count": 16, "component_share_pct": 0.5071315372424723, "rank_within_period": 7, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 8, "color": "#17becf"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine", "short_combination_label": "Complications + Endocrino + Clinical Med", "component_count": 15, "component_share_pct": 0.4754358161648177, "rank_within_period": 8, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 6, "color": "#d62728"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Complications + Clinical Med + Industry", "component_count": 14, "component_share_pct": 0.4437400950871632, "rank_within_period": 9, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 9, "color": "#e377c2"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Endocrino + Clinical Med + Industry", "component_count": 9, "component_share_pct": 0.2852614896988906, "rank_within_period": 10, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -3, "color": "#7f7f7f"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health", "short_combination_label": "Endocrino + Clinical Med + Peds/Maternal", "component_count": 8, "component_share_pct": 0.2535657686212361, "rank_within_period": 11, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": -1, "color": "#2563eb"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Ophthal + Public Health", "component_count": 8, "component_share_pct": 0.2535657686212361, "rank_within_period": 12, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -4, "color": "#bcbd22"}], "2024-2024": [{"combination_label": "General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Public Health + Tech/AI", "component_count": 23, "component_share_pct": 1.1296660117878192, "rank_within_period": 1, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -1, "color": "#1f77b4"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Complications + Clinical Med + Tech/AI", "component_count": 21, "component_share_pct": 1.031434184675835, "rank_within_period": 2, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -4, "color": "#2ca02c"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Endocrino + Clinical Med + Tech/AI", "component_count": 17, "component_share_pct": 0.8349705304518664, "rank_within_period": 3, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -18, "color": "#8c564b"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Endocrino + Clinical Med + Industry", "component_count": 11, "component_share_pct": 0.5402750491159135, "rank_within_period": 4, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 2, "color": "#7f7f7f"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Ophthal + Public Health", "component_count": 11, "component_share_pct": 0.5402750491159135, "rank_within_period": 5, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 3, "color": "#bcbd22"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Complications + Clinical Med + Public Health", "component_count": 10, "component_share_pct": 0.4911591355599214, "rank_within_period": 6, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -7, "color": "#9467bd"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Ophthal + Tech/AI", "component_count": 10, "component_share_pct": 0.4911591355599214, "rank_within_period": 7, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": -10, "color": "#059669"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine", "short_combination_label": "Complications + Endocrino + Clinical Med", "component_count": 8, "component_share_pct": 0.3929273084479371, "rank_within_period": 8, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -7, "color": "#d62728"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Complications + Clinical Med + Industry", "component_count": 7, "component_share_pct": 0.343811394891945, "rank_within_period": 9, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -7, "color": "#e377c2"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health", "short_combination_label": "Endocrino + Clinical Med + Peds/Maternal", "component_count": 7, "component_share_pct": 0.343811394891945, "rank_within_period": 10, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": -1, "color": "#2563eb"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Endocrino + Clinical Med + Public Health", "component_count": 6, "component_share_pct": 0.2946954813359528, "rank_within_period": 11, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -14, "color": "#ff7f0e"}, {"combination_label": "General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Peds/Maternal + Public Health", "component_count": 6, "component_share_pct": 0.2946954813359528, "rank_within_period": 12, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -10, "color": "#17becf"}], "2025-2025": [{"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Complications + Clinical Med + Tech/AI", "component_count": 39, "component_share_pct": 1.2260295504558314, "rank_within_period": 1, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 18, "color": "#2ca02c"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics", "short_combination_label": "Endocrino + Clinical Med + Tech/AI", "component_count": 29, "component_share_pct": 0.9116629990569004, "rank_within_period": 2, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 12, "color": "#8c564b"}, {"combination_label": "General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Public Health + Tech/AI", "component_count": 25, "component_share_pct": 0.7859163784973279, "rank_within_period": 3, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 2, "color": "#1f77b4"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Endocrino + Clinical Med + Public Health", "component_count": 24, "component_share_pct": 0.7544797233574347, "rank_within_period": 4, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 18, "color": "#ff7f0e"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine", "short_combination_label": "Complications + Endocrino + Clinical Med", "component_count": 21, "component_share_pct": 0.6601697579377555, "rank_within_period": 5, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 13, "color": "#d62728"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology", "short_combination_label": "Complications + Clinical Med + Public Health", "component_count": 17, "component_share_pct": 0.5344231373781829, "rank_within_period": 6, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 7, "color": "#9467bd"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics", "short_combination_label": "Clinical Med + Ophthal + Tech/AI", "component_count": 15, "component_share_pct": 0.4715498270983967, "rank_within_period": 7, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": 5, "color": "#059669"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health", "short_combination_label": "Endocrino + Clinical Med + Peds/Maternal", "component_count": 13, "component_share_pct": 0.4086765168186105, "rank_within_period": 8, "first_period_seen": "2016-2019", "last_period_seen": "2025-2025", "net_change_from_previous_period": 6, "color": "#2563eb"}, {"combination_label": "Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Endocrino + Clinical Med + Industry", "component_count": 9, "component_share_pct": 0.282929896259038, "rank_within_period": 9, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -2, "color": "#7f7f7f"}, {"combination_label": "Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device", "short_combination_label": "Complications + Clinical Med + Industry", "component_count": 7, "component_share_pct": 0.2200565859792518, "rank_within_period": 10, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 0, "color": "#e377c2"}, {"combination_label": "General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Ophthal + Public Health", "component_count": 6, "component_share_pct": 0.1886199308393586, "rank_within_period": 11, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": -5, "color": "#bcbd22"}, {"combination_label": "General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology", "short_combination_label": "Clinical Med + Peds/Maternal + Public Health", "component_count": 6, "component_share_pct": 0.1886199308393586, "rank_within_period": 12, "first_period_seen": "1988-2015", "last_period_seen": "2025-2025", "net_change_from_previous_period": 0, "color": "#17becf"}]}};
+    const svg = document.getElementById("chart");
+    const tooltip = document.getElementById("tooltip");
+    const legend = document.getElementById("legend");
+    const slider = document.getElementById("slider");
+    const periodLabel = document.getElementById("periodLabel");
+    const periods = payload.periods;
+    const frames = payload.frames;
+    const width = 1280;
+    const height = 840;
+    const margin = { top: 78, right: 90, bottom: 72, left: 245 };
+    const plotWidth = width - margin.left - margin.right;
+    const plotHeight = height - margin.top - margin.bottom;
+    const rowStep = plotHeight / 12.5;
+    const maxCount = Math.max(payload.maxCount, 1);
+    const tickValues = payload.ticks;
+    let activeIndex = 0;
+    let timerId = null;
+
+    const comboLabels = [];
+    periods.forEach((period) => {
+      (frames[period] || []).forEach((row) => {
+        if (!comboLabels.includes(row.combination_label)) comboLabels.push(row.combination_label);
+      });
+    });
+
+    function xScale(value) {
+      return margin.left + (Math.max(0, value) / maxCount) * plotWidth;
+    }
+
+    function yScale(rank) {
+      return margin.top + (rank - 0.5) * rowStep;
+    }
+
+    function radiusScale(value) {
+      if (value <= 0) return 8;
+      return 12 + Math.sqrt(value / maxCount) * 34;
+    }
+
+    function showTooltip(event, row) {
+      tooltip.innerHTML = `
+        <div><strong>${row.short_combination_label}</strong></div>
+        <div>${row.combination_label}</div>
+        <div>Count: ${row.component_count}</div>
+        <div>Period share: ${row.component_share_pct.toFixed(1)}%</div>
+        <div>Rank: #${row.rank_within_period}</div>
+        <div>Observed: ${row.first_period_seen} to ${row.last_period_seen}</div>
+      `;
+      tooltip.style.opacity = "1";
+      moveTooltip(event);
+    }
+
+    function moveTooltip(event) {
+      tooltip.style.left = `${event.clientX + 10}px`;
+      tooltip.style.top = `${event.clientY + 10}px`;
+    }
+
+    function hideTooltip() {
+      tooltip.style.opacity = "0";
+    }
+
+    function el(name, attrs = {}, parent = null) {
+      const node = document.createElementNS("http://www.w3.org/2000/svg", name);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      if (parent) parent.appendChild(node);
+      return node;
+    }
+
+    function setupStatic() {
+      svg.innerHTML = "";
+      el("rect", { x: 0, y: 0, width, height, fill: "white" }, svg);
+      el("text", {
+        x: margin.left,
+        y: 34,
+        fill: "#17324d",
+        "font-size": "28",
+        "font-weight": "700",
+      }, svg).textContent = "Top exact three-field combinations across manuscript periods";
+      el("text", {
+        x: margin.left,
+        y: 58,
+        fill: "#52657a",
+        "font-size": "14",
+      }, svg).textContent = "Animated bubble race using absolute connected-component counts";
+
+      el("line", {
+        x1: margin.left,
+        y1: height - margin.bottom,
+        x2: width - margin.right,
+        y2: height - margin.bottom,
+        stroke: "#94a3b8",
+        "stroke-width": "1.2",
+      }, svg);
+
+      tickValues.forEach((tick) => {
+        const x = xScale(tick);
+        el("line", {
+          x1: x,
+          y1: margin.top,
+          x2: x,
+          y2: height - margin.bottom,
+          stroke: "#e2e8f0",
+          "stroke-width": "1",
+        }, svg);
+        el("text", {
+          x,
+          y: height - margin.bottom + 24,
+          fill: "#52657a",
+          "font-size": "12",
+          "text-anchor": "middle",
+        }, svg).textContent = String(tick);
+      });
+
+      for (let rank = 1; rank <= 12; rank += 1) {
+        const y = yScale(rank);
+        el("line", {
+          x1: margin.left,
+          y1: y,
+          x2: width - margin.right,
+          y2: y,
+          stroke: "#f1f5f9",
+          "stroke-width": "1",
+        }, svg);
+        el("text", {
+          x: margin.left - 18,
+          y: y + 4,
+          fill: "#52657a",
+          "font-size": "12",
+          "text-anchor": "end",
+        }, svg).textContent = `#${rank}`;
+      }
+
+      el("text", {
+        x: (margin.left + width - margin.right) / 2,
+        y: height - 16,
+        fill: "#35516d",
+        "font-size": "13",
+        "text-anchor": "middle",
+      }, svg).textContent = "Connected components containing the exact three-field combination";
+    }
+
+    function renderLegend() {
+      legend.innerHTML = "";
+      comboLabels.forEach((label) => {
+        const sample = periods.map((p) => (frames[p] || []).find((row) => row.combination_label === label)).find(Boolean);
+        if (!sample) return;
+        const item = document.createElement("div");
+        item.className = "legend-item";
+        item.innerHTML = `<span class="legend-chip" style="background:${sample.color}"></span><span class="legend-text">${sample.short_combination_label}</span>`;
+        legend.appendChild(item);
+      });
+    }
+
+    function renderFrame(index) {
+      activeIndex = index;
+      slider.value = String(index);
+      const period = periods[index];
+      periodLabel.textContent = period;
+      setupStatic();
+      const rows = (frames[period] || []).slice().sort((a, b) => a.rank_within_period - b.rank_within_period);
+
+      el("text", {
+        x: width - margin.right,
+        y: 48,
+        fill: "#17324d",
+        "font-size": "30",
+        "font-weight": "700",
+        "text-anchor": "end",
+      }, svg).textContent = period;
+
+      rows.forEach((row) => {
+        const y = yScale(row.rank_within_period);
+        const x = xScale(row.component_count);
+        const radius = radiusScale(row.component_count);
+        const opacity = row.component_count > 0 ? 0.88 : 0.12;
+        const group = el("g", { cursor: "pointer" }, svg);
+        const circle = el("circle", {
+          cx: x,
+          cy: y,
+          r: radius,
+          fill: row.color,
+          opacity,
+          stroke: "white",
+          "stroke-width": "1.2",
+        }, group);
+        el("text", {
+          x: x + radius + 10,
+          y: y + 4,
+          fill: row.component_count > 0 ? "#17324d" : "#9aa7b5",
+          "font-size": "12",
+          "font-weight": row.component_count > 0 ? "600" : "400",
+        }, group).textContent = row.short_combination_label;
+        if (row.component_count > 0) {
+          el("text", {
+            x,
+            y: y + 4,
+            fill: "white",
+            "font-size": radius >= 18 ? "12" : "10",
+            "font-weight": "700",
+            "text-anchor": "middle",
+          }, group).textContent = String(row.component_count);
+        }
+        group.addEventListener("mouseenter", (event) => showTooltip(event, row));
+        group.addEventListener("mousemove", moveTooltip);
+        group.addEventListener("mouseleave", hideTooltip);
+      });
+    }
+
+    function stopPlayback() {
+      if (timerId !== null) {
+        clearInterval(timerId);
+        timerId = null;
+      }
+    }
+
+    function nextFrame() {
+      renderFrame((activeIndex + 1) % periods.length);
+    }
+
+    function prevFrame() {
+      renderFrame((activeIndex - 1 + periods.length) % periods.length);
+    }
+
+    document.getElementById("playBtn").addEventListener("click", () => {
+      stopPlayback();
+      timerId = setInterval(nextFrame, 1600);
+    });
+    document.getElementById("pauseBtn").addEventListener("click", stopPlayback);
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      stopPlayback();
+      nextFrame();
+    });
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      stopPlayback();
+      prevFrame();
+    });
+    slider.addEventListener("input", (event) => {
+      stopPlayback();
+      renderFrame(Number(event.target.value));
+    });
+
+    renderLegend();
+    renderFrame(0);
+  </script>
+</body>
+</html>

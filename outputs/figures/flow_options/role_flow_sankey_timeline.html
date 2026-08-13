@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Role Flow Timeline</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+      color: #111827;
+      background: #f8fafc;
+    }
+    .subtitle { color: #4b5563; font-size: 14px; margin-bottom: 12px; }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: #111827;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #f3f4f6;
+    }
+    #pair-slider {
+      width: 260px;
+    }
+    #pair-label {
+      font-weight: 600;
+      font-size: 13px;
+      color: #111827;
+      min-width: 180px;
+    }
+    .filters {
+      display: flex;
+      gap: 10px 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+    .filter-title {
+      font-weight: 600;
+      margin-right: 2px;
+    }
+    .filter-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+    .chip {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+    #chart {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      height: 860px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 8px;
+    }
+    .meta {
+      margin-top: 10px;
+      color: #6b7280;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="margin:0 0 4px;">Playable Institution Role-Flow Timeline</h2>
+  <div class="subtitle">
+    Animated adjacent-period Sankey view (All Fields). Use role filters and Play to explore evolution over time.
+  </div>
+
+  <div class="toolbar">
+    <div class="controls">
+      <button id="play-btn" class="btn">Play</button>
+      <button id="prev-btn" class="btn">Prev</button>
+      <button id="next-btn" class="btn">Next</button>
+      <input id="pair-slider" type="range" min="0" max="0" value="0" step="1" />
+      <span id="pair-label"></span>
+    </div>
+    <div class="filters" id="filters">
+      <span class="filter-title">Roles:</span>
+      <label class="filter-item"><input type="checkbox" class="role-filter" data-role="Core" checked /><span class="chip" style="background:#1f77b4"></span>High-centrality institutions</label><label class="filter-item"><input type="checkbox" class="role-filter" data-role="Semi-Peripheral" checked /><span class="chip" style="background:#17becf"></span>Mid-centrality institutions</label><label class="filter-item"><input type="checkbox" class="role-filter" data-role="Peripheral" checked /><span class="chip" style="background:#ff7f0e"></span>Low-centrality institutions</label><label class="filter-item"><input type="checkbox" class="role-filter" data-role="Isolate" checked /><span class="chip" style="background:#bcbd22"></span>Zero-centrality institutions</label>
+    </div>
+  </div>
+
+  <div id="chart"></div>
+  <div class="meta">
+    Field scope: All Fields |
+    Include Absent transitions: false |
+    Timeline steps: adjacent period pairs only
+  </div>
+
+  <script>
+    const payload = {"state_order": ["Core", "Semi-Peripheral", "Peripheral", "Isolate"], "role_display": {"Core": "High-centrality institutions", "Semi-Peripheral": "Mid-centrality institutions", "Peripheral": "Low-centrality institutions", "Isolate": "Zero-centrality institutions", "Absent": "Absent"}, "role_colors": {"Core": "#1f77b4", "Semi-Peripheral": "#17becf", "Peripheral": "#ff7f0e", "Isolate": "#bcbd22", "Absent": "#bdbdbd"}, "period_pairs": [{"pair_index": 0, "period_from": "1988-2015", "period_to": "2016-2019"}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021"}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023"}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024"}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025"}], "transitions": [{"pair_index": 0, "period_from": "1988-2015", "period_to": "2016-2019", "state_from": "Core", "state_to": "Peripheral", "state_from_label": "High-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 3}, {"pair_index": 0, "period_from": "1988-2015", "period_to": "2016-2019", "state_from": "Isolate", "state_to": "Isolate", "state_from_label": "Zero-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 2}, {"pair_index": 0, "period_from": "1988-2015", "period_to": "2016-2019", "state_from": "Isolate", "state_to": "Peripheral", "state_from_label": "Zero-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 7}, {"pair_index": 0, "period_from": "1988-2015", "period_to": "2016-2019", "state_from": "Isolate", "state_to": "Semi-Peripheral", "state_from_label": "Zero-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 3}, {"pair_index": 0, "period_from": "1988-2015", "period_to": "2016-2019", "state_from": "Peripheral", "state_to": "Isolate", "state_from_label": "Low-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 1}, {"pair_index": 0, "period_from": "1988-2015", "period_to": "2016-2019", "state_from": "Peripheral", "state_to": "Peripheral", "state_from_label": "Low-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 15}, {"pair_index": 0, "period_from": "1988-2015", "period_to": "2016-2019", "state_from": "Peripheral", "state_to": "Semi-Peripheral", "state_from_label": "Low-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 7}, {"pair_index": 0, "period_from": "1988-2015", "period_to": "2016-2019", "state_from": "Semi-Peripheral", "state_to": "Peripheral", "state_from_label": "Mid-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 8}, {"pair_index": 0, "period_from": "1988-2015", "period_to": "2016-2019", "state_from": "Semi-Peripheral", "state_to": "Semi-Peripheral", "state_from_label": "Mid-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 20}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021", "state_from": "Isolate", "state_to": "Peripheral", "state_from_label": "Zero-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 3}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021", "state_from": "Isolate", "state_to": "Semi-Peripheral", "state_from_label": "Zero-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 2}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021", "state_from": "Peripheral", "state_to": "Core", "state_from_label": "Low-centrality institutions", "state_to_label": "High-centrality institutions", "value": 13}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021", "state_from": "Peripheral", "state_to": "Isolate", "state_from_label": "Low-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 4}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021", "state_from": "Peripheral", "state_to": "Peripheral", "state_from_label": "Low-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 57}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021", "state_from": "Peripheral", "state_to": "Semi-Peripheral", "state_from_label": "Low-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 46}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021", "state_from": "Semi-Peripheral", "state_to": "Core", "state_from_label": "Mid-centrality institutions", "state_to_label": "High-centrality institutions", "value": 48}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021", "state_from": "Semi-Peripheral", "state_to": "Isolate", "state_from_label": "Mid-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 1}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021", "state_from": "Semi-Peripheral", "state_to": "Peripheral", "state_from_label": "Mid-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 49}, {"pair_index": 1, "period_from": "2016-2019", "period_to": "2020-2021", "state_from": "Semi-Peripheral", "state_to": "Semi-Peripheral", "state_from_label": "Mid-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 72}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Core", "state_to": "Core", "state_from_label": "High-centrality institutions", "state_to_label": "High-centrality institutions", "value": 56}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Core", "state_to": "Isolate", "state_from_label": "High-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 1}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Core", "state_to": "Peripheral", "state_from_label": "High-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 17}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Core", "state_to": "Semi-Peripheral", "state_from_label": "High-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 37}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Isolate", "state_to": "Isolate", "state_from_label": "Zero-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 4}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Isolate", "state_to": "Peripheral", "state_from_label": "Zero-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 5}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Isolate", "state_to": "Semi-Peripheral", "state_from_label": "Zero-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 2}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Peripheral", "state_to": "Core", "state_from_label": "Low-centrality institutions", "state_to_label": "High-centrality institutions", "value": 20}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Peripheral", "state_to": "Isolate", "state_from_label": "Low-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 3}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Peripheral", "state_to": "Peripheral", "state_from_label": "Low-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 119}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Peripheral", "state_to": "Semi-Peripheral", "state_from_label": "Low-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 66}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Semi-Peripheral", "state_to": "Core", "state_from_label": "Mid-centrality institutions", "state_to_label": "High-centrality institutions", "value": 52}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Semi-Peripheral", "state_to": "Isolate", "state_from_label": "Mid-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 2}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Semi-Peripheral", "state_to": "Peripheral", "state_from_label": "Mid-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 94}, {"pair_index": 2, "period_from": "2020-2021", "period_to": "2022-2023", "state_from": "Semi-Peripheral", "state_to": "Semi-Peripheral", "state_from_label": "Mid-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 147}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Core", "state_to": "Core", "state_from_label": "High-centrality institutions", "state_to_label": "High-centrality institutions", "value": 58}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Core", "state_to": "Peripheral", "state_from_label": "High-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 18}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Core", "state_to": "Semi-Peripheral", "state_from_label": "High-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 48}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Isolate", "state_to": "Isolate", "state_from_label": "Zero-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 1}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Isolate", "state_to": "Peripheral", "state_from_label": "Zero-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 4}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Isolate", "state_to": "Semi-Peripheral", "state_from_label": "Zero-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 2}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Peripheral", "state_to": "Core", "state_from_label": "Low-centrality institutions", "state_to_label": "High-centrality institutions", "value": 13}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Peripheral", "state_to": "Isolate", "state_from_label": "Low-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 5}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Peripheral", "state_to": "Peripheral", "state_from_label": "Low-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 95}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Peripheral", "state_to": "Semi-Peripheral", "state_from_label": "Low-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 78}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Semi-Peripheral", "state_to": "Core", "state_from_label": "Mid-centrality institutions", "state_to_label": "High-centrality institutions", "value": 54}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Semi-Peripheral", "state_to": "Isolate", "state_from_label": "Mid-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 2}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Semi-Peripheral", "state_to": "Peripheral", "state_from_label": "Mid-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 54}, {"pair_index": 3, "period_from": "2022-2023", "period_to": "2024-2024", "state_from": "Semi-Peripheral", "state_to": "Semi-Peripheral", "state_from_label": "Mid-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 139}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Core", "state_to": "Core", "state_from_label": "High-centrality institutions", "state_to_label": "High-centrality institutions", "value": 50}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Core", "state_to": "Peripheral", "state_from_label": "High-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 21}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Core", "state_to": "Semi-Peripheral", "state_from_label": "High-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 31}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Isolate", "state_to": "Core", "state_from_label": "Zero-centrality institutions", "state_to_label": "High-centrality institutions", "value": 1}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Isolate", "state_to": "Isolate", "state_from_label": "Zero-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 3}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Isolate", "state_to": "Peripheral", "state_from_label": "Zero-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 8}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Peripheral", "state_to": "Core", "state_from_label": "Low-centrality institutions", "state_to_label": "High-centrality institutions", "value": 19}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Peripheral", "state_to": "Isolate", "state_from_label": "Low-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 3}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Peripheral", "state_to": "Peripheral", "state_from_label": "Low-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 63}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Peripheral", "state_to": "Semi-Peripheral", "state_from_label": "Low-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 52}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Semi-Peripheral", "state_to": "Core", "state_from_label": "Mid-centrality institutions", "state_to_label": "High-centrality institutions", "value": 52}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Semi-Peripheral", "state_to": "Isolate", "state_from_label": "Mid-centrality institutions", "state_to_label": "Zero-centrality institutions", "value": 2}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Semi-Peripheral", "state_to": "Peripheral", "state_from_label": "Mid-centrality institutions", "state_to_label": "Low-centrality institutions", "value": 56}, {"pair_index": 4, "period_from": "2024-2024", "period_to": "2025-2025", "state_from": "Semi-Peripheral", "state_to": "Semi-Peripheral", "state_from_label": "Mid-centrality institutions", "state_to_label": "Mid-centrality institutions", "value": 163}], "field_scope": "All Fields", "include_absent": false};
+    const stateOrder = payload.state_order;
+    const roleDisplay = payload.role_display;
+    const roleColors = payload.role_colors;
+    const periodPairs = payload.period_pairs;
+    const allTransitions = payload.transitions;
+    const selectedStates = new Set(stateOrder);
+    const pairLabel = document.getElementById("pair-label");
+    const slider = document.getElementById("pair-slider");
+    const playBtn = document.getElementById("play-btn");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    let currentPair = 0;
+    let timer = null;
+
+    function hexToRgba(hex, alpha) {
+      const h = String(hex || "").replace("#", "");
+      if (h.length !== 6) return `rgba(156,163,175,${alpha})`;
+      const r = parseInt(h.slice(0, 2), 16);
+      const g = parseInt(h.slice(2, 4), 16);
+      const b = parseInt(h.slice(4, 6), 16);
+      return `rgba(${r},${g},${b},${alpha})`;
+    }
+
+    function stateYPositions(n) {
+      if (n <= 1) return [0.5];
+      const out = [];
+      for (let i = 0; i < n; i += 1) {
+        out.push(0.08 + (0.84 * i) / (n - 1));
+      }
+      return out;
+    }
+
+    function buildTrace(pairIndex) {
+      const pair = periodPairs[pairIndex];
+      const states = stateOrder.filter((s) => selectedStates.has(s));
+      if (!pair || states.length === 0) {
+        return null;
+      }
+
+      const rows = allTransitions.filter(
+        (r) =>
+          r.pair_index === pairIndex &&
+          selectedStates.has(r.state_from) &&
+          selectedStates.has(r.state_to)
+      );
+
+      const leftIds = states.map((s) => `L||${s}`);
+      const rightIds = states.map((s) => `R||${s}`);
+      const nodeIds = [...leftIds, ...rightIds];
+      const idxMap = new Map(nodeIds.map((id, idx) => [id, idx]));
+      const y = stateYPositions(states.length);
+      const x = [...states.map(() => 0.03), ...states.map(() => 0.97)];
+      const labels = [...states.map((s) => roleDisplay[s] || s), ...states.map((s) => roleDisplay[s] || s)];
+
+      const outgoing = new Map(states.map((s) => [s, 0]));
+      const incoming = new Map(states.map((s) => [s, 0]));
+      const sourceTotals = new Map(states.map((s) => [s, 0]));
+      rows.forEach((r) => {
+        outgoing.set(r.state_from, (outgoing.get(r.state_from) || 0) + r.value);
+        incoming.set(r.state_to, (incoming.get(r.state_to) || 0) + r.value);
+        sourceTotals.set(r.state_from, (sourceTotals.get(r.state_from) || 0) + r.value);
+      });
+
+      const sources = [];
+      const targets = [];
+      const values = [];
+      const colors = [];
+      const custom = [];
+      rows.forEach((r) => {
+        const src = idxMap.get(`L||${r.state_from}`);
+        const dst = idxMap.get(`R||${r.state_to}`);
+        if (src === undefined || dst === undefined) return;
+        sources.push(src);
+        targets.push(dst);
+        values.push(r.value);
+        colors.push(hexToRgba(roleColors[r.state_from], 0.36));
+        const pct = sourceTotals.get(r.state_from) > 0 ? (100 * r.value) / sourceTotals.get(r.state_from) : 0;
+        custom.push([r.state_from_label, r.state_to_label, pct.toFixed(2)]);
+      });
+
+      const nodeCustom = [
+        ...states.map((s) => [pair.period_from, roleDisplay[s] || s, outgoing.get(s) || 0]),
+        ...states.map((s) => [pair.period_to, roleDisplay[s] || s, incoming.get(s) || 0]),
+      ];
+
+      return {
+        type: "sankey",
+        arrangement: "snap",
+        node: {
+          pad: 14,
+          thickness: 16,
+          label: labels,
+          color: [...states.map((s) => roleColors[s]), ...states.map((s) => roleColors[s])],
+          line: { color: "#ffffff", width: 1 },
+          x: x,
+          y: [...y, ...y],
+          customdata: nodeCustom,
+          hovertemplate:
+            "<b>%{customdata[1]}</b><br>" +
+            "Period: %{customdata[0]}<br>" +
+            "Flow total: %{customdata[2]}<extra></extra>",
+        },
+        link: {
+          source: sources,
+          target: targets,
+          value: values,
+          color: colors,
+          customdata: custom,
+          hovertemplate:
+            "From: %{customdata[0]}<br>" +
+            "To: %{customdata[1]}<br>" +
+            "Institutions: %{value}<br>" +
+            "Share of source role: %{customdata[2]}%<extra></extra>",
+        },
+      };
+    }
+
+    function render() {
+      const pair = periodPairs[currentPair];
+      if (!pair) {
+        pairLabel.textContent = "No period pairs available";
+        Plotly.react("chart", [], { margin: {l: 20, r: 20, t: 40, b: 20} }, { displaylogo: false });
+        return;
+      }
+      slider.value = String(currentPair);
+      pairLabel.textContent = `${pair.period_from} -> ${pair.period_to}`;
+      const trace = buildTrace(currentPair);
+      const layout = {
+        margin: {l: 20, r: 20, t: 72, b: 20},
+        paper_bgcolor: "#ffffff",
+        plot_bgcolor: "#ffffff",
+        font: {size: 12, color: "#111827"},
+        annotations: [
+          {
+            text: pair.period_from,
+            x: 0.03,
+            y: 1.04,
+            xref: "paper",
+            yref: "paper",
+            showarrow: false,
+            xanchor: "left",
+            font: {size: 12, color: "#374151"},
+          },
+          {
+            text: pair.period_to,
+            x: 0.97,
+            y: 1.04,
+            xref: "paper",
+            yref: "paper",
+            showarrow: false,
+            xanchor: "right",
+            font: {size: 12, color: "#374151"},
+          },
+        ],
+      };
+      Plotly.react("chart", trace ? [trace] : [], layout, {
+        displaylogo: false,
+        responsive: true,
+        modeBarButtonsToRemove: ["select2d", "lasso2d", "autoScale2d"],
+      });
+    }
+
+    function stopPlayback() {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+      playBtn.textContent = "Play";
+    }
+
+    function step(delta) {
+      if (periodPairs.length === 0) return;
+      currentPair = (currentPair + delta + periodPairs.length) % periodPairs.length;
+      render();
+    }
+
+    slider.max = String(Math.max(periodPairs.length - 1, 0));
+    slider.addEventListener("input", () => {
+      stopPlayback();
+      currentPair = Number(slider.value);
+      render();
+    });
+
+    playBtn.addEventListener("click", () => {
+      if (timer) {
+        stopPlayback();
+        return;
+      }
+      playBtn.textContent = "Pause";
+      timer = window.setInterval(() => {
+        currentPair = (currentPair + 1) % Math.max(periodPairs.length, 1);
+        render();
+      }, 1700);
+    });
+
+    prevBtn.addEventListener("click", () => {
+      stopPlayback();
+      step(-1);
+    });
+    nextBtn.addEventListener("click", () => {
+      stopPlayback();
+      step(1);
+    });
+
+    document.querySelectorAll(".role-filter").forEach((cb) => {
+      cb.addEventListener("change", (ev) => {
+        const role = ev.target.getAttribute("data-role");
+        if (ev.target.checked) {
+          selectedStates.add(role);
+        } else {
+          if (selectedStates.size === 1) {
+            ev.target.checked = true;
+            return;
+          }
+          selectedStates.delete(role);
+        }
+        stopPlayback();
+        render();
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1609 @@
+#!/usr/bin/env python3
+# ruff: noqa: E402,E501,I001
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+from typing import Any
+
+import networkx as nx
+import pandas as pd
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SRC_DIR = PROJECT_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from ai_diabetology.classification import (
+    category_color_map,
+    category_labels,
+    fallback_label,
+)
+from ai_diabetology.classifier_loader import build_protocol_classifier
+from ai_diabetology.config import load_protocol
+
+
+STATUS_FILL_COLORS = {
+    "Newcomer": "#1f77b4",
+    "Consistent": "#ff7f0e",
+}
+
+ROLE_ORDER = ["Core", "Semi-Peripheral", "Peripheral", "Isolate"]
+ROLE_ORDER_WITH_ABSENT = ROLE_ORDER + ["Absent"]
+ROLE_DISPLAY = {
+    "Core": "High-centrality institutions",
+    "Semi-Peripheral": "Mid-centrality institutions",
+    "Peripheral": "Low-centrality institutions",
+    "Isolate": "Zero-centrality institutions",
+    "Absent": "Absent",
+}
+ROLE_COLORS = {
+    "Core": "#1f77b4",
+    "Semi-Peripheral": "#17becf",
+    "Peripheral": "#ff7f0e",
+    "Isolate": "#bcbd22",
+    "Absent": "#bdbdbd",
+}
+
+
+def hex_to_rgba(color: str, alpha: float) -> str:
+    raw = str(color).strip().lstrip("#")
+    if len(raw) != 6:
+        return f"rgba(156,163,175,{alpha})"
+    try:
+        r = int(raw[0:2], 16)
+        g = int(raw[2:4], 16)
+        b = int(raw[4:6], 16)
+    except ValueError:
+        return f"rgba(156,163,175,{alpha})"
+    return f"rgba({r},{g},{b},{alpha})"
+
+
+def display_role(role: str) -> str:
+    return ROLE_DISPLAY.get(str(role), str(role))
+
+
+def field_color_maps(protocol: dict[str, Any]) -> tuple[list[str], dict[str, str], dict[str, str]]:
+    order = category_labels(protocol["classification"], include_fallback=True)
+    border = category_color_map(protocol["classification"])
+    links = {
+        label: hex_to_rgba(color, 0.28 if label != fallback_label(protocol["classification"]) else 0.25)
+        for label, color in border.items()
+    }
+    return order, border, links
+
+
+def panel_domains(labels: list[str]) -> dict[str, dict[str, list[float]]]:
+    if not labels:
+        return {}
+    columns = 2 if len(labels) > 1 else 1
+    rows = (len(labels) + columns - 1) // columns
+    x_gap = 0.04
+    y_gap = 0.06
+    panel_width = (1.0 - x_gap * (columns - 1)) / columns
+    panel_height = (1.0 - y_gap * (rows - 1)) / rows
+    domains: dict[str, dict[str, list[float]]] = {}
+    for index, label in enumerate(labels):
+        row = index // columns
+        col = index % columns
+        x0 = col * (panel_width + x_gap)
+        x1 = x0 + panel_width
+        y1 = 1.0 - row * (panel_height + y_gap)
+        y0 = y1 - panel_height
+        domains[label] = {"x": [round(x0, 6), round(x1, 6)], "y": [round(y0, 6), round(y1, 6)]}
+    return domains
+
+
+def resolve_graph_dir(protocol: dict[str, Any], project_root: Path) -> Path:
+    configured = protocol.get("outputs", {}).get("graph_dir", "outputs/networks")
+    path = Path(str(configured))
+    return path if path.is_absolute() else project_root / path
+
+
+def load_period_order(project_root: Path) -> list[str]:
+    period_file = project_root / "outputs" / "tables" / "period_definitions.csv"
+    if period_file.exists():
+        period_df = pd.read_csv(period_file)
+        if "label" in period_df.columns:
+            return period_df["label"].astype(str).tolist()
+
+    protocol = load_protocol(project_root / "config" / "protocol.yaml")
+    fixed = (
+        protocol.get("temporal_segmentation", {}).get("fixed_periods")
+        or protocol.get("periods", [])
+    )
+    if not fixed:
+        raise ValueError("No period definitions found in outputs or config.")
+    return [str(row["label"]) for row in fixed]
+
+
+def load_institution_table_from_graphs(
+    project_root: Path,
+    period_order: list[str],
+) -> tuple[pd.DataFrame, list[str]]:
+    protocol = load_protocol(project_root / "config" / "protocol.yaml")
+    classifier, fallback = build_protocol_classifier(protocol, project_root=project_root)
+    graph_dir = resolve_graph_dir(protocol, project_root)
+
+    rows: list[dict[str, Any]] = []
+    available_periods: list[str] = []
+    for period in period_order:
+        graph_path = graph_dir / f"institutions_{period.replace('-', '_')}.graphml"
+        if not graph_path.exists():
+            continue
+
+        graph = nx.read_graphml(graph_path)
+        if graph.number_of_nodes() == 0:
+            continue
+
+        for node in graph.nodes():
+            node_type = graph.nodes[node].get("type")
+            if not node_type:
+                graph.nodes[node]["type"] = classifier(str(node))
+
+        degree = nx.degree_centrality(graph)
+        available_periods.append(period)
+        for inst in graph.nodes():
+            rows.append(
+                {
+                    "institution": str(inst),
+                    "period": period,
+                    "field": str(graph.nodes[inst].get("type", fallback)),
+                    "degree_centrality": float(degree.get(inst, 0.0)),
+                }
+            )
+
+    table = pd.DataFrame(rows)
+    if table.empty:
+        raise ValueError("No GraphML period networks found. Run pipeline first.")
+
+    order_map = {p: i for i, p in enumerate(available_periods)}
+    first_seen = (
+        table.assign(period_idx=table["period"].map(order_map))
+        .groupby("institution", as_index=False)["period_idx"]
+        .min()
+        .rename(columns={"period_idx": "first_idx"})
+    )
+    table = table.merge(first_seen, on="institution", how="left")
+    table["period_idx"] = table["period"].map(order_map)
+    table["status"] = table.apply(
+        lambda row: "Newcomer" if row["period_idx"] == row["first_idx"] else "Consistent",
+        axis=1,
+    )
+    return table, available_periods
+
+
+def build_institution_sankey_frames(
+    table: pd.DataFrame,
+    period_order: list[str],
+    top_n_institutions: int,
+    min_periods_present: int,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    summary = (
+        table.groupby("institution", as_index=False)
+        .agg(
+            periods_present=("period", "nunique"),
+            mean_degree=("degree_centrality", "mean"),
+            field=("field", lambda s: s.mode().iloc[0] if not s.mode().empty else "Other"),
+        )
+        .sort_values(["periods_present", "mean_degree"], ascending=[False, False])
+    )
+    summary = summary[summary["periods_present"] >= min_periods_present]
+    summary = summary.head(top_n_institutions)
+    keep = set(summary["institution"])
+
+    filtered = table[table["institution"].isin(keep)].copy()
+    filtered = filtered[filtered["period"].isin(period_order)].copy()
+    order_map = {p: i for i, p in enumerate(period_order)}
+    filtered["period_idx"] = filtered["period"].map(order_map)
+
+    if filtered.empty:
+        raise ValueError("No institutions passed filter settings. Relax top_n/min_periods_present.")
+
+    nodes = filtered[
+        ["period", "period_idx", "institution", "field", "status", "degree_centrality"]
+    ].drop_duplicates()
+    rank_map = dict(
+        zip(
+            summary["institution"],
+            zip(summary["periods_present"], summary["mean_degree"], strict=False),
+            strict=False,
+        )
+    )
+    nodes["rank_tuple"] = nodes["institution"].map(lambda inst: rank_map.get(inst, (0, 0.0)))
+    nodes["node_id"] = nodes["period"].astype(str) + "||" + nodes["institution"].astype(str)
+    nodes = nodes.sort_values(
+        ["period_idx", "rank_tuple", "institution"],
+        ascending=[True, False, True],
+    ).reset_index(drop=True)
+
+    x_map = {
+        period: (i / (len(period_order) - 1) if len(period_order) > 1 else 0.5)
+        for i, period in enumerate(period_order)
+    }
+    nodes["x"] = nodes["period"].map(x_map).astype(float)
+
+    y_vals: list[float] = []
+    for _, grp in nodes.groupby("period", sort=False):
+        n = len(grp)
+        if n == 1:
+            y_vals.extend([0.5])
+        else:
+            y_vals.extend([0.02 + (0.96 * i / (n - 1)) for i in range(n)])
+    nodes["y"] = y_vals
+
+    idx_map = {node_id: i for i, node_id in enumerate(nodes["node_id"].tolist())}
+
+    transitions: list[dict[str, Any]] = []
+    for institution, grp in filtered.groupby("institution"):
+        grp = grp.sort_values("period_idx")
+        periods = grp["period"].tolist()
+        fields = grp["field"].tolist()
+        for i in range(len(periods) - 1):
+            period_from = periods[i]
+            period_to = periods[i + 1]
+            src_id = f"{period_from}||{institution}"
+            dst_id = f"{period_to}||{institution}"
+            if src_id not in idx_map or dst_id not in idx_map:
+                continue
+            transitions.append(
+                {
+                    "source": idx_map[src_id],
+                    "target": idx_map[dst_id],
+                    "value": 1,
+                    "institution": institution,
+                    "field": fields[i] if i < len(fields) else "Other",
+                    "period_from": period_from,
+                    "period_to": period_to,
+                }
+            )
+
+    links = pd.DataFrame(transitions)
+    if links.empty:
+        raise ValueError("No transitions found. Lower min_periods_present or increase top_n_institutions.")
+    return nodes, links
+
+
+def write_institution_sankey_html(
+    out_html: Path,
+    nodes: pd.DataFrame,
+    links: pd.DataFrame,
+    period_order: list[str],
+    field_order: list[str],
+    field_border_colors: dict[str, str],
+    field_link_colors: dict[str, str],
+    top_n_institutions: int,
+    min_periods_present: int,
+) -> None:
+    out_html.parent.mkdir(parents=True, exist_ok=True)
+
+    payload = {
+        "node": {
+            "label": nodes["institution"].astype(str).tolist(),
+            "color": [STATUS_FILL_COLORS.get(s, STATUS_FILL_COLORS["Consistent"]) for s in nodes["status"]],
+            "line_color": [field_border_colors.get(f, field_border_colors["Other"]) for f in nodes["field"]],
+            "x": [round(v, 6) for v in nodes["x"].tolist()],
+            "y": [round(v, 6) for v in nodes["y"].tolist()],
+            "customdata": np_stack(
+                nodes["period"].astype(str).tolist(),
+                nodes["status"].astype(str).tolist(),
+                nodes["field"].astype(str).tolist(),
+                [round(v, 6) for v in nodes["degree_centrality"].tolist()],
+            ),
+        },
+        "link": {
+            "source": [int(v) for v in links["source"].tolist()],
+            "target": [int(v) for v in links["target"].tolist()],
+            "value": [int(v) for v in links["value"].tolist()],
+            "color": [field_link_colors.get(f, field_link_colors["Other"]) for f in links["field"]],
+            "customdata": np_stack(
+                links["institution"].astype(str).tolist(),
+                links["field"].astype(str).tolist(),
+                links["period_from"].astype(str).tolist(),
+                links["period_to"].astype(str).tolist(),
+            ),
+        },
+        "meta": {
+            "period_order": period_order,
+            "top_n_institutions": top_n_institutions,
+            "min_periods_present": min_periods_present,
+            "node_count": int(len(nodes)),
+            "link_count": int(len(links)),
+        },
+    }
+    field_legend_html = "".join(
+        (
+            '<div class="legend-group">'
+            f'<span class="chip" style="background:#fff;border:2px solid '
+            f'{field_border_colors.get(field, field_border_colors["Other"])}"></span>'
+            f"{field}</div>"
+        )
+        for field in field_order
+    )
+
+    html = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Institution Flow Sankey</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+      color: #111827;
+      background: #f8fafc;
+    }}
+    .subtitle {{ color: #4b5563; font-size: 14px; }}
+    .legend {{ display: flex; gap: 24px; flex-wrap: wrap; margin: 10px 0 14px; font-size: 13px; }}
+    .legend-group {{ display: flex; align-items: center; gap: 8px; }}
+    .chip {{ width: 14px; height: 14px; border-radius: 2px; display: inline-block; }}
+    #chart {{
+      width: 100%;
+      height: 920px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 8px;
+    }}
+    .meta {{ margin-top: 10px; color: #6b7280; font-size: 12px; }}
+  </style>
+</head>
+<body>
+  <h2 style="margin:0 0 4px;">Institution Flow Across Collaboration Periods</h2>
+  <div class="subtitle">
+    Node fill: newcomer vs consistent. Node border: institution field. Link: institution continuation to next observed period.
+  </div>
+    <div class="legend">
+    <div class="legend-group"><strong>Status fill</strong></div>
+    <div class="legend-group"><span class="chip" style="background:{STATUS_FILL_COLORS['Newcomer']}"></span>Newcomer</div>
+    <div class="legend-group"><span class="chip" style="background:{STATUS_FILL_COLORS['Consistent']}"></span>Consistent</div>
+    <div class="legend-group"><strong>Field border</strong></div>
+    {field_legend_html}
+  </div>
+  <div id="chart"></div>
+  <div class="meta">
+    Periods: {', '.join(period_order)} |
+    Top institutions: {top_n_institutions} |
+    Min periods present: {min_periods_present}
+  </div>
+  <script>
+    const payload = {json.dumps(payload)};
+    const trace = {{
+      type: "sankey",
+      arrangement: "fixed",
+      node: {{
+        pad: 10,
+        thickness: 14,
+        label: payload.node.label,
+        color: payload.node.color,
+        x: payload.node.x,
+        y: payload.node.y,
+        line: {{ color: payload.node.line_color, width: 2 }},
+        customdata: payload.node.customdata,
+        hovertemplate:
+          "<b>%{{label}}</b><br>" +
+          "Period: %{{customdata[0]}}<br>" +
+          "Status: %{{customdata[1]}}<br>" +
+          "Field: %{{customdata[2]}}<br>" +
+          "Degree centrality: %{{customdata[3]}}<extra></extra>"
+      }},
+      link: {{
+        source: payload.link.source,
+        target: payload.link.target,
+        value: payload.link.value,
+        color: payload.link.color,
+        customdata: payload.link.customdata,
+        hovertemplate:
+          "Institution: %{{customdata[0]}}<br>" +
+          "Field: %{{customdata[1]}}<br>" +
+          "From: %{{customdata[2]}}<br>" +
+          "To: %{{customdata[3]}}<extra></extra>"
+      }}
+    }};
+    const layout = {{
+      margin: {{l: 20, r: 20, t: 24, b: 20}},
+      paper_bgcolor: "#ffffff",
+      plot_bgcolor: "#ffffff",
+      font: {{size: 11, color: "#111827"}}
+    }};
+    Plotly.newPlot("chart", [trace], layout, {{
+      displaylogo: false,
+      responsive: true,
+      modeBarButtonsToRemove: ["select2d", "lasso2d", "autoScale2d"]
+    }});
+  </script>
+</body>
+</html>
+"""
+    out_html.write_text(html, encoding="utf-8")
+
+
+def load_role_table_from_graphs(
+    project_root: Path,
+    period_order: list[str],
+) -> tuple[pd.DataFrame, list[str]]:
+    protocol = load_protocol(project_root / "config" / "protocol.yaml")
+    classifier, fallback = build_protocol_classifier(protocol, project_root=project_root)
+    graph_dir = resolve_graph_dir(protocol, project_root)
+
+    rows: list[dict[str, Any]] = []
+    available_periods: list[str] = []
+    for period in period_order:
+        graph_path = graph_dir / f"institutions_{period.replace('-', '_')}.graphml"
+        if not graph_path.exists():
+            continue
+
+        graph = nx.read_graphml(graph_path)
+        if graph.number_of_nodes() == 0:
+            continue
+
+        for node in graph.nodes():
+            node_type = graph.nodes[node].get("type")
+            if not node_type:
+                graph.nodes[node]["type"] = classifier(str(node))
+
+        degree = nx.degree_centrality(graph)
+        non_zero = [float(v) for v in degree.values() if float(v) > 0]
+        q50 = float(pd.Series(non_zero).quantile(0.50)) if non_zero else 0.0
+        q90 = float(pd.Series(non_zero).quantile(0.90)) if non_zero else 0.0
+        available_periods.append(period)
+
+        for inst in graph.nodes():
+            deg = float(degree.get(inst, 0.0))
+            if deg <= 0:
+                role = "Isolate"
+            elif deg >= q90:
+                role = "Core"
+            elif deg >= q50:
+                role = "Semi-Peripheral"
+            else:
+                role = "Peripheral"
+
+            rows.append(
+                {
+                    "institution": str(inst),
+                    "period": period,
+                    "role": role,
+                    "field": str(graph.nodes[inst].get("type", fallback)),
+                    "degree_centrality": deg,
+                }
+            )
+
+    table = pd.DataFrame(rows)
+    if table.empty:
+        raise ValueError("No GraphML period networks found. Run pipeline first.")
+    return table, available_periods
+
+
+def build_role_transition_table(
+    role_table: pd.DataFrame,
+    period_order: list[str],
+    field_filter: str | None = None,
+    include_absent: bool = False,
+) -> pd.DataFrame:
+    filtered = role_table.copy()
+    if field_filter is not None:
+        filtered = filtered[filtered["field"] == field_filter].copy()
+
+    by_period: dict[str, pd.DataFrame] = {period: grp for period, grp in filtered.groupby("period")}
+    transitions: list[dict[str, Any]] = []
+    pair_index = {period: idx for idx, period in enumerate(period_order)}
+
+    for left, right in zip(period_order[:-1], period_order[1:], strict=False):
+        left_df = by_period.get(left, pd.DataFrame(columns=filtered.columns))
+        right_df = by_period.get(right, pd.DataFrame(columns=filtered.columns))
+        left_map = dict(zip(left_df["institution"], left_df["role"], strict=False))
+        right_map = dict(zip(right_df["institution"], right_df["role"], strict=False))
+        institutions = sorted(set(left_map) | set(right_map))
+
+        for inst in institutions:
+            source_role = left_map.get(inst, "Absent")
+            target_role = right_map.get(inst, "Absent")
+            if not include_absent and ("Absent" in (source_role, target_role)):
+                continue
+            transitions.append(
+                {
+                    "period_from": left,
+                    "period_to": right,
+                    "state_from": source_role,
+                    "state_to": target_role,
+                    "value": 1,
+                    "pair_index": pair_index[left],
+                }
+            )
+
+    if not transitions:
+        return pd.DataFrame(
+            columns=["period_from", "period_to", "state_from", "state_to", "value", "pair_index"]
+        )
+
+    return (
+        pd.DataFrame(transitions)
+        .groupby(["period_from", "period_to", "state_from", "state_to", "pair_index"], as_index=False)["value"]
+        .sum()
+        .sort_values(["pair_index", "state_from", "state_to"], ascending=[True, True, True])
+        .reset_index(drop=True)
+    )
+
+
+def build_role_sankey_frames(
+    transitions: pd.DataFrame,
+    period_order: list[str],
+    include_absent: bool,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    if transitions.empty:
+        raise ValueError("No role transitions found for selected filters.")
+
+    states = ROLE_ORDER_WITH_ABSENT if include_absent else ROLE_ORDER
+    state_index = {state: idx for idx, state in enumerate(states)}
+    period_index = {period: idx for idx, period in enumerate(period_order)}
+
+    outgoing = (
+        transitions.groupby(["period_from", "state_from"], as_index=False)["value"].sum().rename(
+            columns={"period_from": "period", "state_from": "state", "value": "outgoing"}
+        )
+    )
+    incoming = (
+        transitions.groupby(["period_to", "state_to"], as_index=False)["value"].sum().rename(
+            columns={"period_to": "period", "state_to": "state", "value": "incoming"}
+        )
+    )
+
+    node_rows: list[dict[str, Any]] = []
+    for period in period_order:
+        for state in states:
+            out_val = float(
+                outgoing[(outgoing["period"] == period) & (outgoing["state"] == state)]["outgoing"].sum()
+            )
+            in_val = float(
+                incoming[(incoming["period"] == period) & (incoming["state"] == state)]["incoming"].sum()
+            )
+            if out_val <= 0 and in_val <= 0:
+                continue
+            x_pos = period_index[period] / (len(period_order) - 1) if len(period_order) > 1 else 0.5
+            # Keep nodes away from absolute top/bottom to prevent clipping at some browser zoom levels.
+            y_pos = 0.5 if len(states) == 1 else 0.06 + 0.82 * (state_index[state] / (len(states) - 1))
+            node_rows.append(
+                {
+                    "period": period,
+                    "role": state,
+                    "incoming": int(round(in_val)),
+                    "outgoing": int(round(out_val)),
+                    "x": float(x_pos),
+                    "y": float(y_pos),
+                    "node_id": f"{period}||{state}",
+                }
+            )
+
+    nodes = pd.DataFrame(node_rows)
+    if nodes.empty:
+        raise ValueError("No role nodes available for selected filters.")
+    idx_map = {node_id: i for i, node_id in enumerate(nodes["node_id"].tolist())}
+
+    source_totals = (
+        transitions.groupby(["period_from", "state_from"], as_index=False)["value"]
+        .sum()
+        .rename(columns={"value": "source_total"})
+    )
+    transitions_enriched = transitions.merge(
+        source_totals,
+        on=["period_from", "state_from"],
+        how="left",
+    )
+
+    link_rows: list[dict[str, Any]] = []
+    for _, row in transitions_enriched.iterrows():
+        src_id = f"{row['period_from']}||{row['state_from']}"
+        dst_id = f"{row['period_to']}||{row['state_to']}"
+        if src_id not in idx_map or dst_id not in idx_map:
+            continue
+        value = int(row["value"])
+        source_total = float(row["source_total"]) if row["source_total"] else 0.0
+        pct_source = (100.0 * value / source_total) if source_total > 0 else 0.0
+        color = hex_to_rgba(ROLE_COLORS.get(str(row["state_from"]), "#9ca3af"), 0.34)
+        link_rows.append(
+            {
+                "source": idx_map[src_id],
+                "target": idx_map[dst_id],
+                "value": value,
+                "period_from": str(row["period_from"]),
+                "period_to": str(row["period_to"]),
+                "state_from": str(row["state_from"]),
+                "state_to": str(row["state_to"]),
+                "pct_source": round(pct_source, 2),
+                "color": color,
+            }
+        )
+
+    links = pd.DataFrame(link_rows)
+    if links.empty:
+        raise ValueError("No role links available for selected filters.")
+    return nodes, links
+
+
+def build_role_trace(
+    nodes: pd.DataFrame,
+    links: pd.DataFrame,
+    domain: dict[str, list[float]],
+    arrangement: str = "fixed",
+    include_y: bool = True,
+) -> dict[str, Any]:
+    node_role_labels = [display_role(role) for role in nodes["role"].astype(str).tolist()]
+    link_source_labels = [display_role(role) for role in links["state_from"].astype(str).tolist()]
+    link_target_labels = [display_role(role) for role in links["state_to"].astype(str).tolist()]
+    node_dict: dict[str, Any] = {
+        "pad": 12,
+        "thickness": 14,
+        "label": node_role_labels,
+        "color": [ROLE_COLORS.get(role, "#9ca3af") for role in nodes["role"].astype(str)],
+        "line": {"color": "#ffffff", "width": 1},
+        "x": [round(v, 6) for v in nodes["x"].tolist()],
+        "customdata": np_stack(
+            nodes["period"].astype(str).tolist(),
+            node_role_labels,
+            nodes["role"].astype(str).tolist(),
+            [int(v) for v in nodes["incoming"].tolist()],
+            [int(v) for v in nodes["outgoing"].tolist()],
+        ),
+        "hovertemplate": (
+            "<b>%{customdata[1]}</b><br>"
+            "Period: %{customdata[0]}<br>"
+            "Incoming: %{customdata[3]}<br>"
+            "Outgoing: %{customdata[4]}<extra></extra>"
+        ),
+    }
+    if include_y:
+        node_dict["y"] = [round(v, 6) for v in nodes["y"].tolist()]
+
+    return {
+        "type": "sankey",
+        "arrangement": arrangement,
+        "domain": domain,
+        "node": node_dict,
+        "link": {
+            "source": [int(v) for v in links["source"].tolist()],
+            "target": [int(v) for v in links["target"].tolist()],
+            "value": [int(v) for v in links["value"].tolist()],
+            "color": links["color"].astype(str).tolist(),
+            "customdata": np_stack(
+                links["period_from"].astype(str).tolist(),
+                links["period_to"].astype(str).tolist(),
+                link_source_labels,
+                link_target_labels,
+                [float(v) for v in links["pct_source"].tolist()],
+            ),
+            "hovertemplate": (
+                "From: %{customdata[0]} (%{customdata[2]})<br>"
+                "To: %{customdata[1]} (%{customdata[3]})<br>"
+                "Institutions: %{value}<br>"
+                "Share of source role: %{customdata[4]}%<extra></extra>"
+            ),
+        },
+    }
+
+
+def build_period_annotations(
+    period_order: list[str],
+    domain: dict[str, list[float]],
+    y: float,
+    font_size: int = 11,
+) -> list[dict[str, Any]]:
+    if not period_order:
+        return []
+
+    x0, x1 = domain["x"]
+    annotations: list[dict[str, Any]] = []
+    for idx, period in enumerate(period_order):
+        x = x0 + (x1 - x0) * (idx / (len(period_order) - 1)) if len(period_order) > 1 else (x0 + x1) / 2.0
+        annotations.append(
+            {
+                "text": period,
+                "xref": "paper",
+                "yref": "paper",
+                "x": x,
+                "y": y,
+                "showarrow": False,
+                "textangle": -18,
+                "font": {"size": font_size, "color": "#374151"},
+            }
+        )
+    return annotations
+
+
+def write_role_sankey_html(
+    out_html: Path,
+    nodes: pd.DataFrame,
+    links: pd.DataFrame,
+    period_order: list[str],
+    include_absent: bool,
+    field_scope: str,
+) -> None:
+    out_html.parent.mkdir(parents=True, exist_ok=True)
+    role_domain = {"x": [0.0, 1.0], "y": [0.02, 0.98]}
+    trace = build_role_trace(
+        nodes=nodes,
+        links=links,
+        domain=role_domain,
+        arrangement="snap",
+        include_y=False,
+    )
+    period_annotations = build_period_annotations(
+        period_order=period_order,
+        domain=role_domain,
+    y=1.085,
+        font_size=12,
+    )
+
+    payload = {
+        "trace": trace,
+        "period_annotations": period_annotations,
+        "meta": {
+            "periods": period_order,
+            "field_scope": field_scope,
+            "include_absent": include_absent,
+            "node_count": int(len(nodes)),
+            "link_count": int(len(links)),
+        },
+    }
+
+    role_legend_html = "".join(
+        f'<div class="legend-group"><span class="chip" style="background:{ROLE_COLORS[role]}"></span>{display_role(role)}</div>'
+        for role in (ROLE_ORDER_WITH_ABSENT if include_absent else ROLE_ORDER)
+    )
+
+    html = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Role Flow Sankey</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+      color: #111827;
+      background: #f8fafc;
+    }}
+    .subtitle {{ color: #4b5563; font-size: 14px; }}
+    .legend {{ display: flex; gap: 18px; flex-wrap: wrap; margin: 10px 0 14px; font-size: 13px; }}
+    .legend-group {{ display: flex; align-items: center; gap: 8px; }}
+    .chip {{ width: 14px; height: 14px; border-radius: 2px; display: inline-block; }}
+    #chart {{
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      height: 1040px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 8px;
+    }}
+    .meta {{ margin-top: 10px; color: #6b7280; font-size: 12px; }}
+  </style>
+</head>
+<body>
+  <h2 style="margin:0 0 4px;">Institution Role Flow Across Periods</h2>
+  <div class="subtitle">
+    Aggregated transitions only ({field_scope}). Nodes are role tiers by period; links are institution counts moving between tiers.
+  </div>
+  <div class="legend">
+    <div class="legend-group"><strong>Role colors</strong></div>
+    {role_legend_html}
+  </div>
+  <div id="chart"></div>
+  <div class="meta">
+    Field scope: {field_scope} |
+    Include Absent transitions: {str(include_absent).lower()} |
+    Periods: {', '.join(period_order)}
+  </div>
+  <script>
+    const payload = {json.dumps(payload)};
+    const layout = {{
+      margin: {{l: 20, r: 20, t: 96, b: 40}},
+      annotations: payload.period_annotations,
+      paper_bgcolor: "#ffffff",
+      plot_bgcolor: "#ffffff",
+      font: {{size: 12, color: "#111827"}}
+    }};
+    Plotly.newPlot("chart", [payload.trace], layout, {{
+      displaylogo: false,
+      responsive: true,
+      modeBarButtonsToRemove: ["select2d", "lasso2d", "autoScale2d"]
+    }});
+  </script>
+</body>
+</html>
+"""
+    out_html.write_text(html, encoding="utf-8")
+
+
+def write_role_small_multiples_html(
+    out_html: Path,
+    field_frames: dict[str, tuple[pd.DataFrame, pd.DataFrame]],
+    period_order: list[str],
+    include_absent: bool,
+    field_order: list[str],
+) -> None:
+    out_html.parent.mkdir(parents=True, exist_ok=True)
+
+    ordered_fields = [field for field in field_order if field in field_frames]
+    domains = panel_domains(ordered_fields)
+
+    traces: list[dict[str, Any]] = []
+    annotations: list[dict[str, Any]] = []
+    for field in ordered_fields:
+        if field not in field_frames:
+            continue
+        nodes, links = field_frames[field]
+        traces.append(
+            build_role_trace(
+                nodes=nodes,
+                links=links,
+                domain=domains[field],
+                arrangement="snap",
+                include_y=False,
+            )
+        )
+        panel_top = domains[field]["y"][1]
+        title_y = panel_top + 0.055
+        period_y = panel_top + 0.015
+        annotations.append(
+            {
+                "text": f"{field} institutions",
+                "xref": "paper",
+                "yref": "paper",
+                "x": sum(domains[field]["x"]) / 2.0,
+                "y": title_y,
+                "showarrow": False,
+                "font": {"size": 13, "color": "#111827"},
+            }
+        )
+        annotations.extend(
+            build_period_annotations(
+                period_order=period_order,
+                domain=domains[field],
+                y=period_y,
+                font_size=9,
+            )
+        )
+    if not traces:
+        raise ValueError("No field-specific transitions available for small-multiples Sankey.")
+
+    role_legend_html = "".join(
+        f'<div class="legend-group"><span class="chip" style="background:{ROLE_COLORS[role]}"></span>{display_role(role)}</div>'
+        for role in (ROLE_ORDER_WITH_ABSENT if include_absent else ROLE_ORDER)
+    )
+
+    payload = {"traces": traces, "annotations": annotations}
+    html = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Field-Specific Role Flow Sankey</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+      color: #111827;
+      background: #f8fafc;
+    }}
+    .subtitle {{ color: #4b5563; font-size: 14px; }}
+    .legend {{ display: flex; gap: 18px; flex-wrap: wrap; margin: 10px 0 14px; font-size: 13px; }}
+    .legend-group {{ display: flex; align-items: center; gap: 8px; }}
+    .chip {{ width: 14px; height: 14px; border-radius: 2px; display: inline-block; }}
+    #chart {{
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      height: {max(860, 480 * ((len(ordered_fields) + 1) // 2))}px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 8px;
+    }}
+    .meta {{ margin-top: 10px; color: #6b7280; font-size: 12px; }}
+  </style>
+</head>
+<body>
+  <h2 style="margin:0 0 4px;">Field-Specific Institution Role Flows</h2>
+  <div class="subtitle">
+    Small multiples of aggregated role transitions across periods by institutional field.
+  </div>
+  <div class="legend">
+    <div class="legend-group"><strong>Role colors</strong></div>
+    {role_legend_html}
+  </div>
+  <div id="chart"></div>
+  <div class="meta">
+    Include Absent transitions: {str(include_absent).lower()} |
+    Periods: {', '.join(period_order)}
+  </div>
+  <script>
+    const payload = {json.dumps(payload)};
+    const layout = {{
+      margin: {{l: 20, r: 20, t: 96, b: 28}},
+      annotations: payload.annotations,
+      paper_bgcolor: "#ffffff",
+      plot_bgcolor: "#ffffff",
+      font: {{size: 11, color: "#111827"}}
+    }};
+    Plotly.newPlot("chart", payload.traces, layout, {{
+      displaylogo: false,
+      responsive: true,
+      modeBarButtonsToRemove: ["select2d", "lasso2d", "autoScale2d"]
+    }});
+  </script>
+</body>
+</html>
+"""
+    out_html.write_text(html, encoding="utf-8")
+
+
+def write_role_timeline_html(
+    out_html: Path,
+    transitions: pd.DataFrame,
+    period_order: list[str],
+    include_absent: bool,
+    field_scope: str,
+) -> None:
+    out_html.parent.mkdir(parents=True, exist_ok=True)
+    state_order = ROLE_ORDER_WITH_ABSENT if include_absent else ROLE_ORDER
+    period_pairs = [
+        {
+            "pair_index": idx,
+            "period_from": left,
+            "period_to": right,
+        }
+        for idx, (left, right) in enumerate(zip(period_order[:-1], period_order[1:], strict=False))
+    ]
+    transitions_payload = [
+        {
+            "pair_index": int(row["pair_index"]),
+            "period_from": str(row["period_from"]),
+            "period_to": str(row["period_to"]),
+            "state_from": str(row["state_from"]),
+            "state_to": str(row["state_to"]),
+            "state_from_label": display_role(str(row["state_from"])),
+            "state_to_label": display_role(str(row["state_to"])),
+            "value": int(row["value"]),
+        }
+        for _, row in transitions.iterrows()
+    ]
+    payload = {
+        "state_order": state_order,
+        "role_display": {role: display_role(role) for role in ROLE_ORDER_WITH_ABSENT},
+        "role_colors": ROLE_COLORS,
+        "period_pairs": period_pairs,
+        "transitions": transitions_payload,
+        "field_scope": field_scope,
+        "include_absent": bool(include_absent),
+    }
+
+    role_filter_html = "".join(
+        (
+            f'<label class="filter-item">'
+            f'<input type="checkbox" class="role-filter" data-role="{role}" checked />'
+            f'<span class="chip" style="background:{ROLE_COLORS.get(role, "#9ca3af")}"></span>'
+            f'{display_role(role)}'
+            f"</label>"
+        )
+        for role in state_order
+    )
+
+    html = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Role Flow Timeline</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+      color: #111827;
+      background: #f8fafc;
+    }}
+    .subtitle {{ color: #4b5563; font-size: 14px; margin-bottom: 12px; }}
+    .toolbar {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      align-items: center;
+      margin-bottom: 12px;
+    }}
+    .controls {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }}
+    .btn {{
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: #111827;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }}
+    .btn:hover {{
+      background: #f3f4f6;
+    }}
+    #pair-slider {{
+      width: 260px;
+    }}
+    #pair-label {{
+      font-weight: 600;
+      font-size: 13px;
+      color: #111827;
+      min-width: 180px;
+    }}
+    .filters {{
+      display: flex;
+      gap: 10px 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }}
+    .filter-title {{
+      font-weight: 600;
+      margin-right: 2px;
+    }}
+    .filter-item {{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }}
+    .chip {{
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      display: inline-block;
+    }}
+    #chart {{
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      height: 860px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      border-radius: 8px;
+    }}
+    .meta {{
+      margin-top: 10px;
+      color: #6b7280;
+      font-size: 12px;
+    }}
+  </style>
+</head>
+<body>
+  <h2 style="margin:0 0 4px;">Playable Institution Role-Flow Timeline</h2>
+  <div class="subtitle">
+    Animated adjacent-period Sankey view ({field_scope}). Use role filters and Play to explore evolution over time.
+  </div>
+
+  <div class="toolbar">
+    <div class="controls">
+      <button id="play-btn" class="btn">Play</button>
+      <button id="prev-btn" class="btn">Prev</button>
+      <button id="next-btn" class="btn">Next</button>
+      <input id="pair-slider" type="range" min="0" max="0" value="0" step="1" />
+      <span id="pair-label"></span>
+    </div>
+    <div class="filters" id="filters">
+      <span class="filter-title">Roles:</span>
+      {role_filter_html}
+    </div>
+  </div>
+
+  <div id="chart"></div>
+  <div class="meta">
+    Field scope: {field_scope} |
+    Include Absent transitions: {str(include_absent).lower()} |
+    Timeline steps: adjacent period pairs only
+  </div>
+
+  <script>
+    const payload = {json.dumps(payload)};
+    const stateOrder = payload.state_order;
+    const roleDisplay = payload.role_display;
+    const roleColors = payload.role_colors;
+    const periodPairs = payload.period_pairs;
+    const allTransitions = payload.transitions;
+    const selectedStates = new Set(stateOrder);
+    const pairLabel = document.getElementById("pair-label");
+    const slider = document.getElementById("pair-slider");
+    const playBtn = document.getElementById("play-btn");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    let currentPair = 0;
+    let timer = null;
+
+    function hexToRgba(hex, alpha) {{
+      const h = String(hex || "").replace("#", "");
+      if (h.length !== 6) return `rgba(156,163,175,${{alpha}})`;
+      const r = parseInt(h.slice(0, 2), 16);
+      const g = parseInt(h.slice(2, 4), 16);
+      const b = parseInt(h.slice(4, 6), 16);
+      return `rgba(${{r}},${{g}},${{b}},${{alpha}})`;
+    }}
+
+    function stateYPositions(n) {{
+      if (n <= 1) return [0.5];
+      const out = [];
+      for (let i = 0; i < n; i += 1) {{
+        out.push(0.08 + (0.84 * i) / (n - 1));
+      }}
+      return out;
+    }}
+
+    function buildTrace(pairIndex) {{
+      const pair = periodPairs[pairIndex];
+      const states = stateOrder.filter((s) => selectedStates.has(s));
+      if (!pair || states.length === 0) {{
+        return null;
+      }}
+
+      const rows = allTransitions.filter(
+        (r) =>
+          r.pair_index === pairIndex &&
+          selectedStates.has(r.state_from) &&
+          selectedStates.has(r.state_to)
+      );
+
+      const leftIds = states.map((s) => `L||${{s}}`);
+      const rightIds = states.map((s) => `R||${{s}}`);
+      const nodeIds = [...leftIds, ...rightIds];
+      const idxMap = new Map(nodeIds.map((id, idx) => [id, idx]));
+      const y = stateYPositions(states.length);
+      const x = [...states.map(() => 0.03), ...states.map(() => 0.97)];
+      const labels = [...states.map((s) => roleDisplay[s] || s), ...states.map((s) => roleDisplay[s] || s)];
+
+      const outgoing = new Map(states.map((s) => [s, 0]));
+      const incoming = new Map(states.map((s) => [s, 0]));
+      const sourceTotals = new Map(states.map((s) => [s, 0]));
+      rows.forEach((r) => {{
+        outgoing.set(r.state_from, (outgoing.get(r.state_from) || 0) + r.value);
+        incoming.set(r.state_to, (incoming.get(r.state_to) || 0) + r.value);
+        sourceTotals.set(r.state_from, (sourceTotals.get(r.state_from) || 0) + r.value);
+      }});
+
+      const sources = [];
+      const targets = [];
+      const values = [];
+      const colors = [];
+      const custom = [];
+      rows.forEach((r) => {{
+        const src = idxMap.get(`L||${{r.state_from}}`);
+        const dst = idxMap.get(`R||${{r.state_to}}`);
+        if (src === undefined || dst === undefined) return;
+        sources.push(src);
+        targets.push(dst);
+        values.push(r.value);
+        colors.push(hexToRgba(roleColors[r.state_from], 0.36));
+        const pct = sourceTotals.get(r.state_from) > 0 ? (100 * r.value) / sourceTotals.get(r.state_from) : 0;
+        custom.push([r.state_from_label, r.state_to_label, pct.toFixed(2)]);
+      }});
+
+      const nodeCustom = [
+        ...states.map((s) => [pair.period_from, roleDisplay[s] || s, outgoing.get(s) || 0]),
+        ...states.map((s) => [pair.period_to, roleDisplay[s] || s, incoming.get(s) || 0]),
+      ];
+
+      return {{
+        type: "sankey",
+        arrangement: "snap",
+        node: {{
+          pad: 14,
+          thickness: 16,
+          label: labels,
+          color: [...states.map((s) => roleColors[s]), ...states.map((s) => roleColors[s])],
+          line: {{ color: "#ffffff", width: 1 }},
+          x: x,
+          y: [...y, ...y],
+          customdata: nodeCustom,
+          hovertemplate:
+            "<b>%{{customdata[1]}}</b><br>" +
+            "Period: %{{customdata[0]}}<br>" +
+            "Flow total: %{{customdata[2]}}<extra></extra>",
+        }},
+        link: {{
+          source: sources,
+          target: targets,
+          value: values,
+          color: colors,
+          customdata: custom,
+          hovertemplate:
+            "From: %{{customdata[0]}}<br>" +
+            "To: %{{customdata[1]}}<br>" +
+            "Institutions: %{{value}}<br>" +
+            "Share of source role: %{{customdata[2]}}%<extra></extra>",
+        }},
+      }};
+    }}
+
+    function render() {{
+      const pair = periodPairs[currentPair];
+      if (!pair) {{
+        pairLabel.textContent = "No period pairs available";
+        Plotly.react("chart", [], {{ margin: {{l: 20, r: 20, t: 40, b: 20}} }}, {{ displaylogo: false }});
+        return;
+      }}
+      slider.value = String(currentPair);
+      pairLabel.textContent = `${{pair.period_from}} -> ${{pair.period_to}}`;
+      const trace = buildTrace(currentPair);
+      const layout = {{
+        margin: {{l: 20, r: 20, t: 72, b: 20}},
+        paper_bgcolor: "#ffffff",
+        plot_bgcolor: "#ffffff",
+        font: {{size: 12, color: "#111827"}},
+        annotations: [
+          {{
+            text: pair.period_from,
+            x: 0.03,
+            y: 1.04,
+            xref: "paper",
+            yref: "paper",
+            showarrow: false,
+            xanchor: "left",
+            font: {{size: 12, color: "#374151"}},
+          }},
+          {{
+            text: pair.period_to,
+            x: 0.97,
+            y: 1.04,
+            xref: "paper",
+            yref: "paper",
+            showarrow: false,
+            xanchor: "right",
+            font: {{size: 12, color: "#374151"}},
+          }},
+        ],
+      }};
+      Plotly.react("chart", trace ? [trace] : [], layout, {{
+        displaylogo: false,
+        responsive: true,
+        modeBarButtonsToRemove: ["select2d", "lasso2d", "autoScale2d"],
+      }});
+    }}
+
+    function stopPlayback() {{
+      if (timer) {{
+        window.clearInterval(timer);
+        timer = null;
+      }}
+      playBtn.textContent = "Play";
+    }}
+
+    function step(delta) {{
+      if (periodPairs.length === 0) return;
+      currentPair = (currentPair + delta + periodPairs.length) % periodPairs.length;
+      render();
+    }}
+
+    slider.max = String(Math.max(periodPairs.length - 1, 0));
+    slider.addEventListener("input", () => {{
+      stopPlayback();
+      currentPair = Number(slider.value);
+      render();
+    }});
+
+    playBtn.addEventListener("click", () => {{
+      if (timer) {{
+        stopPlayback();
+        return;
+      }}
+      playBtn.textContent = "Pause";
+      timer = window.setInterval(() => {{
+        currentPair = (currentPair + 1) % Math.max(periodPairs.length, 1);
+        render();
+      }}, 1700);
+    }});
+
+    prevBtn.addEventListener("click", () => {{
+      stopPlayback();
+      step(-1);
+    }});
+    nextBtn.addEventListener("click", () => {{
+      stopPlayback();
+      step(1);
+    }});
+
+    document.querySelectorAll(".role-filter").forEach((cb) => {{
+      cb.addEventListener("change", (ev) => {{
+        const role = ev.target.getAttribute("data-role");
+        if (ev.target.checked) {{
+          selectedStates.add(role);
+        }} else {{
+          if (selectedStates.size === 1) {{
+            ev.target.checked = true;
+            return;
+          }}
+          selectedStates.delete(role);
+        }}
+        stopPlayback();
+        render();
+      }});
+    }});
+
+    render();
+  </script>
+</body>
+</html>
+"""
+    out_html.write_text(html, encoding="utf-8")
+
+
+def np_stack(*columns: list[Any]) -> list[list[Any]]:
+    if not columns:
+        return []
+    n = len(columns[0])
+    for column in columns:
+        if len(column) != n:
+            raise ValueError("All columns must have equal length for stacking.")
+    return [[columns[idx][row] for idx in range(len(columns))] for row in range(n)]
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Generate interactive Sankey HTML visualizations for institutional flow."
+    )
+    parser.add_argument(
+        "--project-root",
+        default=str(PROJECT_ROOT),
+        help="Repository root path.",
+    )
+    parser.add_argument(
+        "--mode",
+        choices=["role", "institution"],
+        default="role",
+        help="Sankey granularity: aggregated role flow (role) or institution-level flow (institution).",
+    )
+    parser.add_argument(
+        "--output-html",
+        default=None,
+        help="Output HTML file path. Defaults depend on mode.",
+    )
+    parser.add_argument(
+        "--save-data-csv",
+        action="store_true",
+        help="Also export node/link tables next to HTML.",
+    )
+
+    parser.add_argument(
+        "--top-n-institutions",
+        type=int,
+        default=120,
+        help="Institution mode: max institutions to include after ranking by persistence/centrality.",
+    )
+    parser.add_argument(
+        "--min-periods-present",
+        type=int,
+        default=2,
+        help="Institution mode: minimum number of periods an institution must appear in.",
+    )
+
+    parser.add_argument(
+        "--field",
+        default="all",
+        help="Role mode: restrict to one institutional field label or use 'all'.",
+    )
+    parser.add_argument(
+        "--include-absent",
+        action="store_true",
+        help="Role mode: include explicit Absent transitions for entry/exit dynamics.",
+    )
+    parser.add_argument(
+        "--write-field-small-multiples",
+        action="store_true",
+        help="Role mode: additionally generate one 2x2 field-specific Sankey HTML.",
+    )
+    parser.add_argument(
+        "--field-small-multiples-html",
+        default=None,
+        help="Role mode: output path for 2x2 field-specific Sankey HTML.",
+    )
+    parser.add_argument(
+        "--write-playable-timeline",
+        action="store_true",
+        help="Role mode: additionally generate a playable adjacent-period Sankey timeline with role filters.",
+    )
+    parser.add_argument(
+        "--playable-timeline-html",
+        default=None,
+        help="Role mode: output path for playable timeline HTML.",
+    )
+
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    root = Path(args.project_root).resolve()
+    protocol = load_protocol(root / "config" / "protocol.yaml")
+    period_order = load_period_order(root)
+    field_order, field_border_colors, field_link_colors = field_color_maps(protocol)
+
+    if args.output_html:
+        out_html = Path(args.output_html).resolve()
+    else:
+        default_name = "role_flow_sankey.html" if args.mode == "role" else "institution_flow_sankey.html"
+        out_html = (root / "outputs" / "figures" / "flow_options" / default_name).resolve()
+
+    outputs: dict[str, Any] = {"mode": args.mode, "html": str(out_html)}
+
+    if args.mode == "institution":
+        table, available_periods = load_institution_table_from_graphs(root, period_order)
+        period_order = [period for period in period_order if period in available_periods]
+        if len(period_order) < 2:
+            raise ValueError("Need at least two available period graphs to render Sankey.")
+
+        nodes, links = build_institution_sankey_frames(
+            table=table,
+            period_order=period_order,
+            top_n_institutions=args.top_n_institutions,
+            min_periods_present=args.min_periods_present,
+        )
+        write_institution_sankey_html(
+            out_html=out_html,
+            nodes=nodes,
+            links=links,
+            period_order=period_order,
+            field_order=field_order,
+            field_border_colors=field_border_colors,
+            field_link_colors=field_link_colors,
+            top_n_institutions=args.top_n_institutions,
+            min_periods_present=args.min_periods_present,
+        )
+
+        outputs["nodes"] = int(len(nodes))
+        outputs["links"] = int(len(links))
+        if args.save_data_csv:
+            node_csv = out_html.with_name(out_html.stem + "_nodes.csv")
+            link_csv = out_html.with_name(out_html.stem + "_links.csv")
+            nodes.to_csv(node_csv, index=False)
+            links.to_csv(link_csv, index=False)
+            outputs["nodes_csv"] = str(node_csv)
+            outputs["links_csv"] = str(link_csv)
+
+        print(json.dumps(outputs, indent=2))
+        return
+
+    role_table, available_periods = load_role_table_from_graphs(root, period_order)
+    period_order = [period for period in period_order if period in available_periods]
+    if len(period_order) < 2:
+        raise ValueError("Need at least two available period graphs to render Sankey.")
+
+    field_scope = "All Fields"
+    field_filter = None
+    if args.field != "all":
+        normalized_lookup = {field.lower(): field for field in field_order}
+        requested = str(args.field).strip().lower()
+        if requested not in normalized_lookup:
+            raise ValueError(
+                f"Unknown field '{args.field}'. Available values: all, {', '.join(field_order)}"
+            )
+        field_filter = normalized_lookup[requested]
+        field_scope = field_filter
+
+    transitions = build_role_transition_table(
+        role_table=role_table,
+        period_order=period_order,
+        field_filter=field_filter,
+        include_absent=bool(args.include_absent),
+    )
+    nodes, links = build_role_sankey_frames(
+        transitions=transitions,
+        period_order=period_order,
+        include_absent=bool(args.include_absent),
+    )
+    write_role_sankey_html(
+        out_html=out_html,
+        nodes=nodes,
+        links=links,
+        period_order=period_order,
+        include_absent=bool(args.include_absent),
+        field_scope=field_scope,
+    )
+
+    outputs["field_scope"] = field_scope
+    outputs["nodes"] = int(len(nodes))
+    outputs["links"] = int(len(links))
+
+    if args.save_data_csv:
+        node_csv = out_html.with_name(out_html.stem + "_nodes.csv")
+        link_csv = out_html.with_name(out_html.stem + "_links.csv")
+        transitions_csv = out_html.with_name(out_html.stem + "_transitions.csv")
+        nodes_export = nodes.copy()
+        links_export = links.copy()
+        transitions_export = transitions.copy()
+        nodes_export["role_label"] = nodes_export["role"].astype(str).map(display_role)
+        links_export["state_from_label"] = links_export["state_from"].astype(str).map(display_role)
+        links_export["state_to_label"] = links_export["state_to"].astype(str).map(display_role)
+        transitions_export["state_from_label"] = (
+            transitions_export["state_from"].astype(str).map(display_role)
+        )
+        transitions_export["state_to_label"] = transitions_export["state_to"].astype(str).map(display_role)
+        nodes_export.to_csv(node_csv, index=False)
+        links_export.to_csv(link_csv, index=False)
+        transitions_export.to_csv(transitions_csv, index=False)
+        outputs["nodes_csv"] = str(node_csv)
+        outputs["links_csv"] = str(link_csv)
+        outputs["transitions_csv"] = str(transitions_csv)
+
+    if args.write_field_small_multiples and args.field == "all":
+        field_frames: dict[str, tuple[pd.DataFrame, pd.DataFrame]] = {}
+        for field in field_order:
+            field_transitions = build_role_transition_table(
+                role_table=role_table,
+                period_order=period_order,
+                field_filter=field,
+                include_absent=bool(args.include_absent),
+            )
+            if field_transitions.empty:
+                continue
+            try:
+                field_nodes, field_links = build_role_sankey_frames(
+                    transitions=field_transitions,
+                    period_order=period_order,
+                    include_absent=bool(args.include_absent),
+                )
+            except ValueError:
+                continue
+            field_frames[field] = (field_nodes, field_links)
+
+        if field_frames:
+            if args.field_small_multiples_html:
+                fields_html = Path(args.field_small_multiples_html).resolve()
+            else:
+                fields_html = out_html.with_name(out_html.stem + "_fields.html")
+            write_role_small_multiples_html(
+                out_html=fields_html,
+                field_frames=field_frames,
+                period_order=period_order,
+                include_absent=bool(args.include_absent),
+                field_order=field_order,
+            )
+            outputs["field_small_multiples_html"] = str(fields_html)
+            outputs["field_small_multiples_fields"] = sorted(field_frames.keys())
+
+    if args.write_playable_timeline:
+        if args.playable_timeline_html:
+            timeline_html = Path(args.playable_timeline_html).resolve()
+        else:
+            timeline_html = out_html.with_name(out_html.stem + "_timeline.html")
+        write_role_timeline_html(
+            out_html=timeline_html,
+            transitions=transitions,
+            period_order=period_order,
+            include_absent=bool(args.include_absent),
+            field_scope=field_scope,
+        )
+        outputs["playable_timeline_html"] = str(timeline_html)
+        if args.save_data_csv:
+            timeline_transitions = transitions.copy()
+            timeline_transitions["state_from_label"] = (
+                timeline_transitions["state_from"].astype(str).map(display_role)
+            )
+            timeline_transitions["state_to_label"] = (
+                timeline_transitions["state_to"].astype(str).map(display_role)
+            )
+            timeline_csv = timeline_html.with_name(timeline_html.stem + "_transitions.csv")
+            timeline_transitions.to_csv(timeline_csv, index=False)
+            outputs["playable_timeline_transitions_csv"] = str(timeline_csv)
+
+    print(json.dumps(outputs, indent=2))
+
+
+if __name__ == "__main__":
+    main()

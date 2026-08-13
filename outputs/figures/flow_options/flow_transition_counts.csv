@@ -1,0 +1,103 @@
+period_from,period_to,state_from,state_to,pair_index,value,state_from_label,state_to_label
+1988-2015,2016-2019,Absent,Core,0,1157,Absent,High-centrality institutions
+1988-2015,2016-2019,Absent,Isolate,0,309,Absent,Zero-centrality institutions
+1988-2015,2016-2019,Absent,Peripheral,0,4643,Absent,Low-centrality institutions
+1988-2015,2016-2019,Absent,Semi-Peripheral,0,4983,Absent,Mid-centrality institutions
+1988-2015,2016-2019,Core,Absent,0,208,High-centrality institutions,Absent
+1988-2015,2016-2019,Core,Peripheral,0,3,High-centrality institutions,Low-centrality institutions
+1988-2015,2016-2019,Isolate,Absent,0,1916,Zero-centrality institutions,Absent
+1988-2015,2016-2019,Isolate,Isolate,0,2,Zero-centrality institutions,Zero-centrality institutions
+1988-2015,2016-2019,Isolate,Peripheral,0,7,Zero-centrality institutions,Low-centrality institutions
+1988-2015,2016-2019,Isolate,Semi-Peripheral,0,3,Zero-centrality institutions,Mid-centrality institutions
+1988-2015,2016-2019,Peripheral,Absent,0,807,Low-centrality institutions,Absent
+1988-2015,2016-2019,Peripheral,Isolate,0,1,Low-centrality institutions,Zero-centrality institutions
+1988-2015,2016-2019,Peripheral,Peripheral,0,15,Low-centrality institutions,Low-centrality institutions
+1988-2015,2016-2019,Peripheral,Semi-Peripheral,0,7,Low-centrality institutions,Mid-centrality institutions
+1988-2015,2016-2019,Semi-Peripheral,Absent,0,613,Mid-centrality institutions,Absent
+1988-2015,2016-2019,Semi-Peripheral,Peripheral,0,8,Mid-centrality institutions,Low-centrality institutions
+1988-2015,2016-2019,Semi-Peripheral,Semi-Peripheral,0,20,Mid-centrality institutions,Mid-centrality institutions
+2016-2019,2020-2021,Absent,Core,1,1292,Absent,High-centrality institutions
+2016-2019,2020-2021,Absent,Isolate,1,254,Absent,Zero-centrality institutions
+2016-2019,2020-2021,Absent,Peripheral,1,5172,Absent,Low-centrality institutions
+2016-2019,2020-2021,Absent,Semi-Peripheral,1,5181,Absent,Mid-centrality institutions
+2016-2019,2020-2021,Core,Absent,1,1157,High-centrality institutions,Absent
+2016-2019,2020-2021,Isolate,Absent,1,307,Zero-centrality institutions,Absent
+2016-2019,2020-2021,Isolate,Peripheral,1,3,Zero-centrality institutions,Low-centrality institutions
+2016-2019,2020-2021,Isolate,Semi-Peripheral,1,2,Zero-centrality institutions,Mid-centrality institutions
+2016-2019,2020-2021,Peripheral,Absent,1,4556,Low-centrality institutions,Absent
+2016-2019,2020-2021,Peripheral,Core,1,13,Low-centrality institutions,High-centrality institutions
+2016-2019,2020-2021,Peripheral,Isolate,1,4,Low-centrality institutions,Zero-centrality institutions
+2016-2019,2020-2021,Peripheral,Peripheral,1,57,Low-centrality institutions,Low-centrality institutions
+2016-2019,2020-2021,Peripheral,Semi-Peripheral,1,46,Low-centrality institutions,Mid-centrality institutions
+2016-2019,2020-2021,Semi-Peripheral,Absent,1,4843,Mid-centrality institutions,Absent
+2016-2019,2020-2021,Semi-Peripheral,Core,1,48,Mid-centrality institutions,High-centrality institutions
+2016-2019,2020-2021,Semi-Peripheral,Isolate,1,1,Mid-centrality institutions,Zero-centrality institutions
+2016-2019,2020-2021,Semi-Peripheral,Peripheral,1,49,Mid-centrality institutions,Low-centrality institutions
+2016-2019,2020-2021,Semi-Peripheral,Semi-Peripheral,1,72,Mid-centrality institutions,Mid-centrality institutions
+2020-2021,2022-2023,Absent,Core,2,1678,Absent,High-centrality institutions
+2020-2021,2022-2023,Absent,Isolate,2,303,Absent,Zero-centrality institutions
+2020-2021,2022-2023,Absent,Peripheral,2,6830,Absent,Low-centrality institutions
+2020-2021,2022-2023,Absent,Semi-Peripheral,2,7615,Absent,Mid-centrality institutions
+2020-2021,2022-2023,Core,Absent,2,1242,High-centrality institutions,Absent
+2020-2021,2022-2023,Core,Core,2,56,High-centrality institutions,High-centrality institutions
+2020-2021,2022-2023,Core,Isolate,2,1,High-centrality institutions,Zero-centrality institutions
+2020-2021,2022-2023,Core,Peripheral,2,17,High-centrality institutions,Low-centrality institutions
+2020-2021,2022-2023,Core,Semi-Peripheral,2,37,High-centrality institutions,Mid-centrality institutions
+2020-2021,2022-2023,Isolate,Absent,2,248,Zero-centrality institutions,Absent
+2020-2021,2022-2023,Isolate,Isolate,2,4,Zero-centrality institutions,Zero-centrality institutions
+2020-2021,2022-2023,Isolate,Peripheral,2,5,Zero-centrality institutions,Low-centrality institutions
+2020-2021,2022-2023,Isolate,Semi-Peripheral,2,2,Zero-centrality institutions,Mid-centrality institutions
+2020-2021,2022-2023,Peripheral,Absent,2,5073,Low-centrality institutions,Absent
+2020-2021,2022-2023,Peripheral,Core,2,20,Low-centrality institutions,High-centrality institutions
+2020-2021,2022-2023,Peripheral,Isolate,2,3,Low-centrality institutions,Zero-centrality institutions
+2020-2021,2022-2023,Peripheral,Peripheral,2,119,Low-centrality institutions,Low-centrality institutions
+2020-2021,2022-2023,Peripheral,Semi-Peripheral,2,66,Low-centrality institutions,Mid-centrality institutions
+2020-2021,2022-2023,Semi-Peripheral,Absent,2,5006,Mid-centrality institutions,Absent
+2020-2021,2022-2023,Semi-Peripheral,Core,2,52,Mid-centrality institutions,High-centrality institutions
+2020-2021,2022-2023,Semi-Peripheral,Isolate,2,2,Mid-centrality institutions,Zero-centrality institutions
+2020-2021,2022-2023,Semi-Peripheral,Peripheral,2,94,Mid-centrality institutions,Low-centrality institutions
+2020-2021,2022-2023,Semi-Peripheral,Semi-Peripheral,2,147,Mid-centrality institutions,Mid-centrality institutions
+2022-2023,2024-2024,Absent,Core,3,1097,Absent,High-centrality institutions
+2022-2023,2024-2024,Absent,Isolate,3,200,Absent,Zero-centrality institutions
+2022-2023,2024-2024,Absent,Peripheral,3,4175,Absent,Low-centrality institutions
+2022-2023,2024-2024,Absent,Semi-Peripheral,3,4838,Absent,Mid-centrality institutions
+2022-2023,2024-2024,Core,Absent,3,1682,High-centrality institutions,Absent
+2022-2023,2024-2024,Core,Core,3,58,High-centrality institutions,High-centrality institutions
+2022-2023,2024-2024,Core,Peripheral,3,18,High-centrality institutions,Low-centrality institutions
+2022-2023,2024-2024,Core,Semi-Peripheral,3,48,High-centrality institutions,Mid-centrality institutions
+2022-2023,2024-2024,Isolate,Absent,3,306,Zero-centrality institutions,Absent
+2022-2023,2024-2024,Isolate,Isolate,3,1,Zero-centrality institutions,Zero-centrality institutions
+2022-2023,2024-2024,Isolate,Peripheral,3,4,Zero-centrality institutions,Low-centrality institutions
+2022-2023,2024-2024,Isolate,Semi-Peripheral,3,2,Zero-centrality institutions,Mid-centrality institutions
+2022-2023,2024-2024,Peripheral,Absent,3,6874,Low-centrality institutions,Absent
+2022-2023,2024-2024,Peripheral,Core,3,13,Low-centrality institutions,High-centrality institutions
+2022-2023,2024-2024,Peripheral,Isolate,3,5,Low-centrality institutions,Zero-centrality institutions
+2022-2023,2024-2024,Peripheral,Peripheral,3,95,Low-centrality institutions,Low-centrality institutions
+2022-2023,2024-2024,Peripheral,Semi-Peripheral,3,78,Low-centrality institutions,Mid-centrality institutions
+2022-2023,2024-2024,Semi-Peripheral,Absent,3,7618,Mid-centrality institutions,Absent
+2022-2023,2024-2024,Semi-Peripheral,Core,3,54,Mid-centrality institutions,High-centrality institutions
+2022-2023,2024-2024,Semi-Peripheral,Isolate,3,2,Mid-centrality institutions,Zero-centrality institutions
+2022-2023,2024-2024,Semi-Peripheral,Peripheral,3,54,Mid-centrality institutions,Low-centrality institutions
+2022-2023,2024-2024,Semi-Peripheral,Semi-Peripheral,3,139,Mid-centrality institutions,Mid-centrality institutions
+2024-2024,2025-2025,Absent,Core,4,1735,Absent,High-centrality institutions
+2024-2024,2025-2025,Absent,Isolate,4,304,Absent,Zero-centrality institutions
+2024-2024,2025-2025,Absent,Peripheral,4,6735,Absent,Low-centrality institutions
+2024-2024,2025-2025,Absent,Semi-Peripheral,4,6958,Absent,Mid-centrality institutions
+2024-2024,2025-2025,Core,Absent,4,1120,High-centrality institutions,Absent
+2024-2024,2025-2025,Core,Core,4,50,High-centrality institutions,High-centrality institutions
+2024-2024,2025-2025,Core,Peripheral,4,21,High-centrality institutions,Low-centrality institutions
+2024-2024,2025-2025,Core,Semi-Peripheral,4,31,High-centrality institutions,Mid-centrality institutions
+2024-2024,2025-2025,Isolate,Absent,4,196,Zero-centrality institutions,Absent
+2024-2024,2025-2025,Isolate,Core,4,1,Zero-centrality institutions,High-centrality institutions
+2024-2024,2025-2025,Isolate,Isolate,4,3,Zero-centrality institutions,Zero-centrality institutions
+2024-2024,2025-2025,Isolate,Peripheral,4,8,Zero-centrality institutions,Low-centrality institutions
+2024-2024,2025-2025,Peripheral,Absent,4,4209,Low-centrality institutions,Absent
+2024-2024,2025-2025,Peripheral,Core,4,19,Low-centrality institutions,High-centrality institutions
+2024-2024,2025-2025,Peripheral,Isolate,4,3,Low-centrality institutions,Zero-centrality institutions
+2024-2024,2025-2025,Peripheral,Peripheral,4,63,Low-centrality institutions,Low-centrality institutions
+2024-2024,2025-2025,Peripheral,Semi-Peripheral,4,52,Low-centrality institutions,Mid-centrality institutions
+2024-2024,2025-2025,Semi-Peripheral,Absent,4,4832,Mid-centrality institutions,Absent
+2024-2024,2025-2025,Semi-Peripheral,Core,4,52,Mid-centrality institutions,High-centrality institutions
+2024-2024,2025-2025,Semi-Peripheral,Isolate,4,2,Mid-centrality institutions,Zero-centrality institutions
+2024-2024,2025-2025,Semi-Peripheral,Peripheral,4,56,Mid-centrality institutions,Low-centrality institutions
+2024-2024,2025-2025,Semi-Peripheral,Semi-Peripheral,4,163,Mid-centrality institutions,Mid-centrality institutions

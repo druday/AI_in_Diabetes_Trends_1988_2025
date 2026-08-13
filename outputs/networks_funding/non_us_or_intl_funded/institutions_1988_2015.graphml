@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="weight" attr.type="long"/>
+<key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="undirected"><node id="Lawson Health Research Institute, Aging Rehabilitation and Geriatric Care Research Centre, 801 Commissioners Rd E, Ste B 3002, London, Ontario N6C 5J1, Canada. petrella@uwo.ca.">
+  <data key="d0">Other</data>
+</node>
+<node id="Department of Immunobiology, Yale University School of Medicine, New Haven, CT 06520, USA.">
+  <data key="d0">Other</data>
+</node>
+<node id="Department of Computer Graphics and Image Processing, University of Debrecen, Faculty of Informatics, Debrecen, Hungary. zsolt.torok@astridbio.com">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Department of Industrial and Information Engineering, University of Pavia, Pavia, Italy. alberto.russu@yahoo.it">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Department of Public health, University of Birmingham, UK. k.nirantharan@bham.ac.uk">
+  <data key="d0">Public_Health_Epidemiology</data>
+</node>
+<node id="Medical Systems Biology, Departments of Pathology and of Microbiology &amp; Immunology, The University of Melbourne, Parkville, VIC, Australia.">
+  <data key="d0">Other</data>
+</node>
+<node id="Department of Clinical Epidemiology and Biostatistics, McMaster University, Hamilton, ON, Canada.">
+  <data key="d0">Public_Health_Epidemiology</data>
+</node>
+<node id="Institute of Cardiovascular Science, University College London, London, United Kingdom.">
+  <data key="d0">Complications_Cardiometabolic_Nephrology_Neurology</data>
+</node>
+<node id="SV Lab, School of Aerospace Engineering, Xi'an Jiaotong University, Xi'an, 710049, People's Republic of China.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="School of Nursing, Midwifery and Social Work, University of Manchester, Manchester, UK. sue.kirk@manchester.ac.uk">
+  <data key="d0">Nursing_Diabetes_Education</data>
+</node>
+<node id="Center for Bio-Inspired Technology, Institute of Biomedical Engineering, Imperial College London, London, United Kingdom. pherrero@imperial.ac.uk">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="School of Health and Related Research, University of Sheffield, UK.">
+  <data key="d0">Public_Health_Epidemiology</data>
+</node>
+<node id="Nuffield Department of Population Health, University of Oxford, Richard Doll Building, Roosevelt Drive, Headington, Oxford, Oxfordshire, UK, OX3 7LF.">
+  <data key="d0">Public_Health_Epidemiology</data>
+</node>
+<node id="Research Division for eHealth and Telemedicine, UMIT - University for Health Sciences, Medical Informatics and Technology, Hall in Tyrol, Austria.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="STI - Semantic Technology Institute, University of Innsbruck, Innsbruck, Austria.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Medical Informatics Program, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada. Electronic address: Samina.Abidi@Dal.ca.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="CDHA Behaviour-Change Institute, QEII Health Sciences Center, Halifax, Nova Scotia, Canada.">
+  <data key="d0">Behavioral_Psychological</data>
+</node>
+<node id="NICHE Research Group, Faculty of Computer Science, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Department of Family Medicine, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d0">General_Clinical_Medicine</data>
+</node>
+<node id="Division of Endocrinology and Metabolism, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d0">Endocrinology_Diabetes</data>
+</node>
+<node id="Keenan Research Centre, Li Ka Shing Knowledge Institute of St, Michael's Hospital, Toronto, Canada. yuca@smh.ca.">
+  <data key="d0">Other</data>
+</node>
+<node id="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2].">
+  <data key="d0">Other</data>
+</node>
+<node id="Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK.">
+  <data key="d0">Other</data>
+</node>
+<node id="Centre for Computational Neuroscience and Robotics, Department of Informatics, University of Sussex, Brighton BN1 9QJ, UK.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Max-Planck-Institute for Molecular Biomedicine, Roentgenstr. 20 48149 Muenster, Germany.">
+  <data key="d0">Other</data>
+</node>
+<node id="Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d0">Other</data>
+</node>
+<node id="Uppsala University, Department of Immunology, Genetics and Pathology, Rudbeck Laboratory, Dag Hammarskjoldsv. 20 751 85 Uppsala, Sweden.">
+  <data key="d0">Other</data>
+</node>
+<node id="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2] Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d0">Other</data>
+</node>
+<node id="School of Social Sciences, Bangor University, Bangor LL57 2EF, UK. jane.noyes@bangor.ac.uk.">
+  <data key="d0">Other</data>
+</node>
+<node id="National Centre for Biological Sciences, Tata Institute of Fundamental Research, GKVK Campus, Bangalore, India.">
+  <data key="d0">Other</data>
+</node>
+<node id="Academic Department of Radiology, St. Bartholomew's Hospital, London, UK.">
+  <data key="d0">Other</data>
+</node>
+<node id="Centre for Measurement &amp; Information in Medicine, Department of Systems Science, City University, London, U.K.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Computer Centre, Semmelweis University, Budapest, Hungary.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Diabetes Research Laboratory, United Medical School, Guy's Hospital, University of London, England.">
+  <data key="d0">Endocrinology_Diabetes</data>
+</node>
+<node id="Department of Systems Science, City University, London, UK.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Department of Endocrinology and Chemical Pathology, United Medical School of Guy's Hospital, University of London, UK.">
+  <data key="d0">Endocrinology_Diabetes</data>
+</node>
+<node id="Department of Vascular Surgery, University of Birmingham, Heart of England NHS Foundation Trust, Solihull Hospital, Lode Lane, Birmingham, UK. Andrew.Bradbury@btinternet.com">
+  <data key="d0">Other</data>
+</node>
+<node id="School of Kinesiology, University of Western Ontario, London, Ontario, Canada.">
+  <data key="d0">Exercise_Lifestyle</data>
+</node>
+<node id="UMIT-University for Health Sciences, Medical Informatics and Technology, Hall in Tirol, Austria. gudrun.huebner-bloder@umit.at">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Health Research Methodology Program, McMaster University, 1280 Main Street West, Hamilton, ON, Canada.">
+  <data key="d0">Public_Health_Epidemiology</data>
+</node>
+<node id="Department of Computer Science, University of Toronto, Toronto, Canada.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Department of Computer Science, New Jersey Institute of Technology, Newark, NJ, USA. usman@cs.njit.edu">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Department of Computer Science, New Jersey Institute of Technology, Newark, New Jersey, United States of America.">
+  <data key="d0">Technical_AI_Informatics</data>
+</node>
+<node id="Department of Pediatrics, University of Michigan, Ann Arbor, Michigan, United States of America. hanauer@umich.edu">
+  <data key="d0">Pediatrics_Maternal_Health</data>
+</node>
+<edge source="Research Division for eHealth and Telemedicine, UMIT - University for Health Sciences, Medical Informatics and Technology, Hall in Tyrol, Austria." target="STI - Semantic Technology Institute, University of Innsbruck, Innsbruck, Austria.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Medical Informatics Program, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada. Electronic address: Samina.Abidi@Dal.ca." target="CDHA Behaviour-Change Institute, QEII Health Sciences Center, Halifax, Nova Scotia, Canada.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Medical Informatics Program, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada. Electronic address: Samina.Abidi@Dal.ca." target="Department of Family Medicine, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Medical Informatics Program, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada. Electronic address: Samina.Abidi@Dal.ca." target="Division of Endocrinology and Metabolism, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Medical Informatics Program, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada. Electronic address: Samina.Abidi@Dal.ca." target="NICHE Research Group, Faculty of Computer Science, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d1">1</data>
+</edge>
+<edge source="CDHA Behaviour-Change Institute, QEII Health Sciences Center, Halifax, Nova Scotia, Canada." target="Department of Family Medicine, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d1">1</data>
+</edge>
+<edge source="CDHA Behaviour-Change Institute, QEII Health Sciences Center, Halifax, Nova Scotia, Canada." target="Division of Endocrinology and Metabolism, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d1">1</data>
+</edge>
+<edge source="CDHA Behaviour-Change Institute, QEII Health Sciences Center, Halifax, Nova Scotia, Canada." target="NICHE Research Group, Faculty of Computer Science, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d1">1</data>
+</edge>
+<edge source="NICHE Research Group, Faculty of Computer Science, Dalhousie University, Halifax, Nova Scotia, Canada." target="Department of Family Medicine, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d1">1</data>
+</edge>
+<edge source="NICHE Research Group, Faculty of Computer Science, Dalhousie University, Halifax, Nova Scotia, Canada." target="Division of Endocrinology and Metabolism, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Department of Family Medicine, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada." target="Division of Endocrinology and Metabolism, Faculty of Medicine, Dalhousie University, Halifax, Nova Scotia, Canada.">
+  <data key="d1">1</data>
+</edge>
+<edge source="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2]." target="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2] Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d1">1</data>
+</edge>
+<edge source="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2]." target="Centre for Computational Neuroscience and Robotics, Department of Informatics, University of Sussex, Brighton BN1 9QJ, UK.">
+  <data key="d1">1</data>
+</edge>
+<edge source="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2]." target="Max-Planck-Institute for Molecular Biomedicine, Roentgenstr. 20 48149 Muenster, Germany.">
+  <data key="d1">1</data>
+</edge>
+<edge source="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2]." target="Uppsala University, Department of Immunology, Genetics and Pathology, Rudbeck Laboratory, Dag Hammarskjoldsv. 20 751 85 Uppsala, Sweden.">
+  <data key="d1">1</data>
+</edge>
+<edge source="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2]." target="Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK.">
+  <data key="d1">1</data>
+</edge>
+<edge source="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2]." target="Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK." target="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2] Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK." target="Centre for Computational Neuroscience and Robotics, Department of Informatics, University of Sussex, Brighton BN1 9QJ, UK.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK." target="Max-Planck-Institute for Molecular Biomedicine, Roentgenstr. 20 48149 Muenster, Germany.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK." target="Uppsala University, Department of Immunology, Genetics and Pathology, Rudbeck Laboratory, Dag Hammarskjoldsv. 20 751 85 Uppsala, Sweden.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK." target="Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Centre for Computational Neuroscience and Robotics, Department of Informatics, University of Sussex, Brighton BN1 9QJ, UK." target="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2] Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Centre for Computational Neuroscience and Robotics, Department of Informatics, University of Sussex, Brighton BN1 9QJ, UK." target="Max-Planck-Institute for Molecular Biomedicine, Roentgenstr. 20 48149 Muenster, Germany.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Centre for Computational Neuroscience and Robotics, Department of Informatics, University of Sussex, Brighton BN1 9QJ, UK." target="Uppsala University, Department of Immunology, Genetics and Pathology, Rudbeck Laboratory, Dag Hammarskjoldsv. 20 751 85 Uppsala, Sweden.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Centre for Computational Neuroscience and Robotics, Department of Informatics, University of Sussex, Brighton BN1 9QJ, UK." target="Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Max-Planck-Institute for Molecular Biomedicine, Roentgenstr. 20 48149 Muenster, Germany." target="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2] Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Max-Planck-Institute for Molecular Biomedicine, Roentgenstr. 20 48149 Muenster, Germany." target="Uppsala University, Department of Immunology, Genetics and Pathology, Rudbeck Laboratory, Dag Hammarskjoldsv. 20 751 85 Uppsala, Sweden.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Max-Planck-Institute for Molecular Biomedicine, Roentgenstr. 20 48149 Muenster, Germany." target="Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium." target="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2] Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium." target="Uppsala University, Department of Immunology, Genetics and Pathology, Rudbeck Laboratory, Dag Hammarskjoldsv. 20 751 85 Uppsala, Sweden.">
+  <data key="d1">1</data>
+</edge>
+<edge source="Uppsala University, Department of Immunology, Genetics and Pathology, Rudbeck Laboratory, Dag Hammarskjoldsv. 20 751 85 Uppsala, Sweden." target="1] Vascular Biology Laboratory, London Research Institute, Cancer Research UK, London WC2A 3LY, UK [2] Vascular Patterning Laboratory, VIB3-Vesalius Research Center &amp; CMVB, Department of Oncology, KU Leuven Campus Gasthuisberg O&amp;N4, Herestraat 49 box 912 B-3000 Leuven, Belgium.">
+  <data key="d1">1</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+
+# Secrets — never commit real credentials
+.env
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+node_modules/
+*.tsbuildinfo
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Raw and intermediate data (regenerable via `make fetch` / the pipeline; not distributed)
+data/raw/
+data/interim/
+data/processed/
+data/llm/batches/
+data/llm/cache/
+
+# Interactive network omitted due to GitHub's 100 MB per-file limit (regenerable from GraphML)
+outputs/networks_html/institutions_2016_2019.html
+
+# PyVis local asset directory (generated when not using the remote CDN)
+lib/
+
+# Local export/staging scratch
+_github_export/
+_github_publish/
+
+# Local publish helper (not part of the project)
+push_to_github.sh

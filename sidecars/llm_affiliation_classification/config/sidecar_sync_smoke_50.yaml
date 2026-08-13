@@ -1,0 +1,65 @@
+main_protocol_path: config/protocol.yaml
+main_run_manifest_path: null
+input_publications_parquet: data/processed/publications.parquet
+output_root: outputs_llm_sync_smoke_50
+cache_root: data/llm_sync_smoke_50/cache
+intermediate_root: data/llm_sync_smoke_50
+model: gpt-5-mini
+prompt_version: v1
+schema_version: v1
+review_confidence_threshold: 0.7
+max_output_tokens: 160
+max_retries: 2
+request_timeout_seconds: 60
+execution_mode: sync
+sync_max_concurrency: 8
+batch_enabled: true
+batch_chunk_size: 5000
+batch_poll_interval_seconds: 60
+batch_completion_window: 24h
+allow_partial_run: false
+batch_input_root: data/llm/batch/requests
+batch_result_root: data/llm/batch/results
+batch_error_root: data/llm/batch/errors
+batch_manifest_root: data/llm/batch/manifests
+export_html: true
+with_funding: true
+match_protocol_labels: true
+category_labels:
+- Technical_AI_Informatics
+- Endocrinology_Diabetes
+- Ophthalmology_Vision
+- Complications_Cardiometabolic_Nephrology_Neurology
+- Pediatrics_Maternal_Health
+- General_Clinical_Medicine
+- Public_Health_Epidemiology
+- Nutrition
+- Nursing_Diabetes_Education
+- Behavioral_Psychological
+- Exercise_Lifestyle
+- Industry_Digital_Health_Device
+fallback_label: Other
+label_descriptions:
+  Technical_AI_Informatics: Computer science, informatics, engineering, AI, data science,
+    or computational groups.
+  Endocrinology_Diabetes: Endocrinology, diabetology, metabolism, or diabetes specialty
+    clinical groups.
+  Ophthalmology_Vision: Ophthalmology, retina, optometry, or vision science groups.
+  Complications_Cardiometabolic_Nephrology_Neurology: Diabetes complication specialties
+    such as nephrology, cardiology, vascular medicine, neurology, or renal/cardiometabolic
+    medicine.
+  Pediatrics_Maternal_Health: Pediatrics, children's hospitals, obstetrics, gynecology,
+    maternal-fetal medicine, or gestational diabetes groups.
+  General_Clinical_Medicine: General/internal/family/primary care or broad clinical/hospital
+    medicine groups.
+  Public_Health_Epidemiology: Public health, epidemiology, preventive medicine, population
+    health, community health, or policy groups.
+  Nutrition: Nutrition, dietetics, food science, or clinical nutrition groups.
+  Nursing_Diabetes_Education: Nursing schools, nursing practice, or diabetes education
+    groups.
+  Behavioral_Psychological: Psychology, psychiatry, behavioral medicine, or mental
+    health groups.
+  Exercise_Lifestyle: Exercise science, physical activity, sports medicine, lifestyle
+    medicine, or rehabilitation groups.
+  Industry_Digital_Health_Device: Commercial, biotech, pharma, digital health, therapeutics,
+    or medical device organizations.

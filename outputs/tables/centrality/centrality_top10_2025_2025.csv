@@ -1,0 +1,11 @@
+rank,degree_node,degree_score,betweenness_node,betweenness_score
+1,"Department of Pediatrics, Stanford University, Stanford, CA, USA.",0.004306367271608736,"Tsinghua Medicine, Tsinghua University, Beijing, China.",0.3771275634911058
+2,"Department of Genetics, Stanford University, Stanford, CA, USA.",0.003937250076899415,"Department of Ophthalmology, Yong Loo Lin School of Medicine, National University of Singapore, Singapore.",0.3602748744891949
+3,"Singapore Eye Research Institute, Singapore National Eye Centre, Singapore.",0.003937250076899415,"Department of Genetics, Stanford University, Stanford, CA, USA.",0.2502015594323306
+4,"Department of Ophthalmology and Visual Sciences, The Chinese University of Hong Kong, Hong Kong, China.",0.003875730544447862,"Institute for Research in Ophthalmology, Foundation for Ophthalmology Development, Poznan, Poland.",0.22124986500779995
+5,"Diabetes Technology Society, Burlingame, CA, USA.",0.0038142110119963085,"Department of Clinical Research, University of Southern Denmark, Odense, Denmark.",0.1799259751862374
+6,"Tsinghua Medicine, Tsinghua University, Beijing, China.",0.0038142110119963085,"Icahn School of Medicine at Mount Sinai, New York, NY, USA.",0.16584600895909898
+7,"Division of Urology, Department of Surgery, Taipei Tzu Chi Hospital, The Buddhist Tzu Chi Medical Foundation, New Taipei, 23142, Taiwan.",0.003383574284835435,"Diabetes Center Berne, Bern, Switzerland.",0.16393898111819163
+8,"School of Medicine, Buddhist Tzu Chi University, Hualien, 97004, Taiwan.",0.003383574284835435,"Diabetes Technology Society, Burlingame, CA, USA.",0.14311199588935855
+9,"Department of Urology, Kaohsiung Chang Gung Memorial Hospital, Kaohsiung, 83301, Taiwan.",0.003383574284835435,"Moorfields Eye Hospital NHS Foundation Trust, London, UK.",0.14254982568566996
+10,"School of Medicine, College of Medicine, Chang Gung University, Taoyuan, 33302, Taiwan.",0.003383574284835435,"Graduate School for Cellular and Biomedical Sciences, University of Bern, Bern, Switzerland.",0.1316353879681369

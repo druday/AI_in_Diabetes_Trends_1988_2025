@@ -1,0 +1,73 @@
+period,combination_label,short_combination_label,component_count,component_share_pct,rank_within_period,is_top_k_displayed,first_period_seen,last_period_seen,net_change_from_previous_period
+1988-2015,General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics,Clinical Med + Public Health + Tech/AI,8,0.34349506225848003,1,True,1988-2015,2025-2025,8
+1988-2015,Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology,Endocrino + Clinical Med + Public Health,4,0.17174753112924002,2,True,1988-2015,2025-2025,4
+1988-2015,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics,Complications + Clinical Med + Tech/AI,3,0.12881064834693,3,True,1988-2015,2025-2025,3
+1988-2015,Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine,Complications + Endocrino + Clinical Med,2,0.08587376556462001,4,True,1988-2015,2025-2025,2
+1988-2015,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology,Complications + Clinical Med + Public Health,2,0.08587376556462001,5,True,1988-2015,2025-2025,2
+1988-2015,Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics,Endocrino + Clinical Med + Tech/AI,2,0.08587376556462001,6,True,1988-2015,2025-2025,2
+1988-2015,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device,Complications + Clinical Med + Industry,1,0.042936882782310004,7,True,1988-2015,2025-2025,1
+1988-2015,Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device,Endocrino + Clinical Med + Industry,1,0.042936882782310004,8,True,1988-2015,2025-2025,1
+1988-2015,General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology,Clinical Med + Ophthal + Public Health,1,0.042936882782310004,9,True,1988-2015,2025-2025,1
+1988-2015,General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology,Clinical Med + Peds/Maternal + Public Health,1,0.042936882782310004,10,True,1988-2015,2025-2025,1
+1988-2015,Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health,Endocrino + Clinical Med + Peds/Maternal,0,0.0,11,True,2016-2019,2025-2025,0
+1988-2015,General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics,Clinical Med + Ophthal + Tech/AI,0,0.0,12,True,2016-2019,2025-2025,0
+2016-2019,Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology,Endocrino + Clinical Med + Public Health,22,1.014760147601476,1,True,1988-2015,2025-2025,18
+2016-2019,Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics,Endocrino + Clinical Med + Tech/AI,19,0.8763837638376384,2,True,1988-2015,2025-2025,17
+2016-2019,General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics,Clinical Med + Public Health + Tech/AI,16,0.7380073800738007,3,True,1988-2015,2025-2025,8
+2016-2019,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics,Complications + Clinical Med + Tech/AI,12,0.5535055350553506,4,True,1988-2015,2025-2025,9
+2016-2019,Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device,Endocrino + Clinical Med + Industry,12,0.5535055350553506,5,True,1988-2015,2025-2025,11
+2016-2019,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology,Complications + Clinical Med + Public Health,8,0.36900369003690037,6,True,1988-2015,2025-2025,6
+2016-2019,General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics,Clinical Med + Ophthal + Tech/AI,8,0.36900369003690037,7,True,2016-2019,2025-2025,8
+2016-2019,General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology,Clinical Med + Peds/Maternal + Public Health,8,0.36900369003690037,8,True,1988-2015,2025-2025,7
+2016-2019,Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine,Complications + Endocrino + Clinical Med,5,0.23062730627306274,9,True,1988-2015,2025-2025,3
+2016-2019,Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health,Endocrino + Clinical Med + Peds/Maternal,5,0.23062730627306274,10,True,2016-2019,2025-2025,5
+2016-2019,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device,Complications + Clinical Med + Industry,4,0.18450184501845018,11,True,1988-2015,2025-2025,3
+2016-2019,General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology,Clinical Med + Ophthal + Public Health,2,0.09225092250922509,12,True,1988-2015,2025-2025,1
+2020-2021,General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics,Clinical Med + Public Health + Tech/AI,21,0.8864499788940481,1,True,1988-2015,2025-2025,5
+2020-2021,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics,Complications + Clinical Med + Tech/AI,20,0.8442380751371887,2,True,1988-2015,2025-2025,8
+2020-2021,Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics,Endocrino + Clinical Med + Tech/AI,20,0.8442380751371887,3,True,1988-2015,2025-2025,1
+2020-2021,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology,Complications + Clinical Med + Public Health,12,0.5065428450823132,4,True,1988-2015,2025-2025,4
+2020-2021,Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device,Endocrino + Clinical Med + Industry,12,0.5065428450823132,5,True,1988-2015,2025-2025,0
+2020-2021,Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology,Endocrino + Clinical Med + Public Health,12,0.5065428450823132,6,True,1988-2015,2025-2025,-10
+2020-2021,General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology,Clinical Med + Ophthal + Public Health,12,0.5065428450823132,7,True,1988-2015,2025-2025,10
+2020-2021,General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics,Clinical Med + Ophthal + Tech/AI,11,0.46433094132545377,8,True,2016-2019,2025-2025,3
+2020-2021,Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine,Complications + Endocrino + Clinical Med,9,0.3799071338117349,9,True,1988-2015,2025-2025,4
+2020-2021,Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health,Endocrino + Clinical Med + Peds/Maternal,9,0.3799071338117349,10,True,2016-2019,2025-2025,4
+2020-2021,General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology,Clinical Med + Peds/Maternal + Public Health,8,0.33769523005487545,11,True,1988-2015,2025-2025,0
+2020-2021,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device,Complications + Clinical Med + Industry,5,0.21105951878429718,12,True,1988-2015,2025-2025,1
+2022-2023,Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics,Endocrino + Clinical Med + Tech/AI,35,1.109350237717908,1,True,1988-2015,2025-2025,15
+2022-2023,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics,Complications + Clinical Med + Tech/AI,25,0.7923930269413629,2,True,1988-2015,2025-2025,5
+2022-2023,General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics,Clinical Med + Public Health + Tech/AI,24,0.7606973058637084,3,True,1988-2015,2025-2025,3
+2022-2023,Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology,Endocrino + Clinical Med + Public Health,20,0.6339144215530903,4,True,1988-2015,2025-2025,8
+2022-2023,General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics,Clinical Med + Ophthal + Tech/AI,20,0.6339144215530903,5,True,2016-2019,2025-2025,9
+2022-2023,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology,Complications + Clinical Med + Public Health,17,0.5388272583201268,6,True,1988-2015,2025-2025,5
+2022-2023,General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology,Clinical Med + Peds/Maternal + Public Health,16,0.5071315372424723,7,True,1988-2015,2025-2025,8
+2022-2023,Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine,Complications + Endocrino + Clinical Med,15,0.4754358161648177,8,True,1988-2015,2025-2025,6
+2022-2023,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device,Complications + Clinical Med + Industry,14,0.4437400950871632,9,True,1988-2015,2025-2025,9
+2022-2023,Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device,Endocrino + Clinical Med + Industry,9,0.28526148969889065,10,True,1988-2015,2025-2025,-3
+2022-2023,Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health,Endocrino + Clinical Med + Peds/Maternal,8,0.25356576862123614,11,True,2016-2019,2025-2025,-1
+2022-2023,General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology,Clinical Med + Ophthal + Public Health,8,0.25356576862123614,12,True,1988-2015,2025-2025,-4
+2024-2024,General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics,Clinical Med + Public Health + Tech/AI,23,1.1296660117878192,1,True,1988-2015,2025-2025,-1
+2024-2024,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics,Complications + Clinical Med + Tech/AI,21,1.031434184675835,2,True,1988-2015,2025-2025,-4
+2024-2024,Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics,Endocrino + Clinical Med + Tech/AI,17,0.8349705304518664,3,True,1988-2015,2025-2025,-18
+2024-2024,Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device,Endocrino + Clinical Med + Industry,11,0.5402750491159135,4,True,1988-2015,2025-2025,2
+2024-2024,General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology,Clinical Med + Ophthal + Public Health,11,0.5402750491159135,5,True,1988-2015,2025-2025,3
+2024-2024,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology,Complications + Clinical Med + Public Health,10,0.4911591355599214,6,True,1988-2015,2025-2025,-7
+2024-2024,General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics,Clinical Med + Ophthal + Tech/AI,10,0.4911591355599214,7,True,2016-2019,2025-2025,-10
+2024-2024,Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine,Complications + Endocrino + Clinical Med,8,0.3929273084479371,8,True,1988-2015,2025-2025,-7
+2024-2024,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device,Complications + Clinical Med + Industry,7,0.343811394891945,9,True,1988-2015,2025-2025,-7
+2024-2024,Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health,Endocrino + Clinical Med + Peds/Maternal,7,0.343811394891945,10,True,2016-2019,2025-2025,-1
+2024-2024,Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology,Endocrino + Clinical Med + Public Health,6,0.29469548133595286,11,True,1988-2015,2025-2025,-14
+2024-2024,General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology,Clinical Med + Peds/Maternal + Public Health,6,0.29469548133595286,12,True,1988-2015,2025-2025,-10
+2025-2025,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Technical_AI_Informatics,Complications + Clinical Med + Tech/AI,39,1.2260295504558314,1,True,1988-2015,2025-2025,18
+2025-2025,Endocrinology_Diabetes + General_Clinical_Medicine + Technical_AI_Informatics,Endocrino + Clinical Med + Tech/AI,29,0.9116629990569003,2,True,1988-2015,2025-2025,12
+2025-2025,General_Clinical_Medicine + Public_Health_Epidemiology + Technical_AI_Informatics,Clinical Med + Public Health + Tech/AI,25,0.7859163784973279,3,True,1988-2015,2025-2025,2
+2025-2025,Endocrinology_Diabetes + General_Clinical_Medicine + Public_Health_Epidemiology,Endocrino + Clinical Med + Public Health,24,0.7544797233574347,4,True,1988-2015,2025-2025,18
+2025-2025,Complications_Cardiometabolic_Nephrology_Neurology + Endocrinology_Diabetes + General_Clinical_Medicine,Complications + Endocrino + Clinical Med,21,0.6601697579377555,5,True,1988-2015,2025-2025,13
+2025-2025,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Public_Health_Epidemiology,Complications + Clinical Med + Public Health,17,0.5344231373781829,6,True,1988-2015,2025-2025,7
+2025-2025,General_Clinical_Medicine + Ophthalmology_Vision + Technical_AI_Informatics,Clinical Med + Ophthal + Tech/AI,15,0.4715498270983967,7,True,2016-2019,2025-2025,5
+2025-2025,Endocrinology_Diabetes + General_Clinical_Medicine + Pediatrics_Maternal_Health,Endocrino + Clinical Med + Peds/Maternal,13,0.4086765168186105,8,True,2016-2019,2025-2025,6
+2025-2025,Endocrinology_Diabetes + General_Clinical_Medicine + Industry_Digital_Health_Device,Endocrino + Clinical Med + Industry,9,0.282929896259038,9,True,1988-2015,2025-2025,-2
+2025-2025,Complications_Cardiometabolic_Nephrology_Neurology + General_Clinical_Medicine + Industry_Digital_Health_Device,Complications + Clinical Med + Industry,7,0.22005658597925182,10,True,1988-2015,2025-2025,0
+2025-2025,General_Clinical_Medicine + Ophthalmology_Vision + Public_Health_Epidemiology,Clinical Med + Ophthal + Public Health,6,0.18861993083935868,11,True,1988-2015,2025-2025,-5
+2025-2025,General_Clinical_Medicine + Pediatrics_Maternal_Health + Public_Health_Epidemiology,Clinical Med + Peds/Maternal + Public Health,6,0.18861993083935868,12,True,1988-2015,2025-2025,0

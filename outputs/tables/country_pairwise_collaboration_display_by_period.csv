@@ -1,0 +1,1348 @@
+period,country_a,country_b,country_a_display,country_b_display,is_diagonal,publication_pair_count,publication_pair_share_pct,country_a_weighted_degree,country_b_weighted_degree
+1988-2015,united states,united states,United States,United States,True,65,2.7162557459256162,69,69
+1988-2015,australia,australia,Australia,Australia,True,12,0.5014625992478061,12,12
+1988-2015,china,china,China,China,True,12,0.5014625992478061,12,12
+1988-2015,italy,italy,Italy,Italy,True,11,0.45967404931048894,11,11
+1988-2015,spain,spain,Spain,Spain,True,11,0.45967404931048894,11,11
+1988-2015,brazil,brazil,Brazil,Brazil,True,10,0.41788549937317176,10,10
+1988-2015,canada,canada,Canada,Canada,True,9,0.3760969494358546,13,13
+1988-2015,france,france,France,France,True,9,0.3760969494358546,15,15
+1988-2015,united kingdom,united kingdom,United Kingdom,United Kingdom,True,9,0.3760969494358546,9,9
+1988-2015,india,india,India,India,True,8,0.3343083994985374,8,8
+1988-2015,austria,austria,Austria,Austria,True,7,0.29251984956122024,7,7
+1988-2015,denmark,denmark,Denmark,Denmark,True,5,0.20894274968658588,8,8
+1988-2015,canada,united states,Canada,United States,False,4,0.1671541997492687,13,69
+1988-2015,germany,germany,Germany,Germany,True,4,0.1671541997492687,7,7
+1988-2015,greece,greece,Greece,Greece,True,4,0.1671541997492687,4,4
+1988-2015,poland,poland,Poland,Poland,True,4,0.1671541997492687,4,4
+1988-2015,republic of korea,republic of korea,Republic OF Korea,Republic OF Korea,True,4,0.1671541997492687,4,4
+1988-2015,thailand,thailand,Thailand,Thailand,True,4,0.1671541997492687,4,4
+1988-2015,denmark,france,Denmark,France,False,3,0.12536564981195153,8,15
+1988-2015,france,germany,France,Germany,False,3,0.12536564981195153,15,7
+1988-2015,israel,israel,Israel,Israel,True,3,0.12536564981195153,3,3
+1988-2015,japan,japan,Japan,Japan,True,3,0.12536564981195153,3,3
+1988-2015,malaysia,malaysia,Malaysia,Malaysia,True,3,0.12536564981195153,3,3
+1988-2015,norway,norway,Norway,Norway,True,3,0.12536564981195153,3,3
+1988-2015,portugal,portugal,Portugal,Portugal,True,3,0.12536564981195153,3,3
+1988-2015,south africa,south africa,South Africa,South Africa,True,3,0.12536564981195153,3,3
+1988-2015,switzerland,switzerland,Switzerland,Switzerland,True,3,0.12536564981195153,3,3
+2016-2019,united states,united states,United States,United States,True,393,16.652542372881356,655,655
+2016-2019,china,china,China,China,True,134,5.677966101694915,206,206
+2016-2019,australia,australia,Australia,Australia,True,69,2.9237288135593222,176,176
+2016-2019,italy,italy,Italy,Italy,True,65,2.7542372881355934,208,208
+2016-2019,spain,spain,Spain,Spain,True,57,2.4152542372881354,156,156
+2016-2019,canada,canada,Canada,Canada,True,56,2.3728813559322033,121,121
+2016-2019,india,india,India,India,True,53,2.2457627118644066,92,92
+2016-2019,france,france,France,France,True,49,2.0762711864406778,121,121
+2016-2019,germany,germany,Germany,Germany,True,42,1.7796610169491525,206,206
+2016-2019,norway,norway,Norway,Norway,True,34,1.4406779661016949,54,54
+2016-2019,iran,iran,Iran,Iran,True,32,1.3559322033898304,38,38
+2016-2019,united kingdom,united kingdom,United Kingdom,United Kingdom,True,31,1.3135593220338984,106,106
+2016-2019,japan,japan,Japan,Japan,True,30,1.271186440677966,42,42
+2016-2019,singapore,singapore,Singapore,Singapore,True,30,1.271186440677966,76,76
+2016-2019,denmark,denmark,Denmark,Denmark,True,27,1.1440677966101696,51,51
+2016-2019,brazil,brazil,Brazil,Brazil,True,26,1.1016949152542372,50,50
+2016-2019,china,united states,China,United States,False,24,1.0169491525423728,206,655
+2016-2019,sweden,sweden,Sweden,Sweden,True,22,0.9322033898305084,94,94
+2016-2019,republic of korea,republic of korea,Republic OF Korea,Republic OF Korea,True,21,0.8898305084745762,35,35
+2016-2019,australia,united states,Australia,United States,False,20,0.847457627118644,176,655
+2016-2019,israel,israel,Israel,Israel,True,18,0.7627118644067796,60,60
+2016-2019,australia,china,Australia,China,False,17,0.7203389830508474,176,206
+2016-2019,austria,austria,Austria,Austria,True,17,0.7203389830508474,103,103
+2016-2019,germany,united states,Germany,United States,False,16,0.6779661016949152,206,655
+2016-2019,mexico,mexico,Mexico,Mexico,True,16,0.6779661016949152,37,37
+2016-2019,belgium,belgium,Belgium,Belgium,True,15,0.635593220338983,105,105
+2016-2019,canada,united states,Canada,United States,False,15,0.635593220338983,121,655
+2016-2019,india,united states,India,United States,False,15,0.635593220338983,92,655
+2016-2019,italy,spain,Italy,Spain,False,15,0.635593220338983,208,156
+2016-2019,saudi arabia,saudi arabia,Saudi Arabia,Saudi Arabia,True,15,0.635593220338983,34,34
+2016-2019,new zealand,new zealand,NEW Zealand,NEW Zealand,True,14,0.5932203389830508,24,24
+2016-2019,switzerland,switzerland,Switzerland,Switzerland,True,14,0.5932203389830508,92,92
+2016-2019,germany,italy,Germany,Italy,False,12,0.5084745762711864,206,208
+2016-2019,germany,spain,Germany,Spain,False,12,0.5084745762711864,206,156
+2016-2019,greece,greece,Greece,Greece,True,12,0.5084745762711864,57,57
+2016-2019,italy,united states,Italy,United States,False,12,0.5084745762711864,208,655
+2016-2019,malaysia,malaysia,Malaysia,Malaysia,True,12,0.5084745762711864,26,26
+2016-2019,finland,finland,Finland,Finland,True,11,0.4661016949152542,33,33
+2016-2019,germany,switzerland,Germany,Switzerland,False,10,0.423728813559322,206,92
+2016-2019,sweden,united states,Sweden,United States,False,10,0.423728813559322,94,655
+2016-2019,switzerland,united states,Switzerland,United States,False,10,0.423728813559322,92,655
+2016-2019,austria,germany,Austria,Germany,False,9,0.3813559322033898,103,206
+2016-2019,belgium,germany,Belgium,Germany,False,9,0.3813559322033898,105,206
+2016-2019,poland,poland,Poland,Poland,True,9,0.3813559322033898,48,48
+2016-2019,poland,united states,Poland,United States,False,9,0.3813559322033898,48,655
+2016-2019,portugal,portugal,Portugal,Portugal,True,9,0.3813559322033898,44,44
+2016-2019,united kingdom,united states,United Kingdom,United States,False,9,0.3813559322033898,106,655
+2016-2019,austria,united states,Austria,United States,False,8,0.3389830508474576,103,655
+2016-2019,belgium,italy,Belgium,Italy,False,8,0.3389830508474576,105,208
+2016-2019,france,italy,France,Italy,False,8,0.3389830508474576,121,208
+2016-2019,mexico,united states,Mexico,United States,False,8,0.3389830508474576,37,655
+2016-2019,netherlands,netherlands,Netherlands,Netherlands,True,8,0.3389830508474576,29,29
+2016-2019,thailand,thailand,Thailand,Thailand,True,8,0.3389830508474576,11,11
+2016-2019,turkey,turkey,Turkey,Turkey,True,8,0.3389830508474576,11,11
+2016-2019,australia,new zealand,Australia,NEW Zealand,False,7,0.2966101694915254,176,24
+2016-2019,austria,italy,Austria,Italy,False,7,0.2966101694915254,103,208
+2016-2019,belgium,spain,Belgium,Spain,False,7,0.2966101694915254,105,156
+2016-2019,france,germany,France,Germany,False,7,0.2966101694915254,121,206
+2016-2019,france,spain,France,Spain,False,7,0.2966101694915254,121,156
+2016-2019,france,sweden,France,Sweden,False,7,0.2966101694915254,121,94
+2016-2019,france,united states,France,United States,False,7,0.2966101694915254,121,655
+2016-2019,greece,italy,Greece,Italy,False,7,0.2966101694915254,57,208
+2016-2019,israel,united states,Israel,United States,False,7,0.2966101694915254,60,655
+2016-2019,italy,switzerland,Italy,Switzerland,False,7,0.2966101694915254,208,92
+2016-2019,norway,united states,Norway,United States,False,7,0.2966101694915254,54,655
+2016-2019,pakistan,pakistan,Pakistan,Pakistan,True,7,0.2966101694915254,7,7
+2016-2019,republic of korea,united states,Republic OF Korea,United States,False,7,0.2966101694915254,35,655
+2016-2019,singapore,united states,Singapore,United States,False,7,0.2966101694915254,76,655
+2016-2019,spain,switzerland,Spain,Switzerland,False,7,0.2966101694915254,156,92
+2016-2019,australia,iran,Australia,Iran,False,6,0.2542372881355932,176,38
+2016-2019,australia,malaysia,Australia,Malaysia,False,6,0.2542372881355932,176,26
+2016-2019,australia,singapore,Australia,Singapore,False,6,0.2542372881355932,176,76
+2016-2019,australia,united kingdom,Australia,United Kingdom,False,6,0.2542372881355932,176,106
+2016-2019,austria,belgium,Austria,Belgium,False,6,0.2542372881355932,103,105
+2016-2019,austria,spain,Austria,Spain,False,6,0.2542372881355932,103,156
+2016-2019,austria,switzerland,Austria,Switzerland,False,6,0.2542372881355932,103,92
+2016-2019,belgium,france,Belgium,France,False,6,0.2542372881355932,105,121
+2016-2019,belgium,switzerland,Belgium,Switzerland,False,6,0.2542372881355932,105,92
+2016-2019,brazil,united states,Brazil,United States,False,6,0.2542372881355932,50,655
+2016-2019,china,germany,China,Germany,False,6,0.2542372881355932,206,206
+2016-2019,china,united kingdom,China,United Kingdom,False,6,0.2542372881355932,206,106
+2016-2019,finland,sweden,Finland,Sweden,False,6,0.2542372881355932,33,94
+2016-2019,germany,united kingdom,Germany,United Kingdom,False,6,0.2542372881355932,206,106
+2016-2019,israel,italy,Israel,Italy,False,6,0.2542372881355932,60,208
+2016-2019,italy,sweden,Italy,Sweden,False,6,0.2542372881355932,208,94
+2016-2019,slovenia,slovenia,Slovenia,Slovenia,True,6,0.2542372881355932,35,35
+2016-2019,slovenia,united states,Slovenia,United States,False,6,0.2542372881355932,35,655
+2016-2019,australia,canada,Australia,Canada,False,5,0.211864406779661,176,121
+2016-2019,australia,germany,Australia,Germany,False,5,0.211864406779661,176,206
+2016-2019,australia,india,Australia,India,False,5,0.211864406779661,176,92
+2016-2019,austria,france,Austria,France,False,5,0.211864406779661,103,121
+2016-2019,austria,greece,Austria,Greece,False,5,0.211864406779661,103,57
+2016-2019,belgium,greece,Belgium,Greece,False,5,0.211864406779661,105,57
+2016-2019,belgium,portugal,Belgium,Portugal,False,5,0.211864406779661,105,44
+2016-2019,belgium,united states,Belgium,United States,False,5,0.211864406779661,105,655
+2016-2019,brazil,sweden,Brazil,Sweden,False,5,0.211864406779661,50,94
+2016-2019,canada,china,Canada,China,False,5,0.211864406779661,121,206
+2016-2019,finland,france,Finland,France,False,5,0.211864406779661,33,121
+2016-2019,germany,greece,Germany,Greece,False,5,0.211864406779661,206,57
+2016-2019,germany,israel,Germany,Israel,False,5,0.211864406779661,206,60
+2016-2019,germany,portugal,Germany,Portugal,False,5,0.211864406779661,206,44
+2016-2019,germany,slovenia,Germany,Slovenia,False,5,0.211864406779661,206,35
+2016-2019,germany,sweden,Germany,Sweden,False,5,0.211864406779661,206,94
+2016-2019,india,malaysia,India,Malaysia,False,5,0.211864406779661,92,26
+2016-2019,ireland,ireland,Ireland,Ireland,True,5,0.211864406779661,30,30
+2016-2019,israel,slovenia,Israel,Slovenia,False,5,0.211864406779661,60,35
+2016-2019,italy,united kingdom,Italy,United Kingdom,False,5,0.211864406779661,208,106
+2016-2019,japan,united states,Japan,United States,False,5,0.211864406779661,42,655
+2016-2019,lebanon,lebanon,Lebanon,Lebanon,True,5,0.211864406779661,12,12
+2016-2019,netherlands,united states,Netherlands,United States,False,5,0.211864406779661,29,655
+2016-2019,portugal,spain,Portugal,Spain,False,5,0.211864406779661,44,156
+2016-2019,singapore,united kingdom,Singapore,United Kingdom,False,5,0.211864406779661,76,106
+2016-2019,spain,united states,Spain,United States,False,5,0.211864406779661,156,655
+2016-2019,australia,denmark,Australia,Denmark,False,4,0.1694915254237288,176,51
+2016-2019,australia,italy,Australia,Italy,False,4,0.1694915254237288,176,208
+2016-2019,australia,mexico,Australia,Mexico,False,4,0.1694915254237288,176,37
+2016-2019,austria,ireland,Austria,Ireland,False,4,0.1694915254237288,103,30
+2016-2019,austria,israel,Austria,Israel,False,4,0.1694915254237288,103,60
+2016-2019,austria,singapore,Austria,Singapore,False,4,0.1694915254237288,103,76
+2016-2019,austria,ukraine,Austria,Ukraine,False,4,0.1694915254237288,103,32
+2016-2019,bangladesh,bangladesh,Bangladesh,Bangladesh,True,4,0.1694915254237288,4,4
+2016-2019,belgium,poland,Belgium,Poland,False,4,0.1694915254237288,105,48
+2016-2019,belgium,sweden,Belgium,Sweden,False,4,0.1694915254237288,105,94
+2016-2019,belgium,ukraine,Belgium,Ukraine,False,4,0.1694915254237288,105,32
+2016-2019,brazil,united kingdom,Brazil,United Kingdom,False,4,0.1694915254237288,50,106
+2016-2019,canada,france,Canada,France,False,4,0.1694915254237288,121,121
+2016-2019,canada,germany,Canada,Germany,False,4,0.1694915254237288,121,206
+2016-2019,canada,norway,Canada,Norway,False,4,0.1694915254237288,121,54
+2016-2019,canada,united kingdom,Canada,United Kingdom,False,4,0.1694915254237288,121,106
+2016-2019,china,republic of korea,China,Republic OF Korea,False,4,0.1694915254237288,206,35
+2016-2019,china,singapore,China,Singapore,False,4,0.1694915254237288,206,76
+2016-2019,colombia,colombia,Colombia,Colombia,True,4,0.1694915254237288,4,4
+2016-2019,denmark,italy,Denmark,Italy,False,4,0.1694915254237288,51,208
+2016-2019,denmark,united states,Denmark,United States,False,4,0.1694915254237288,51,655
+2016-2019,egypt,egypt,Egypt,Egypt,True,4,0.1694915254237288,11,11
+2016-2019,egypt,united states,Egypt,United States,False,4,0.1694915254237288,11,655
+2016-2019,finland,italy,Finland,Italy,False,4,0.1694915254237288,33,208
+2016-2019,finland,spain,Finland,Spain,False,4,0.1694915254237288,33,156
+2016-2019,france,switzerland,France,Switzerland,False,4,0.1694915254237288,121,92
+2016-2019,georgia,georgia,Georgia,Georgia,True,4,0.1694915254237288,4,4
+2016-2019,germany,ireland,Germany,Ireland,False,4,0.1694915254237288,206,30
+2016-2019,germany,poland,Germany,Poland,False,4,0.1694915254237288,206,48
+2016-2019,germany,singapore,Germany,Singapore,False,4,0.1694915254237288,206,76
+2016-2019,germany,ukraine,Germany,Ukraine,False,4,0.1694915254237288,206,32
+2016-2019,greece,spain,Greece,Spain,False,4,0.1694915254237288,57,156
+2016-2019,greece,switzerland,Greece,Switzerland,False,4,0.1694915254237288,57,92
+2016-2019,india,singapore,India,Singapore,False,4,0.1694915254237288,92,76
+2016-2019,india,spain,India,Spain,False,4,0.1694915254237288,92,156
+2016-2019,ireland,united kingdom,Ireland,United Kingdom,False,4,0.1694915254237288,30,106
+2016-2019,ireland,united states,Ireland,United States,False,4,0.1694915254237288,30,655
+2016-2019,italy,japan,Italy,Japan,False,4,0.1694915254237288,208,42
+2016-2019,italy,netherlands,Italy,Netherlands,False,4,0.1694915254237288,208,29
+2016-2019,italy,portugal,Italy,Portugal,False,4,0.1694915254237288,208,44
+2016-2019,italy,slovenia,Italy,Slovenia,False,4,0.1694915254237288,208,35
+2016-2019,italy,ukraine,Italy,Ukraine,False,4,0.1694915254237288,208,32
+2016-2019,lebanon,united states,Lebanon,United States,False,4,0.1694915254237288,12,655
+2016-2019,peru,peru,Peru,Peru,True,4,0.1694915254237288,8,8
+2016-2019,peru,united states,Peru,United States,False,4,0.1694915254237288,8,655
+2016-2019,poland,switzerland,Poland,Switzerland,False,4,0.1694915254237288,48,92
+2016-2019,portugal,switzerland,Portugal,Switzerland,False,4,0.1694915254237288,44,92
+2016-2019,saudi arabia,united states,Saudi Arabia,United States,False,4,0.1694915254237288,34,655
+2016-2019,south africa,south africa,South Africa,South Africa,True,4,0.1694915254237288,7,7
+2016-2019,spain,sweden,Spain,Sweden,False,4,0.1694915254237288,156,94
+2016-2019,spain,united kingdom,Spain,United Kingdom,False,4,0.1694915254237288,156,106
+2016-2019,sweden,united kingdom,Sweden,United Kingdom,False,4,0.1694915254237288,94,106
+2016-2019,switzerland,ukraine,Switzerland,Ukraine,False,4,0.1694915254237288,92,32
+2016-2019,argentina,argentina,Argentina,Argentina,True,3,0.1271186440677966,3,3
+2016-2019,australia,austria,Australia,Austria,False,3,0.1271186440677966,176,103
+2016-2019,australia,france,Australia,France,False,3,0.1271186440677966,176,121
+2016-2019,australia,sweden,Australia,Sweden,False,3,0.1271186440677966,176,94
+2016-2019,australia,switzerland,Australia,Switzerland,False,3,0.1271186440677966,176,92
+2016-2019,austria,denmark,Austria,Denmark,False,3,0.1271186440677966,103,51
+2016-2019,austria,portugal,Austria,Portugal,False,3,0.1271186440677966,103,44
+2016-2019,austria,slovenia,Austria,Slovenia,False,3,0.1271186440677966,103,35
+2016-2019,austria,sweden,Austria,Sweden,False,3,0.1271186440677966,103,94
+2016-2019,austria,united kingdom,Austria,United Kingdom,False,3,0.1271186440677966,103,106
+2016-2019,belgium,brazil,Belgium,Brazil,False,3,0.1271186440677966,105,50
+2016-2019,belgium,hungary,Belgium,Hungary,False,3,0.1271186440677966,105,12
+2016-2019,belgium,israel,Belgium,Israel,False,3,0.1271186440677966,105,60
+2016-2019,belgium,netherlands,Belgium,Netherlands,False,3,0.1271186440677966,105,29
+2016-2019,belgium,philippines,Belgium,Philippines,False,3,0.1271186440677966,105,6
+2016-2019,belgium,romania,Belgium,Romania,False,3,0.1271186440677966,105,3
+2016-2019,belgium,united kingdom,Belgium,United Kingdom,False,3,0.1271186440677966,105,106
+2016-2019,brazil,germany,Brazil,Germany,False,3,0.1271186440677966,50,206
+2016-2019,brazil,spain,Brazil,Spain,False,3,0.1271186440677966,50,156
+2016-2019,canada,lebanon,Canada,Lebanon,False,3,0.1271186440677966,121,12
+2016-2019,canada,netherlands,Canada,Netherlands,False,3,0.1271186440677966,121,29
+2016-2019,canada,new zealand,Canada,NEW Zealand,False,3,0.1271186440677966,121,24
+2016-2019,canada,republic of korea,Canada,Republic OF Korea,False,3,0.1271186440677966,121,35
+2016-2019,canada,saudi arabia,Canada,Saudi Arabia,False,3,0.1271186440677966,121,34
+2016-2019,canada,singapore,Canada,Singapore,False,3,0.1271186440677966,121,76
+2016-2019,canada,sweden,Canada,Sweden,False,3,0.1271186440677966,121,94
+2016-2019,canada,united arab emirates,Canada,United Arab Emirates,False,3,0.1271186440677966,121,3
+2016-2019,china,denmark,China,Denmark,False,3,0.1271186440677966,206,51
+2016-2019,china,mexico,China,Mexico,False,3,0.1271186440677966,206,37
+2016-2019,croatia,germany,Croatia,Germany,False,3,0.1271186440677966,15,206
+2016-2019,croatia,israel,Croatia,Israel,False,3,0.1271186440677966,15,60
+2016-2019,croatia,italy,Croatia,Italy,False,3,0.1271186440677966,15,208
+2016-2019,croatia,poland,Croatia,Poland,False,3,0.1271186440677966,15,48
+2016-2019,croatia,slovenia,Croatia,Slovenia,False,3,0.1271186440677966,15,35
+2016-2019,cyprus,italy,Cyprus,Italy,False,3,0.1271186440677966,6,208
+2016-2019,cyprus,united states,Cyprus,United States,False,3,0.1271186440677966,6,655
+2016-2019,czech republic,norway,Czech Republic,Norway,False,3,0.1271186440677966,3,54
+2016-2019,denmark,germany,Denmark,Germany,False,3,0.1271186440677966,51,206
+2016-2019,denmark,ireland,Denmark,Ireland,False,3,0.1271186440677966,51,30
+2016-2019,egypt,saudi arabia,Egypt,Saudi Arabia,False,3,0.1271186440677966,11,34
+2016-2019,ethiopia,germany,Ethiopia,Germany,False,3,0.1271186440677966,3,206
+2016-2019,finland,germany,Finland,Germany,False,3,0.1271186440677966,33,206
+2016-2019,france,hungary,France,Hungary,False,3,0.1271186440677966,121,12
+2016-2019,france,japan,France,Japan,False,3,0.1271186440677966,121,42
+2016-2019,france,netherlands,France,Netherlands,False,3,0.1271186440677966,121,29
+2016-2019,germany,hungary,Germany,Hungary,False,3,0.1271186440677966,206,12
+2016-2019,germany,mexico,Germany,Mexico,False,3,0.1271186440677966,206,37
+2016-2019,germany,norway,Germany,Norway,False,3,0.1271186440677966,206,54
+2016-2019,germany,saudi arabia,Germany,Saudi Arabia,False,3,0.1271186440677966,206,34
+2016-2019,greece,ireland,Greece,Ireland,False,3,0.1271186440677966,57,30
+2016-2019,greece,portugal,Greece,Portugal,False,3,0.1271186440677966,57,44
+2016-2019,greece,sweden,Greece,Sweden,False,3,0.1271186440677966,57,94
+2016-2019,greece,ukraine,Greece,Ukraine,False,3,0.1271186440677966,57,32
+2016-2019,greece,united states,Greece,United States,False,3,0.1271186440677966,57,655
+2016-2019,hungary,hungary,Hungary,Hungary,True,3,0.1271186440677966,12,12
+2016-2019,india,italy,India,Italy,False,3,0.1271186440677966,92,208
+2016-2019,india,united kingdom,India,United Kingdom,False,3,0.1271186440677966,92,106
+2016-2019,ireland,italy,Ireland,Italy,False,3,0.1271186440677966,30,208
+2016-2019,israel,poland,Israel,Poland,False,3,0.1271186440677966,60,48
+2016-2019,israel,spain,Israel,Spain,False,3,0.1271186440677966,60,156
+2016-2019,israel,switzerland,Israel,Switzerland,False,3,0.1271186440677966,60,92
+2016-2019,italy,poland,Italy,Poland,False,3,0.1271186440677966,208,48
+2016-2019,italy,saudi arabia,Italy,Saudi Arabia,False,3,0.1271186440677966,208,34
+2016-2019,kenya,kenya,Kenya,Kenya,True,3,0.1271186440677966,3,3
+2016-2019,malaysia,singapore,Malaysia,Singapore,False,3,0.1271186440677966,26,76
+2016-2019,malta,malta,Malta,Malta,True,3,0.1271186440677966,3,3
+2016-2019,mexico,singapore,Mexico,Singapore,False,3,0.1271186440677966,37,76
+2016-2019,netherlands,united kingdom,Netherlands,United Kingdom,False,3,0.1271186440677966,29,106
+2016-2019,norway,spain,Norway,Spain,False,3,0.1271186440677966,54,156
+2016-2019,philippines,philippines,Philippines,Philippines,True,3,0.1271186440677966,6,6
+2016-2019,poland,slovenia,Poland,Slovenia,False,3,0.1271186440677966,48,35
+2016-2019,poland,spain,Poland,Spain,False,3,0.1271186440677966,48,156
+2016-2019,poland,sweden,Poland,Sweden,False,3,0.1271186440677966,48,94
+2016-2019,portugal,sweden,Portugal,Sweden,False,3,0.1271186440677966,44,94
+2016-2019,portugal,ukraine,Portugal,Ukraine,False,3,0.1271186440677966,44,32
+2016-2019,qatar,qatar,Qatar,Qatar,True,3,0.1271186440677966,6,6
+2016-2019,qatar,united states,Qatar,United States,False,3,0.1271186440677966,6,655
+2016-2019,russian federation,russian federation,Russian Federation,Russian Federation,True,3,0.1271186440677966,3,3
+2016-2019,saudi arabia,united kingdom,Saudi Arabia,United Kingdom,False,3,0.1271186440677966,34,106
+2016-2019,singapore,switzerland,Singapore,Switzerland,False,3,0.1271186440677966,76,92
+2016-2019,south africa,united states,South Africa,United States,False,3,0.1271186440677966,7,655
+2016-2019,spain,ukraine,Spain,Ukraine,False,3,0.1271186440677966,156,32
+2016-2019,sweden,switzerland,Sweden,Switzerland,False,3,0.1271186440677966,94,92
+2016-2019,thailand,united states,Thailand,United States,False,3,0.1271186440677966,11,655
+2016-2019,turkey,united kingdom,Turkey,United Kingdom,False,3,0.1271186440677966,11,106
+2016-2019,ukraine,ukraine,Ukraine,Ukraine,True,3,0.1271186440677966,32,32
+2020-2021,united states,united states,United States,United States,True,489,18.137982195845698,919,919
+2020-2021,china,china,China,China,True,291,10.793768545994066,449,449
+2020-2021,india,india,India,India,True,98,3.635014836795252,183,183
+2020-2021,spain,spain,Spain,Spain,True,94,3.486646884272997,198,198
+2020-2021,australia,australia,Australia,Australia,True,73,2.707715133531157,203,203
+2020-2021,germany,germany,Germany,Germany,True,68,2.522255192878338,280,280
+2020-2021,italy,italy,Italy,Italy,True,68,2.522255192878338,196,196
+2020-2021,china,united states,China,United States,False,61,2.2626112759643915,449,919
+2020-2021,united kingdom,united kingdom,United Kingdom,United Kingdom,True,55,2.040059347181009,195,195
+2020-2021,canada,canada,Canada,Canada,True,53,1.9658753709198813,149,149
+2020-2021,singapore,singapore,Singapore,Singapore,True,51,1.8916913946587537,154,154
+2020-2021,france,france,France,France,True,44,1.632047477744807,147,147
+2020-2021,japan,japan,Japan,Japan,True,36,1.3353115727002967,56,56
+2020-2021,brazil,brazil,Brazil,Brazil,True,35,1.2982195845697329,69,69
+2020-2021,republic of korea,republic of korea,Republic OF Korea,Republic OF Korea,True,34,1.261127596439169,57,57
+2020-2021,denmark,denmark,Denmark,Denmark,True,32,1.1869436201780414,101,101
+2020-2021,iran,iran,Iran,Iran,True,32,1.1869436201780414,40,40
+2020-2021,sweden,sweden,Sweden,Sweden,True,32,1.1869436201780414,112,112
+2020-2021,germany,united states,Germany,United States,False,29,1.07566765578635,280,919
+2020-2021,canada,united states,Canada,United States,False,26,0.9643916913946587,149,919
+2020-2021,saudi arabia,saudi arabia,Saudi Arabia,Saudi Arabia,True,24,0.8902077151335311,60,60
+2020-2021,australia,china,Australia,China,False,23,0.8531157270029673,203,449
+2020-2021,israel,israel,Israel,Israel,True,23,0.8531157270029673,40,40
+2020-2021,poland,poland,Poland,Poland,True,22,0.8160237388724035,55,55
+2020-2021,australia,united states,Australia,United States,False,20,0.7418397626112759,203,919
+2020-2021,united kingdom,united states,United Kingdom,United States,False,20,0.7418397626112759,195,919
+2020-2021,norway,norway,Norway,Norway,True,19,0.7047477744807121,70,70
+2020-2021,india,united states,India,United States,False,18,0.6676557863501483,183,919
+2020-2021,italy,united states,Italy,United States,False,18,0.6676557863501483,196,919
+2020-2021,austria,austria,Austria,Austria,True,17,0.6305637982195845,67,67
+2020-2021,mexico,mexico,Mexico,Mexico,True,17,0.6305637982195845,24,24
+2020-2021,portugal,portugal,Portugal,Portugal,True,17,0.6305637982195845,33,33
+2020-2021,switzerland,switzerland,Switzerland,Switzerland,True,16,0.5934718100890207,89,89
+2020-2021,spain,united states,Spain,United States,False,15,0.5563798219584569,198,919
+2020-2021,switzerland,united states,Switzerland,United States,False,15,0.5563798219584569,89,919
+2020-2021,france,germany,France,Germany,False,14,0.5192878338278932,147,280
+2020-2021,germany,italy,Germany,Italy,False,14,0.5192878338278932,280,196
+2020-2021,greece,greece,Greece,Greece,True,14,0.5192878338278932,32,32
+2020-2021,malaysia,malaysia,Malaysia,Malaysia,True,14,0.5192878338278932,20,20
+2020-2021,new zealand,new zealand,NEW Zealand,NEW Zealand,True,14,0.5192878338278932,24,24
+2020-2021,singapore,united states,Singapore,United States,False,14,0.5192878338278932,154,919
+2020-2021,belgium,belgium,Belgium,Belgium,True,13,0.4821958456973294,86,86
+2020-2021,china,singapore,China,Singapore,False,13,0.4821958456973294,449,154
+2020-2021,sweden,united states,Sweden,United States,False,13,0.4821958456973294,112,919
+2020-2021,denmark,united states,Denmark,United States,False,12,0.44510385756676557,101,919
+2020-2021,finland,finland,Finland,Finland,True,12,0.44510385756676557,48,48
+2020-2021,ireland,ireland,Ireland,Ireland,True,12,0.44510385756676557,42,42
+2020-2021,italy,spain,Italy,Spain,False,12,0.44510385756676557,196,198
+2020-2021,thailand,thailand,Thailand,Thailand,True,12,0.44510385756676557,31,31
+2020-2021,australia,germany,Australia,Germany,False,11,0.40801186943620177,203,280
+2020-2021,australia,singapore,Australia,Singapore,False,11,0.40801186943620177,203,154
+2020-2021,belgium,united states,Belgium,United States,False,11,0.40801186943620177,86,919
+2020-2021,germany,spain,Germany,Spain,False,11,0.40801186943620177,280,198
+2020-2021,israel,united states,Israel,United States,False,11,0.40801186943620177,40,919
+2020-2021,japan,united states,Japan,United States,False,11,0.40801186943620177,56,919
+2020-2021,norway,united states,Norway,United States,False,11,0.40801186943620177,70,919
+2020-2021,qatar,qatar,Qatar,Qatar,True,11,0.40801186943620177,25,25
+2020-2021,austria,united states,Austria,United States,False,10,0.37091988130563797,67,919
+2020-2021,china,germany,China,Germany,False,10,0.37091988130563797,449,280
+2020-2021,france,italy,France,Italy,False,10,0.37091988130563797,147,196
+2020-2021,france,united states,France,United States,False,10,0.37091988130563797,147,919
+2020-2021,germany,switzerland,Germany,Switzerland,False,10,0.37091988130563797,280,89
+2020-2021,netherlands,netherlands,Netherlands,Netherlands,True,10,0.37091988130563797,14,14
+2020-2021,switzerland,united kingdom,Switzerland,United Kingdom,False,10,0.37091988130563797,89,195
+2020-2021,turkey,turkey,Turkey,Turkey,True,10,0.37091988130563797,28,28
+2020-2021,australia,india,Australia,India,False,9,0.33382789317507416,203,183
+2020-2021,australia,sweden,Australia,Sweden,False,9,0.33382789317507416,203,112
+2020-2021,australia,united kingdom,Australia,United Kingdom,False,9,0.33382789317507416,203,195
+2020-2021,belgium,france,Belgium,France,False,9,0.33382789317507416,86,147
+2020-2021,belgium,germany,Belgium,Germany,False,9,0.33382789317507416,86,280
+2020-2021,france,spain,France,Spain,False,9,0.33382789317507416,147,198
+2020-2021,germany,singapore,Germany,Singapore,False,9,0.33382789317507416,280,154
+2020-2021,india,singapore,India,Singapore,False,9,0.33382789317507416,183,154
+2020-2021,pakistan,saudi arabia,Pakistan,Saudi Arabia,False,9,0.33382789317507416,25,60
+2020-2021,republic of korea,united states,Republic OF Korea,United States,False,9,0.33382789317507416,57,919
+2020-2021,slovenia,slovenia,Slovenia,Slovenia,True,9,0.33382789317507416,29,29
+2020-2021,sweden,united kingdom,Sweden,United Kingdom,False,9,0.33382789317507416,112,195
+2020-2021,belgium,italy,Belgium,Italy,False,8,0.29673590504451036,86,196
+2020-2021,canada,china,Canada,China,False,8,0.29673590504451036,149,449
+2020-2021,canada,singapore,Canada,Singapore,False,8,0.29673590504451036,149,154
+2020-2021,chile,chile,Chile,Chile,True,8,0.29673590504451036,8,8
+2020-2021,china,india,China,India,False,8,0.29673590504451036,449,183
+2020-2021,colombia,colombia,Colombia,Colombia,True,8,0.29673590504451036,14,14
+2020-2021,denmark,germany,Denmark,Germany,False,8,0.29673590504451036,101,280
+2020-2021,germany,united kingdom,Germany,United Kingdom,False,8,0.29673590504451036,280,195
+2020-2021,italy,united kingdom,Italy,United Kingdom,False,8,0.29673590504451036,196,195
+2020-2021,pakistan,pakistan,Pakistan,Pakistan,True,8,0.29673590504451036,25,25
+2020-2021,poland,united states,Poland,United States,False,8,0.29673590504451036,55,919
+2020-2021,qatar,united states,Qatar,United States,False,8,0.29673590504451036,25,919
+2020-2021,spain,united kingdom,Spain,United Kingdom,False,8,0.29673590504451036,198,195
+2020-2021,thailand,united states,Thailand,United States,False,8,0.29673590504451036,31,919
+2020-2021,austria,germany,Austria,Germany,False,7,0.2596439169139466,67,280
+2020-2021,austria,switzerland,Austria,Switzerland,False,7,0.2596439169139466,67,89
+2020-2021,bangladesh,bangladesh,Bangladesh,Bangladesh,True,7,0.2596439169139466,17,17
+2020-2021,belgium,spain,Belgium,Spain,False,7,0.2596439169139466,86,198
+2020-2021,brazil,united states,Brazil,United States,False,7,0.2596439169139466,69,919
+2020-2021,canada,germany,Canada,Germany,False,7,0.2596439169139466,149,280
+2020-2021,canada,united kingdom,Canada,United Kingdom,False,7,0.2596439169139466,149,195
+2020-2021,germany,sweden,Germany,Sweden,False,7,0.2596439169139466,280,112
+2020-2021,mexico,united states,Mexico,United States,False,7,0.2596439169139466,24,919
+2020-2021,portugal,spain,Portugal,Spain,False,7,0.2596439169139466,33,198
+2020-2021,saudi arabia,united states,Saudi Arabia,United States,False,7,0.2596439169139466,60,919
+2020-2021,singapore,switzerland,Singapore,Switzerland,False,7,0.2596439169139466,154,89
+2020-2021,south africa,south africa,South Africa,South Africa,True,7,0.2596439169139466,14,14
+2020-2021,australia,denmark,Australia,Denmark,False,6,0.22255192878338279,203,101
+2020-2021,australia,new zealand,Australia,NEW Zealand,False,6,0.22255192878338279,203,24
+2020-2021,austria,france,Austria,France,False,6,0.22255192878338279,67,147
+2020-2021,brazil,spain,Brazil,Spain,False,6,0.22255192878338279,69,198
+2020-2021,canada,india,Canada,India,False,6,0.22255192878338279,149,183
+2020-2021,china,republic of korea,China,Republic OF Korea,False,6,0.22255192878338279,449,57
+2020-2021,denmark,sweden,Denmark,Sweden,False,6,0.22255192878338279,101,112
+2020-2021,germany,hungary,Germany,Hungary,False,6,0.22255192878338279,280,21
+2020-2021,germany,ireland,Germany,Ireland,False,6,0.22255192878338279,280,42
+2020-2021,hungary,hungary,Hungary,Hungary,True,6,0.22255192878338279,21,21
+2020-2021,indonesia,indonesia,Indonesia,Indonesia,True,6,0.22255192878338279,6,6
+2020-2021,saudi arabia,united kingdom,Saudi Arabia,United Kingdom,False,6,0.22255192878338279,60,195
+2020-2021,australia,belgium,Australia,Belgium,False,5,0.18545994065281898,203,86
+2020-2021,australia,ireland,Australia,Ireland,False,5,0.18545994065281898,203,42
+2020-2021,belgium,ireland,Belgium,Ireland,False,5,0.18545994065281898,86,42
+2020-2021,canada,france,Canada,France,False,5,0.18545994065281898,149,147
+2020-2021,canada,iran,Canada,Iran,False,5,0.18545994065281898,149,40
+2020-2021,canada,italy,Canada,Italy,False,5,0.18545994065281898,149,196
+2020-2021,china,pakistan,China,Pakistan,False,5,0.18545994065281898,449,25
+2020-2021,china,united kingdom,China,United Kingdom,False,5,0.18545994065281898,449,195
+2020-2021,denmark,italy,Denmark,Italy,False,5,0.18545994065281898,101,196
+2020-2021,denmark,switzerland,Denmark,Switzerland,False,5,0.18545994065281898,101,89
+2020-2021,finland,sweden,Finland,Sweden,False,5,0.18545994065281898,48,112
+2020-2021,france,sweden,France,Sweden,False,5,0.18545994065281898,147,112
+2020-2021,france,turkey,France,Turkey,False,5,0.18545994065281898,147,28
+2020-2021,france,united kingdom,France,United Kingdom,False,5,0.18545994065281898,147,195
+2020-2021,germany,india,Germany,India,False,5,0.18545994065281898,280,183
+2020-2021,germany,norway,Germany,Norway,False,5,0.18545994065281898,280,70
+2020-2021,india,saudi arabia,India,Saudi Arabia,False,5,0.18545994065281898,183,60
+2020-2021,ireland,united states,Ireland,United States,False,5,0.18545994065281898,42,919
+2020-2021,italy,norway,Italy,Norway,False,5,0.18545994065281898,196,70
+2020-2021,poland,singapore,Poland,Singapore,False,5,0.18545994065281898,55,154
+2020-2021,republic of korea,singapore,Republic OF Korea,Singapore,False,5,0.18545994065281898,57,154
+2020-2021,romania,romania,Romania,Romania,True,5,0.18545994065281898,5,5
+2020-2021,serbia,serbia,Serbia,Serbia,True,5,0.18545994065281898,5,5
+2020-2021,singapore,thailand,Singapore,Thailand,False,5,0.18545994065281898,154,31
+2020-2021,singapore,united kingdom,Singapore,United Kingdom,False,5,0.18545994065281898,154,195
+2020-2021,sweden,switzerland,Sweden,Switzerland,False,5,0.18545994065281898,112,89
+2020-2021,viet nam,viet nam,Viet NAM,Viet NAM,True,5,0.18545994065281898,5,5
+2020-2021,australia,brazil,Australia,Brazil,False,4,0.14836795252225518,203,69
+2020-2021,austria,italy,Austria,Italy,False,4,0.14836795252225518,67,196
+2020-2021,austria,sweden,Austria,Sweden,False,4,0.14836795252225518,67,112
+2020-2021,bangladesh,united states,Bangladesh,United States,False,4,0.14836795252225518,17,919
+2020-2021,belgium,china,Belgium,China,False,4,0.14836795252225518,86,449
+2020-2021,belgium,norway,Belgium,Norway,False,4,0.14836795252225518,86,70
+2020-2021,belgium,sweden,Belgium,Sweden,False,4,0.14836795252225518,86,112
+2020-2021,belgium,united kingdom,Belgium,United Kingdom,False,4,0.14836795252225518,86,195
+2020-2021,brazil,germany,Brazil,Germany,False,4,0.14836795252225518,69,280
+2020-2021,brazil,italy,Brazil,Italy,False,4,0.14836795252225518,69,196
+2020-2021,canada,switzerland,Canada,Switzerland,False,4,0.14836795252225518,149,89
+2020-2021,denmark,finland,Denmark,Finland,False,4,0.14836795252225518,101,48
+2020-2021,denmark,france,Denmark,France,False,4,0.14836795252225518,101,147
+2020-2021,denmark,norway,Denmark,Norway,False,4,0.14836795252225518,101,70
+2020-2021,egypt,united states,Egypt,United States,False,4,0.14836795252225518,7,919
+2020-2021,finland,germany,Finland,Germany,False,4,0.14836795252225518,48,280
+2020-2021,finland,united kingdom,Finland,United Kingdom,False,4,0.14836795252225518,48,195
+2020-2021,finland,united states,Finland,United States,False,4,0.14836795252225518,48,919
+2020-2021,germany,greece,Germany,Greece,False,4,0.14836795252225518,280,32
+2020-2021,germany,poland,Germany,Poland,False,4,0.14836795252225518,280,55
+2020-2021,germany,slovenia,Germany,Slovenia,False,4,0.14836795252225518,280,29
+2020-2021,germany,turkey,Germany,Turkey,False,4,0.14836795252225518,280,28
+2020-2021,greece,italy,Greece,Italy,False,4,0.14836795252225518,32,196
+2020-2021,greece,united states,Greece,United States,False,4,0.14836795252225518,32,919
+2020-2021,india,italy,India,Italy,False,4,0.14836795252225518,183,196
+2020-2021,jordan,jordan,Jordan,Jordan,True,4,0.14836795252225518,4,4
+2020-2021,netherlands,united kingdom,Netherlands,United Kingdom,False,4,0.14836795252225518,14,195
+2020-2021,new zealand,united states,NEW Zealand,United States,False,4,0.14836795252225518,24,919
+2020-2021,norway,spain,Norway,Spain,False,4,0.14836795252225518,70,198
+2020-2021,norway,sweden,Norway,Sweden,False,4,0.14836795252225518,70,112
+2020-2021,norway,switzerland,Norway,Switzerland,False,4,0.14836795252225518,70,89
+2020-2021,norway,united kingdom,Norway,United Kingdom,False,4,0.14836795252225518,70,195
+2020-2021,peru,peru,Peru,Peru,True,4,0.14836795252225518,7,7
+2020-2021,poland,spain,Poland,Spain,False,4,0.14836795252225518,55,198
+2020-2021,slovenia,united states,Slovenia,United States,False,4,0.14836795252225518,29,919
+2020-2021,south africa,united states,South Africa,United States,False,4,0.14836795252225518,14,919
+2020-2021,united arab emirates,united arab emirates,United Arab Emirates,United Arab Emirates,True,4,0.14836795252225518,7,7
+2020-2021,australia,canada,Australia,Canada,False,3,0.11127596439169139,203,149
+2020-2021,australia,finland,Australia,Finland,False,3,0.11127596439169139,203,48
+2020-2021,australia,qatar,Australia,Qatar,False,3,0.11127596439169139,203,25
+2020-2021,australia,spain,Australia,Spain,False,3,0.11127596439169139,203,198
+2020-2021,austria,singapore,Austria,Singapore,False,3,0.11127596439169139,67,154
+2020-2021,austria,slovenia,Austria,Slovenia,False,3,0.11127596439169139,67,29
+2020-2021,austria,turkey,Austria,Turkey,False,3,0.11127596439169139,67,28
+2020-2021,austria,united kingdom,Austria,United Kingdom,False,3,0.11127596439169139,67,195
+2020-2021,bangladesh,germany,Bangladesh,Germany,False,3,0.11127596439169139,17,280
+2020-2021,bangladesh,japan,Bangladesh,Japan,False,3,0.11127596439169139,17,56
+2020-2021,belgium,finland,Belgium,Finland,False,3,0.11127596439169139,86,48
+2020-2021,brazil,peru,Brazil,Peru,False,3,0.11127596439169139,69,7
+2020-2021,brazil,switzerland,Brazil,Switzerland,False,3,0.11127596439169139,69,89
+2020-2021,brazil,united kingdom,Brazil,United Kingdom,False,3,0.11127596439169139,69,195
+2020-2021,canada,finland,Canada,Finland,False,3,0.11127596439169139,149,48
+2020-2021,canada,norway,Canada,Norway,False,3,0.11127596439169139,149,70
+2020-2021,canada,spain,Canada,Spain,False,3,0.11127596439169139,149,198
+2020-2021,canada,sweden,Canada,Sweden,False,3,0.11127596439169139,149,112
+2020-2021,china,colombia,China,Colombia,False,3,0.11127596439169139,449,14
+2020-2021,china,denmark,China,Denmark,False,3,0.11127596439169139,449,101
+2020-2021,china,france,China,France,False,3,0.11127596439169139,449,147
+2020-2021,china,italy,China,Italy,False,3,0.11127596439169139,449,196
+2020-2021,china,saudi arabia,China,Saudi Arabia,False,3,0.11127596439169139,449,60
+2020-2021,colombia,united states,Colombia,United States,False,3,0.11127596439169139,14,919
+2020-2021,croatia,croatia,Croatia,Croatia,True,3,0.11127596439169139,9,9
+2020-2021,croatia,germany,Croatia,Germany,False,3,0.11127596439169139,9,280
+2020-2021,croatia,turkey,Croatia,Turkey,False,3,0.11127596439169139,9,28
+2020-2021,cyprus,greece,Cyprus,Greece,False,3,0.11127596439169139,6,32
+2020-2021,cyprus,italy,Cyprus,Italy,False,3,0.11127596439169139,6,196
+2020-2021,denmark,ireland,Denmark,Ireland,False,3,0.11127596439169139,101,42
+2020-2021,denmark,singapore,Denmark,Singapore,False,3,0.11127596439169139,101,154
+2020-2021,denmark,spain,Denmark,Spain,False,3,0.11127596439169139,101,198
+2020-2021,denmark,united kingdom,Denmark,United Kingdom,False,3,0.11127596439169139,101,195
+2020-2021,egypt,saudi arabia,Egypt,Saudi Arabia,False,3,0.11127596439169139,7,60
+2020-2021,finland,france,Finland,France,False,3,0.11127596439169139,48,147
+2020-2021,finland,spain,Finland,Spain,False,3,0.11127596439169139,48,198
+2020-2021,france,hungary,France,Hungary,False,3,0.11127596439169139,147,21
+2020-2021,france,ireland,France,Ireland,False,3,0.11127596439169139,147,42
+2020-2021,france,norway,France,Norway,False,3,0.11127596439169139,147,70
+2020-2021,france,portugal,France,Portugal,False,3,0.11127596439169139,147,33
+2020-2021,france,singapore,France,Singapore,False,3,0.11127596439169139,147,154
+2020-2021,georgia,georgia,Georgia,Georgia,True,3,0.11127596439169139,3,3
+2020-2021,germany,ghana,Germany,Ghana,False,3,0.11127596439169139,280,6
+2020-2021,germany,saudi arabia,Germany,Saudi Arabia,False,3,0.11127596439169139,280,60
+2020-2021,ghana,united states,Ghana,United States,False,3,0.11127596439169139,6,919
+2020-2021,greece,united kingdom,Greece,United Kingdom,False,3,0.11127596439169139,32,195
+2020-2021,hungary,india,Hungary,India,False,3,0.11127596439169139,21,183
+2020-2021,hungary,united states,Hungary,United States,False,3,0.11127596439169139,21,919
+2020-2021,india,malaysia,India,Malaysia,False,3,0.11127596439169139,183,20
+2020-2021,india,pakistan,India,Pakistan,False,3,0.11127596439169139,183,25
+2020-2021,india,republic of korea,India,Republic OF Korea,False,3,0.11127596439169139,183,57
+2020-2021,india,slovenia,India,Slovenia,False,3,0.11127596439169139,183,29
+2020-2021,india,thailand,India,Thailand,False,3,0.11127596439169139,183,31
+2020-2021,india,united kingdom,India,United Kingdom,False,3,0.11127596439169139,183,195
+2020-2021,iran,united states,Iran,United States,False,3,0.11127596439169139,40,919
+2020-2021,iraq,iraq,Iraq,Iraq,True,3,0.11127596439169139,3,3
+2020-2021,ireland,italy,Ireland,Italy,False,3,0.11127596439169139,42,196
+2020-2021,israel,slovenia,Israel,Slovenia,False,3,0.11127596439169139,40,29
+2020-2021,israel,united kingdom,Israel,United Kingdom,False,3,0.11127596439169139,40,195
+2020-2021,italy,luxembourg,Italy,Luxembourg,False,3,0.11127596439169139,196,6
+2020-2021,italy,philippines,Italy,Philippines,False,3,0.11127596439169139,196,6
+2020-2021,italy,poland,Italy,Poland,False,3,0.11127596439169139,196,55
+2020-2021,italy,portugal,Italy,Portugal,False,3,0.11127596439169139,196,33
+2020-2021,italy,singapore,Italy,Singapore,False,3,0.11127596439169139,196,154
+2020-2021,italy,sweden,Italy,Sweden,False,3,0.11127596439169139,196,112
+2020-2021,japan,sweden,Japan,Sweden,False,3,0.11127596439169139,56,112
+2020-2021,japan,united kingdom,Japan,United Kingdom,False,3,0.11127596439169139,56,195
+2020-2021,lithuania,poland,Lithuania,Poland,False,3,0.11127596439169139,3,55
+2020-2021,luxembourg,spain,Luxembourg,Spain,False,3,0.11127596439169139,6,198
+2020-2021,malawi,malawi,Malawi,Malawi,True,3,0.11127596439169139,6,6
+2020-2021,malawi,south africa,Malawi,South Africa,False,3,0.11127596439169139,6,14
+2020-2021,malaysia,qatar,Malaysia,Qatar,False,3,0.11127596439169139,20,25
+2020-2021,nigeria,nigeria,Nigeria,Nigeria,True,3,0.11127596439169139,3,3
+2020-2021,philippines,spain,Philippines,Spain,False,3,0.11127596439169139,6,198
+2020-2021,poland,slovenia,Poland,Slovenia,False,3,0.11127596439169139,55,29
+2020-2021,poland,thailand,Poland,Thailand,False,3,0.11127596439169139,55,31
+2020-2021,portugal,united kingdom,Portugal,United Kingdom,False,3,0.11127596439169139,33,195
+2020-2021,spain,switzerland,Spain,Switzerland,False,3,0.11127596439169139,198,89
+2020-2021,turkey,united states,Turkey,United States,False,3,0.11127596439169139,28,919
+2020-2021,united arab emirates,united states,United Arab Emirates,United States,False,3,0.11127596439169139,7,919
+2022-2023,united states,united states,United States,United States,True,608,16.548720740337508,1215,1215
+2022-2023,china,china,China,China,True,599,16.303756124115406,783,783
+2022-2023,india,india,India,India,True,130,3.538377789874796,336,336
+2022-2023,spain,spain,Spain,Spain,True,98,2.667392487751769,205,205
+2022-2023,italy,italy,Italy,Italy,True,96,2.61295590636908,315,315
+2022-2023,australia,australia,Australia,Australia,True,95,2.5857376156777354,308,308
+2022-2023,canada,canada,Canada,Canada,True,81,2.2046815459989113,214,214
+2022-2023,germany,germany,Germany,Germany,True,77,2.095808383233533,303,303
+2022-2023,japan,japan,Japan,Japan,True,68,1.8508437670114317,105,105
+2022-2023,republic of korea,republic of korea,Republic OF Korea,Republic OF Korea,True,68,1.8508437670114317,125,125
+2022-2023,united kingdom,united kingdom,United Kingdom,United Kingdom,True,60,1.633097441480675,226,226
+2022-2023,singapore,singapore,Singapore,Singapore,True,57,1.5514425694066412,202,202
+2022-2023,china,united states,China,United States,False,56,1.5242242787152966,783,1215
+2022-2023,saudi arabia,saudi arabia,Saudi Arabia,Saudi Arabia,True,56,1.5242242787152966,187,187
+2022-2023,france,france,France,France,True,51,1.3881328252585738,159,159
+2022-2023,denmark,denmark,Denmark,Denmark,True,45,1.2248230811105063,144,144
+2022-2023,iran,iran,Iran,Iran,True,45,1.2248230811105063,69,69
+2022-2023,brazil,brazil,Brazil,Brazil,True,40,1.0887316276537833,95,95
+2022-2023,germany,united states,Germany,United States,False,37,1.0070767555797495,303,1215
+2022-2023,canada,united states,Canada,United States,False,36,0.979858464888405,214,1215
+2022-2023,mexico,mexico,Mexico,Mexico,True,35,0.9526401741970604,63,63
+2022-2023,india,united states,India,United States,False,34,0.9254218835057159,336,1215
+2022-2023,italy,united states,Italy,United States,False,33,0.8982035928143712,315,1215
+2022-2023,israel,israel,Israel,Israel,True,32,0.8709853021230267,65,65
+2022-2023,sweden,sweden,Sweden,Sweden,True,32,0.8709853021230267,154,154
+2022-2023,switzerland,switzerland,Switzerland,Switzerland,True,31,0.8437670114316821,145,145
+2022-2023,thailand,thailand,Thailand,Thailand,True,31,0.8437670114316821,71,71
+2022-2023,poland,poland,Poland,Poland,True,30,0.8165487207403375,128,128
+2022-2023,india,saudi arabia,India,Saudi Arabia,False,26,0.7076755579749592,336,187
+2022-2023,pakistan,pakistan,Pakistan,Pakistan,True,26,0.7076755579749592,97,97
+2022-2023,australia,united states,Australia,United States,False,25,0.6804572672836146,308,1215
+2022-2023,turkey,turkey,Turkey,Turkey,True,24,0.65323897659227,45,45
+2022-2023,greece,greece,Greece,Greece,True,22,0.5988023952095808,95,95
+2022-2023,singapore,united states,Singapore,United States,False,22,0.5988023952095808,202,1215
+2022-2023,australia,china,Australia,China,False,21,0.5715841045182363,308,783
+2022-2023,norway,norway,Norway,Norway,True,20,0.5443658138268916,44,44
+2022-2023,switzerland,united states,Switzerland,United States,False,20,0.5443658138268916,145,1215
+2022-2023,united kingdom,united states,United Kingdom,United States,False,20,0.5443658138268916,226,1215
+2022-2023,australia,united kingdom,Australia,United Kingdom,False,19,0.5171475231355471,308,226
+2022-2023,finland,finland,Finland,Finland,True,19,0.5171475231355471,99,99
+2022-2023,france,united states,France,United States,False,19,0.5171475231355471,159,1215
+2022-2023,malaysia,malaysia,Malaysia,Malaysia,True,19,0.5171475231355471,73,73
+2022-2023,pakistan,saudi arabia,Pakistan,Saudi Arabia,False,19,0.5171475231355471,97,187
+2022-2023,bangladesh,bangladesh,Bangladesh,Bangladesh,True,16,0.43549265106151336,52,52
+2022-2023,belgium,belgium,Belgium,Belgium,True,16,0.43549265106151336,105,105
+2022-2023,israel,united states,Israel,United States,False,16,0.43549265106151336,65,1215
+2022-2023,qatar,qatar,Qatar,Qatar,True,16,0.43549265106151336,35,35
+2022-2023,saudi arabia,united states,Saudi Arabia,United States,False,16,0.43549265106151336,187,1215
+2022-2023,austria,germany,Austria,Germany,False,15,0.40827436037016873,75,303
+2022-2023,china,singapore,China,Singapore,False,15,0.40827436037016873,783,202
+2022-2023,egypt,saudi arabia,Egypt,Saudi Arabia,False,15,0.40827436037016873,45,187
+2022-2023,republic of korea,united states,Republic OF Korea,United States,False,15,0.40827436037016873,125,1215
+2022-2023,romania,romania,Romania,Romania,True,15,0.40827436037016873,15,15
+2022-2023,thailand,united states,Thailand,United States,False,15,0.40827436037016873,71,1215
+2022-2023,spain,united states,Spain,United States,False,14,0.38105606967882416,205,1215
+2022-2023,austria,austria,Austria,Austria,True,13,0.3538377789874796,75,75
+2022-2023,belgium,united states,Belgium,United States,False,13,0.3538377789874796,105,1215
+2022-2023,indonesia,indonesia,Indonesia,Indonesia,True,13,0.3538377789874796,17,17
+2022-2023,portugal,portugal,Portugal,Portugal,True,13,0.3538377789874796,33,33
+2022-2023,singapore,united kingdom,Singapore,United Kingdom,False,13,0.3538377789874796,202,226
+2022-2023,australia,singapore,Australia,Singapore,False,12,0.326619488296135,308,202
+2022-2023,denmark,united states,Denmark,United States,False,12,0.326619488296135,144,1215
+2022-2023,germany,switzerland,Germany,Switzerland,False,12,0.326619488296135,303,145
+2022-2023,italy,spain,Italy,Spain,False,12,0.326619488296135,315,205
+2022-2023,new zealand,new zealand,NEW Zealand,NEW Zealand,True,12,0.326619488296135,21,21
+2022-2023,china,united kingdom,China,United Kingdom,False,11,0.2994011976047904,783,226
+2022-2023,egypt,egypt,Egypt,Egypt,True,11,0.2994011976047904,45,45
+2022-2023,finland,germany,Finland,Germany,False,11,0.2994011976047904,99,303
+2022-2023,germany,italy,Germany,Italy,False,11,0.2994011976047904,303,315
+2022-2023,iran,united states,Iran,United States,False,11,0.2994011976047904,69,1215
+2022-2023,netherlands,netherlands,Netherlands,Netherlands,True,11,0.2994011976047904,29,29
+2022-2023,sweden,united states,Sweden,United States,False,11,0.2994011976047904,154,1215
+2022-2023,switzerland,united kingdom,Switzerland,United Kingdom,False,11,0.2994011976047904,145,226
+2022-2023,australia,denmark,Australia,Denmark,False,10,0.2721829069134458,308,144
+2022-2023,australia,india,Australia,India,False,10,0.2721829069134458,308,336
+2022-2023,australia,sweden,Australia,Sweden,False,10,0.2721829069134458,308,154
+2022-2023,belgium,germany,Belgium,Germany,False,10,0.2721829069134458,105,303
+2022-2023,brazil,united states,Brazil,United States,False,10,0.2721829069134458,95,1215
+2022-2023,ethiopia,india,Ethiopia,India,False,10,0.2721829069134458,25,336
+2022-2023,finland,sweden,Finland,Sweden,False,10,0.2721829069134458,99,154
+2022-2023,finland,united states,Finland,United States,False,10,0.2721829069134458,99,1215
+2022-2023,germany,sweden,Germany,Sweden,False,10,0.2721829069134458,303,154
+2022-2023,greece,italy,Greece,Italy,False,10,0.2721829069134458,95,315
+2022-2023,greece,united states,Greece,United States,False,10,0.2721829069134458,95,1215
+2022-2023,italy,sweden,Italy,Sweden,False,10,0.2721829069134458,315,154
+2022-2023,poland,united states,Poland,United States,False,10,0.2721829069134458,128,1215
+2022-2023,singapore,switzerland,Singapore,Switzerland,False,10,0.2721829069134458,202,145
+2022-2023,slovenia,slovenia,Slovenia,Slovenia,True,10,0.2721829069134458,77,77
+2022-2023,united arab emirates,united states,United Arab Emirates,United States,False,10,0.2721829069134458,60,1215
+2022-2023,australia,canada,Australia,Canada,False,9,0.24496461622210125,308,214
+2022-2023,canada,germany,Canada,Germany,False,9,0.24496461622210125,214,303
+2022-2023,canada,italy,Canada,Italy,False,9,0.24496461622210125,214,315
+2022-2023,denmark,germany,Denmark,Germany,False,9,0.24496461622210125,144,303
+2022-2023,france,italy,France,Italy,False,9,0.24496461622210125,159,315
+2022-2023,india,republic of korea,India,Republic OF Korea,False,9,0.24496461622210125,336,125
+2022-2023,india,singapore,India,Singapore,False,9,0.24496461622210125,336,202
+2022-2023,india,united kingdom,India,United Kingdom,False,9,0.24496461622210125,336,226
+2022-2023,ireland,ireland,Ireland,Ireland,True,9,0.24496461622210125,27,27
+2022-2023,italy,slovenia,Italy,Slovenia,False,9,0.24496461622210125,315,77
+2022-2023,mexico,united states,Mexico,United States,False,9,0.24496461622210125,63,1215
+2022-2023,slovenia,united states,Slovenia,United States,False,9,0.24496461622210125,77,1215
+2022-2023,united arab emirates,united arab emirates,United Arab Emirates,United Arab Emirates,True,9,0.24496461622210125,60,60
+2022-2023,austria,united states,Austria,United States,False,8,0.21774632553075668,75,1215
+2022-2023,canada,united kingdom,Canada,United Kingdom,False,8,0.21774632553075668,214,226
+2022-2023,chile,chile,Chile,Chile,True,8,0.21774632553075668,8,8
+2022-2023,china,italy,China,Italy,False,8,0.21774632553075668,783,315
+2022-2023,china,japan,China,Japan,False,8,0.21774632553075668,783,105
+2022-2023,colombia,colombia,Colombia,Colombia,True,8,0.21774632553075668,14,14
+2022-2023,czech republic,czech republic,Czech Republic,Czech Republic,True,8,0.21774632553075668,33,33
+2022-2023,denmark,poland,Denmark,Poland,False,8,0.21774632553075668,144,128
+2022-2023,egypt,united states,Egypt,United States,False,8,0.21774632553075668,45,1215
+2022-2023,india,italy,India,Italy,False,8,0.21774632553075668,336,315
+2022-2023,india,malaysia,India,Malaysia,False,8,0.21774632553075668,336,73
+2022-2023,india,united arab emirates,India,United Arab Emirates,False,8,0.21774632553075668,336,60
+2022-2023,italy,poland,Italy,Poland,False,8,0.21774632553075668,315,128
+2022-2023,japan,united states,Japan,United States,False,8,0.21774632553075668,105,1215
+2022-2023,south africa,south africa,South Africa,South Africa,True,8,0.21774632553075668,18,18
+2022-2023,sweden,switzerland,Sweden,Switzerland,False,8,0.21774632553075668,154,145
+2022-2023,australia,italy,Australia,Italy,False,7,0.19052803483941208,308,315
+2022-2023,australia,poland,Australia,Poland,False,7,0.19052803483941208,308,128
+2022-2023,bangladesh,malaysia,Bangladesh,Malaysia,False,7,0.19052803483941208,52,73
+2022-2023,canada,saudi arabia,Canada,Saudi Arabia,False,7,0.19052803483941208,214,187
+2022-2023,china,germany,China,Germany,False,7,0.19052803483941208,783,303
+2022-2023,denmark,sweden,Denmark,Sweden,False,7,0.19052803483941208,144,154
+2022-2023,denmark,switzerland,Denmark,Switzerland,False,7,0.19052803483941208,144,145
+2022-2023,france,germany,France,Germany,False,7,0.19052803483941208,159,303
+2022-2023,france,sweden,France,Sweden,False,7,0.19052803483941208,159,154
+2022-2023,france,switzerland,France,Switzerland,False,7,0.19052803483941208,159,145
+2022-2023,france,united kingdom,France,United Kingdom,False,7,0.19052803483941208,159,226
+2022-2023,germany,slovenia,Germany,Slovenia,False,7,0.19052803483941208,303,77
+2022-2023,germany,united kingdom,Germany,United Kingdom,False,7,0.19052803483941208,303,226
+2022-2023,india,thailand,India,Thailand,False,7,0.19052803483941208,336,71
+2022-2023,ireland,united states,Ireland,United States,False,7,0.19052803483941208,27,1215
+2022-2023,italy,singapore,Italy,Singapore,False,7,0.19052803483941208,315,202
+2022-2023,italy,switzerland,Italy,Switzerland,False,7,0.19052803483941208,315,145
+2022-2023,malaysia,qatar,Malaysia,Qatar,False,7,0.19052803483941208,73,35
+2022-2023,republic of korea,saudi arabia,Republic OF Korea,Saudi Arabia,False,7,0.19052803483941208,125,187
+2022-2023,australia,belgium,Australia,Belgium,False,6,0.1633097441480675,308,105
+2022-2023,australia,germany,Australia,Germany,False,6,0.1633097441480675,308,303
+2022-2023,australia,iran,Australia,Iran,False,6,0.1633097441480675,308,69
+2022-2023,australia,saudi arabia,Australia,Saudi Arabia,False,6,0.1633097441480675,308,187
+2022-2023,australia,spain,Australia,Spain,False,6,0.1633097441480675,308,205
+2022-2023,australia,switzerland,Australia,Switzerland,False,6,0.1633097441480675,308,145
+2022-2023,bangladesh,india,Bangladesh,India,False,6,0.1633097441480675,52,336
+2022-2023,bangladesh,united states,Bangladesh,United States,False,6,0.1633097441480675,52,1215
+2022-2023,belgium,italy,Belgium,Italy,False,6,0.1633097441480675,105,315
+2022-2023,belgium,spain,Belgium,Spain,False,6,0.1633097441480675,105,205
+2022-2023,canada,pakistan,Canada,Pakistan,False,6,0.1633097441480675,214,97
+2022-2023,canada,switzerland,Canada,Switzerland,False,6,0.1633097441480675,214,145
+2022-2023,china,india,China,India,False,6,0.1633097441480675,783,336
+2022-2023,ethiopia,saudi arabia,Ethiopia,Saudi Arabia,False,6,0.1633097441480675,25,187
+2022-2023,finland,italy,Finland,Italy,False,6,0.1633097441480675,99,315
+2022-2023,finland,singapore,Finland,Singapore,False,6,0.1633097441480675,99,202
+2022-2023,germany,india,Germany,India,False,6,0.1633097441480675,303,336
+2022-2023,germany,singapore,Germany,Singapore,False,6,0.1633097441480675,303,202
+2022-2023,germany,spain,Germany,Spain,False,6,0.1633097441480675,303,205
+2022-2023,india,nepal,India,Nepal,False,6,0.1633097441480675,336,6
+2022-2023,india,poland,India,Poland,False,6,0.1633097441480675,336,128
+2022-2023,italy,united kingdom,Italy,United Kingdom,False,6,0.1633097441480675,315,226
+2022-2023,jordan,saudi arabia,Jordan,Saudi Arabia,False,6,0.1633097441480675,20,187
+2022-2023,malaysia,saudi arabia,Malaysia,Saudi Arabia,False,6,0.1633097441480675,73,187
+2022-2023,nigeria,nigeria,Nigeria,Nigeria,True,6,0.1633097441480675,6,6
+2022-2023,pakistan,singapore,Pakistan,Singapore,False,6,0.1633097441480675,97,202
+2022-2023,pakistan,united states,Pakistan,United States,False,6,0.1633097441480675,97,1215
+2022-2023,qatar,united states,Qatar,United States,False,6,0.1633097441480675,35,1215
+2022-2023,saudi arabia,united arab emirates,Saudi Arabia,United Arab Emirates,False,6,0.1633097441480675,187,60
+2022-2023,south africa,united states,South Africa,United States,False,6,0.1633097441480675,18,1215
+2022-2023,spain,united kingdom,Spain,United Kingdom,False,6,0.1633097441480675,205,226
+2022-2023,argentina,argentina,Argentina,Argentina,True,5,0.1360914534567229,5,5
+2022-2023,australia,greece,Australia,Greece,False,5,0.1360914534567229,308,95
+2022-2023,australia,new zealand,Australia,NEW Zealand,False,5,0.1360914534567229,308,21
+2022-2023,australia,thailand,Australia,Thailand,False,5,0.1360914534567229,308,71
+2022-2023,austria,italy,Austria,Italy,False,5,0.1360914534567229,75,315
+2022-2023,austria,poland,Austria,Poland,False,5,0.1360914534567229,75,128
+2022-2023,austria,slovenia,Austria,Slovenia,False,5,0.1360914534567229,75,77
+2022-2023,belgium,denmark,Belgium,Denmark,False,5,0.1360914534567229,105,144
+2022-2023,belgium,greece,Belgium,Greece,False,5,0.1360914534567229,105,95
+2022-2023,belgium,united kingdom,Belgium,United Kingdom,False,5,0.1360914534567229,105,226
+2022-2023,brazil,italy,Brazil,Italy,False,5,0.1360914534567229,95,315
+2022-2023,brazil,portugal,Brazil,Portugal,False,5,0.1360914534567229,95,33
+2022-2023,canada,india,Canada,India,False,5,0.1360914534567229,214,336
+2022-2023,china,denmark,China,Denmark,False,5,0.1360914534567229,783,144
+2022-2023,china,malaysia,China,Malaysia,False,5,0.1360914534567229,783,73
+2022-2023,china,pakistan,China,Pakistan,False,5,0.1360914534567229,783,97
+2022-2023,china,poland,China,Poland,False,5,0.1360914534567229,783,128
+2022-2023,china,spain,China,Spain,False,5,0.1360914534567229,783,205
+2022-2023,czech republic,italy,Czech Republic,Italy,False,5,0.1360914534567229,33,315
+2022-2023,denmark,finland,Denmark,Finland,False,5,0.1360914534567229,144,99
+2022-2023,denmark,italy,Denmark,Italy,False,5,0.1360914534567229,144,315
+2022-2023,denmark,spain,Denmark,Spain,False,5,0.1360914534567229,144,205
+2022-2023,denmark,united kingdom,Denmark,United Kingdom,False,5,0.1360914534567229,144,226
+2022-2023,ethiopia,ethiopia,Ethiopia,Ethiopia,True,5,0.1360914534567229,25,25
+2022-2023,finland,france,Finland,France,False,5,0.1360914534567229,99,159
+2022-2023,france,luxembourg,France,Luxembourg,False,5,0.1360914534567229,159,17
+2022-2023,germany,greece,Germany,Greece,False,5,0.1360914534567229,303,95
+2022-2023,germany,poland,Germany,Poland,False,5,0.1360914534567229,303,128
+2022-2023,ghana,ghana,Ghana,Ghana,True,5,0.1360914534567229,9,9
+2022-2023,greece,india,Greece,India,False,5,0.1360914534567229,95,336
+2022-2023,greece,spain,Greece,Spain,False,5,0.1360914534567229,95,205
+2022-2023,hungary,hungary,Hungary,Hungary,True,5,0.1360914534567229,24,24
+2022-2023,mexico,spain,Mexico,Spain,False,5,0.1360914534567229,63,205
+2022-2023,netherlands,united kingdom,Netherlands,United Kingdom,False,5,0.1360914534567229,29,226
+2022-2023,netherlands,united states,Netherlands,United States,False,5,0.1360914534567229,29,1215
+2022-2023,pakistan,republic of korea,Pakistan,Republic OF Korea,False,5,0.1360914534567229,97,125
+2022-2023,pakistan,united arab emirates,Pakistan,United Arab Emirates,False,5,0.1360914534567229,97,60
+2022-2023,poland,singapore,Poland,Singapore,False,5,0.1360914534567229,128,202
+2022-2023,portugal,united states,Portugal,United States,False,5,0.1360914534567229,33,1215
+2022-2023,turkey,united states,Turkey,United States,False,5,0.1360914534567229,45,1215
+2022-2023,australia,bangladesh,Australia,Bangladesh,False,4,0.10887316276537834,308,52
+2022-2023,australia,france,Australia,France,False,4,0.10887316276537834,308,159
+2022-2023,australia,indonesia,Australia,Indonesia,False,4,0.10887316276537834,308,17
+2022-2023,australia,japan,Australia,Japan,False,4,0.10887316276537834,308,105
+2022-2023,australia,malaysia,Australia,Malaysia,False,4,0.10887316276537834,308,73
+2022-2023,austria,denmark,Austria,Denmark,False,4,0.10887316276537834,75,144
+2022-2023,austria,france,Austria,France,False,4,0.10887316276537834,75,159
+2022-2023,austria,switzerland,Austria,Switzerland,False,4,0.10887316276537834,75,145
+2022-2023,bangladesh,saudi arabia,Bangladesh,Saudi Arabia,False,4,0.10887316276537834,52,187
+2022-2023,belgium,czech republic,Belgium,Czech Republic,False,4,0.10887316276537834,105,33
+2022-2023,belgium,finland,Belgium,Finland,False,4,0.10887316276537834,105,99
+2022-2023,belgium,france,Belgium,France,False,4,0.10887316276537834,105,159
+2022-2023,belgium,israel,Belgium,Israel,False,4,0.10887316276537834,105,65
+2022-2023,belgium,poland,Belgium,Poland,False,4,0.10887316276537834,105,128
+2022-2023,belgium,south africa,Belgium,South Africa,False,4,0.10887316276537834,105,18
+2022-2023,brazil,canada,Brazil,Canada,False,4,0.10887316276537834,95,214
+2022-2023,brazil,mexico,Brazil,Mexico,False,4,0.10887316276537834,95,63
+2022-2023,brazil,singapore,Brazil,Singapore,False,4,0.10887316276537834,95,202
+2022-2023,brazil,spain,Brazil,Spain,False,4,0.10887316276537834,95,205
+2022-2023,brazil,united kingdom,Brazil,United Kingdom,False,4,0.10887316276537834,95,226
+2022-2023,canada,china,Canada,China,False,4,0.10887316276537834,214,783
+2022-2023,canada,greece,Canada,Greece,False,4,0.10887316276537834,214,95
+2022-2023,canada,ireland,Canada,Ireland,False,4,0.10887316276537834,214,27
+2022-2023,canada,spain,Canada,Spain,False,4,0.10887316276537834,214,205
+2022-2023,china,france,China,France,False,4,0.10887316276537834,783,159
+2022-2023,china,switzerland,China,Switzerland,False,4,0.10887316276537834,783,145
+2022-2023,croatia,united states,Croatia,United States,False,4,0.10887316276537834,10,1215
+2022-2023,czech republic,united states,Czech Republic,United States,False,4,0.10887316276537834,33,1215
+2022-2023,ecuador,spain,Ecuador,Spain,False,4,0.10887316276537834,7,205
+2022-2023,egypt,pakistan,Egypt,Pakistan,False,4,0.10887316276537834,45,97
+2022-2023,egypt,united arab emirates,Egypt,United Arab Emirates,False,4,0.10887316276537834,45,60
+2022-2023,ethiopia,united states,Ethiopia,United States,False,4,0.10887316276537834,25,1215
+2022-2023,finland,spain,Finland,Spain,False,4,0.10887316276537834,99,205
+2022-2023,finland,united kingdom,Finland,United Kingdom,False,4,0.10887316276537834,99,226
+2022-2023,france,singapore,France,Singapore,False,4,0.10887316276537834,159,202
+2022-2023,france,spain,France,Spain,False,4,0.10887316276537834,159,205
+2022-2023,germany,iran,Germany,Iran,False,4,0.10887316276537834,303,69
+2022-2023,germany,ireland,Germany,Ireland,False,4,0.10887316276537834,303,27
+2022-2023,germany,netherlands,Germany,Netherlands,False,4,0.10887316276537834,303,29
+2022-2023,germany,united arab emirates,Germany,United Arab Emirates,False,4,0.10887316276537834,303,60
+2022-2023,ghana,united states,Ghana,United States,False,4,0.10887316276537834,9,1215
+2022-2023,greece,poland,Greece,Poland,False,4,0.10887316276537834,95,128
+2022-2023,greece,slovenia,Greece,Slovenia,False,4,0.10887316276537834,95,77
+2022-2023,greece,united arab emirates,Greece,United Arab Emirates,False,4,0.10887316276537834,95,60
+2022-2023,hungary,united states,Hungary,United States,False,4,0.10887316276537834,24,1215
+2022-2023,india,norway,India,Norway,False,4,0.10887316276537834,336,44
+2022-2023,india,pakistan,India,Pakistan,False,4,0.10887316276537834,336,97
+2022-2023,india,slovenia,India,Slovenia,False,4,0.10887316276537834,336,77
+2022-2023,india,sweden,India,Sweden,False,4,0.10887316276537834,336,154
+2022-2023,israel,italy,Israel,Italy,False,4,0.10887316276537834,65,315
+2022-2023,italy,mexico,Italy,Mexico,False,4,0.10887316276537834,315,63
+2022-2023,italy,portugal,Italy,Portugal,False,4,0.10887316276537834,315,33
+2022-2023,japan,malaysia,Japan,Malaysia,False,4,0.10887316276537834,105,73
+2022-2023,japan,poland,Japan,Poland,False,4,0.10887316276537834,105,128
+2022-2023,jordan,jordan,Jordan,Jordan,True,4,0.10887316276537834,20,20
+2022-2023,jordan,united arab emirates,Jordan,United Arab Emirates,False,4,0.10887316276537834,20,60
+2022-2023,lebanon,lebanon,Lebanon,Lebanon,True,4,0.10887316276537834,8,8
+2022-2023,lebanon,united states,Lebanon,United States,False,4,0.10887316276537834,8,1215
+2022-2023,malaysia,pakistan,Malaysia,Pakistan,False,4,0.10887316276537834,73,97
+2022-2023,morocco,morocco,Morocco,Morocco,True,4,0.10887316276537834,4,4
+2022-2023,netherlands,singapore,Netherlands,Singapore,False,4,0.10887316276537834,29,202
+2022-2023,new zealand,united states,NEW Zealand,United States,False,4,0.10887316276537834,21,1215
+2022-2023,norway,sweden,Norway,Sweden,False,4,0.10887316276537834,44,154
+2022-2023,norway,united states,Norway,United States,False,4,0.10887316276537834,44,1215
+2022-2023,pakistan,united kingdom,Pakistan,United Kingdom,False,4,0.10887316276537834,97,226
+2022-2023,poland,slovenia,Poland,Slovenia,False,4,0.10887316276537834,128,77
+2022-2023,poland,sweden,Poland,Sweden,False,4,0.10887316276537834,128,154
+2022-2023,poland,united kingdom,Poland,United Kingdom,False,4,0.10887316276537834,128,226
+2022-2023,saudi arabia,united kingdom,Saudi Arabia,United Kingdom,False,4,0.10887316276537834,187,226
+2022-2023,singapore,sweden,Singapore,Sweden,False,4,0.10887316276537834,202,154
+2022-2023,slovenia,sweden,Slovenia,Sweden,False,4,0.10887316276537834,77,154
+2022-2023,spain,sweden,Spain,Sweden,False,4,0.10887316276537834,205,154
+2022-2023,spain,turkey,Spain,Turkey,False,4,0.10887316276537834,205,45
+2022-2023,sweden,united kingdom,Sweden,United Kingdom,False,4,0.10887316276537834,154,226
+2022-2023,thailand,united kingdom,Thailand,United Kingdom,False,4,0.10887316276537834,71,226
+2022-2023,algeria,algeria,Algeria,Algeria,True,3,0.08165487207403375,3,3
+2022-2023,australia,brazil,Australia,Brazil,False,3,0.08165487207403375,308,95
+2022-2023,australia,finland,Australia,Finland,False,3,0.08165487207403375,308,99
+2022-2023,australia,pakistan,Australia,Pakistan,False,3,0.08165487207403375,308,97
+2022-2023,australia,slovenia,Australia,Slovenia,False,3,0.08165487207403375,308,77
+2022-2023,austria,belgium,Austria,Belgium,False,3,0.08165487207403375,75,105
+2022-2023,austria,finland,Austria,Finland,False,3,0.08165487207403375,75,99
+2022-2023,austria,singapore,Austria,Singapore,False,3,0.08165487207403375,75,202
+2022-2023,austria,sweden,Austria,Sweden,False,3,0.08165487207403375,75,154
+2022-2023,bangladesh,china,Bangladesh,China,False,3,0.08165487207403375,52,783
+2022-2023,bangladesh,qatar,Bangladesh,Qatar,False,3,0.08165487207403375,52,35
+2022-2023,bangladesh,sweden,Bangladesh,Sweden,False,3,0.08165487207403375,52,154
+2022-2023,belgium,luxembourg,Belgium,Luxembourg,False,3,0.08165487207403375,105,17
+2022-2023,belgium,sweden,Belgium,Sweden,False,3,0.08165487207403375,105,154
+2022-2023,brazil,finland,Brazil,Finland,False,3,0.08165487207403375,95,99
+2022-2023,brazil,france,Brazil,France,False,3,0.08165487207403375,95,159
+2022-2023,brazil,germany,Brazil,Germany,False,3,0.08165487207403375,95,303
+2022-2023,brazil,sweden,Brazil,Sweden,False,3,0.08165487207403375,95,154
+2022-2023,canada,denmark,Canada,Denmark,False,3,0.08165487207403375,214,144
+2022-2023,canada,israel,Canada,Israel,False,3,0.08165487207403375,214,65
+2022-2023,canada,jordan,Canada,Jordan,False,3,0.08165487207403375,214,20
+2022-2023,canada,poland,Canada,Poland,False,3,0.08165487207403375,214,128
+2022-2023,canada,republic of korea,Canada,Republic OF Korea,False,3,0.08165487207403375,214,125
+2022-2023,canada,slovenia,Canada,Slovenia,False,3,0.08165487207403375,214,77
+2022-2023,china,mexico,China,Mexico,False,3,0.08165487207403375,783,63
+2022-2023,china,republic of korea,China,Republic OF Korea,False,3,0.08165487207403375,783,125
+2022-2023,china,sweden,China,Sweden,False,3,0.08165487207403375,783,154
+2022-2023,china,thailand,China,Thailand,False,3,0.08165487207403375,783,71
+2022-2023,colombia,mexico,Colombia,Mexico,False,3,0.08165487207403375,14,63
+2022-2023,colombia,spain,Colombia,Spain,False,3,0.08165487207403375,14,205
+2022-2023,croatia,greece,Croatia,Greece,False,3,0.08165487207403375,10,95
+2022-2023,croatia,italy,Croatia,Italy,False,3,0.08165487207403375,10,315
+2022-2023,cyprus,greece,Cyprus,Greece,False,3,0.08165487207403375,6,95
+2022-2023,cyprus,italy,Cyprus,Italy,False,3,0.08165487207403375,6,315
+2022-2023,czech republic,germany,Czech Republic,Germany,False,3,0.08165487207403375,33,303
+2022-2023,czech republic,greece,Czech Republic,Greece,False,3,0.08165487207403375,33,95
+2022-2023,czech republic,slovenia,Czech Republic,Slovenia,False,3,0.08165487207403375,33,77
+2022-2023,czech republic,spain,Czech Republic,Spain,False,3,0.08165487207403375,33,205
+2022-2023,denmark,france,Denmark,France,False,3,0.08165487207403375,144,159
+2022-2023,denmark,singapore,Denmark,Singapore,False,3,0.08165487207403375,144,202
+2022-2023,denmark,slovenia,Denmark,Slovenia,False,3,0.08165487207403375,144,77
+2022-2023,ecuador,ecuador,Ecuador,Ecuador,True,3,0.08165487207403375,7,7
+2022-2023,egypt,india,Egypt,India,False,3,0.08165487207403375,45,336
+2022-2023,finland,slovenia,Finland,Slovenia,False,3,0.08165487207403375,99,77
+2022-2023,finland,switzerland,Finland,Switzerland,False,3,0.08165487207403375,99,145
+2022-2023,france,japan,France,Japan,False,3,0.08165487207403375,159,105
+2022-2023,france,poland,France,Poland,False,3,0.08165487207403375,159,128
+2022-2023,france,slovenia,France,Slovenia,False,3,0.08165487207403375,159,77
+2022-2023,france,turkey,France,Turkey,False,3,0.08165487207403375,159,45
+2022-2023,germany,hungary,Germany,Hungary,False,3,0.08165487207403375,303,24
+2022-2023,germany,israel,Germany,Israel,False,3,0.08165487207403375,303,65
+2022-2023,germany,luxembourg,Germany,Luxembourg,False,3,0.08165487207403375,303,17
+2022-2023,germany,norway,Germany,Norway,False,3,0.08165487207403375,303,44
+2022-2023,germany,portugal,Germany,Portugal,False,3,0.08165487207403375,303,33
+2022-2023,germany,turkey,Germany,Turkey,False,3,0.08165487207403375,303,45
+2022-2023,greece,hungary,Greece,Hungary,False,3,0.08165487207403375,95,24
+2022-2023,hungary,india,Hungary,India,False,3,0.08165487207403375,24,336
+2022-2023,hungary,italy,Hungary,Italy,False,3,0.08165487207403375,24,315
+2022-2023,hungary,sweden,Hungary,Sweden,False,3,0.08165487207403375,24,154
+2022-2023,india,israel,India,Israel,False,3,0.08165487207403375,336,65
+2022-2023,india,qatar,India,Qatar,False,3,0.08165487207403375,336,35
+2022-2023,iran,switzerland,Iran,Switzerland,False,3,0.08165487207403375,69,145
+2022-2023,ireland,united kingdom,Ireland,United Kingdom,False,3,0.08165487207403375,27,226
+2022-2023,italy,japan,Italy,Japan,False,3,0.08165487207403375,315,105
+2022-2023,italy,republic of korea,Italy,Republic OF Korea,False,3,0.08165487207403375,315,125
+2022-2023,italy,turkey,Italy,Turkey,False,3,0.08165487207403375,315,45
+2022-2023,italy,united arab emirates,Italy,United Arab Emirates,False,3,0.08165487207403375,315,60
+2022-2023,japan,singapore,Japan,Singapore,False,3,0.08165487207403375,105,202
+2022-2023,jordan,republic of korea,Jordan,Republic OF Korea,False,3,0.08165487207403375,20,125
+2022-2023,kuwait,united states,Kuwait,United States,False,3,0.08165487207403375,3,1215
+2022-2023,latvia,latvia,Latvia,Latvia,True,3,0.08165487207403375,3,3
+2022-2023,lithuania,lithuania,Lithuania,Lithuania,True,3,0.08165487207403375,3,3
+2022-2023,luxembourg,luxembourg,Luxembourg,Luxembourg,True,3,0.08165487207403375,17,17
+2022-2023,luxembourg,united states,Luxembourg,United States,False,3,0.08165487207403375,17,1215
+2022-2023,malaysia,poland,Malaysia,Poland,False,3,0.08165487207403375,73,128
+2022-2023,malaysia,thailand,Malaysia,Thailand,False,3,0.08165487207403375,73,71
+2022-2023,malaysia,united states,Malaysia,United States,False,3,0.08165487207403375,73,1215
+2022-2023,norway,republic of korea,Norway,Republic OF Korea,False,3,0.08165487207403375,44,125
+2022-2023,norway,switzerland,Norway,Switzerland,False,3,0.08165487207403375,44,145
+2022-2023,norway,united kingdom,Norway,United Kingdom,False,3,0.08165487207403375,44,226
+2022-2023,philippines,philippines,Philippines,Philippines,True,3,0.08165487207403375,6,6
+2022-2023,philippines,united states,Philippines,United States,False,3,0.08165487207403375,6,1215
+2022-2023,poland,switzerland,Poland,Switzerland,False,3,0.08165487207403375,128,145
+2022-2023,poland,ukraine,Poland,Ukraine,False,3,0.08165487207403375,128,3
+2022-2023,portugal,spain,Portugal,Spain,False,3,0.08165487207403375,33,205
+2022-2023,republic of korea,singapore,Republic OF Korea,Singapore,False,3,0.08165487207403375,125,202
+2022-2023,republic of korea,united arab emirates,Republic OF Korea,United Arab Emirates,False,3,0.08165487207403375,125,60
+2022-2023,saudi arabia,yemen,Saudi Arabia,Yemen,False,3,0.08165487207403375,187,3
+2022-2023,singapore,slovenia,Singapore,Slovenia,False,3,0.08165487207403375,202,77
+2022-2023,singapore,thailand,Singapore,Thailand,False,3,0.08165487207403375,202,71
+2022-2023,sweden,turkey,Sweden,Turkey,False,3,0.08165487207403375,154,45
+2024-2024,china,china,China,China,True,458,20.034995625546806,572,572
+2024-2024,united states,united states,United States,United States,True,321,14.041994750656167,646,646
+2024-2024,india,india,India,India,True,90,3.937007874015748,173,173
+2024-2024,australia,australia,Australia,Australia,True,60,2.6246719160104988,194,194
+2024-2024,canada,canada,Canada,Canada,True,55,2.405949256342957,120,120
+2024-2024,germany,germany,Germany,Germany,True,53,2.3184601924759405,158,158
+2024-2024,italy,italy,Italy,Italy,True,53,2.3184601924759405,124,124
+2024-2024,spain,spain,Spain,Spain,True,48,2.099737532808399,104,104
+2024-2024,republic of korea,republic of korea,Republic OF Korea,Republic OF Korea,True,43,1.8810148731408574,55,55
+2024-2024,iran,iran,Iran,Iran,True,39,1.7060367454068242,44,44
+2024-2024,china,united states,China,United States,False,38,1.6622922134733158,572,646
+2024-2024,singapore,singapore,Singapore,Singapore,True,37,1.6185476815398074,113,113
+2024-2024,brazil,brazil,Brazil,Brazil,True,32,1.3998250218722659,64,64
+2024-2024,saudi arabia,saudi arabia,Saudi Arabia,Saudi Arabia,True,29,1.268591426071741,68,68
+2024-2024,france,france,France,France,True,28,1.2248468941382327,56,56
+2024-2024,japan,japan,Japan,Japan,True,28,1.2248468941382327,43,43
+2024-2024,united kingdom,united kingdom,United Kingdom,United Kingdom,True,26,1.1373578302712162,88,88
+2024-2024,denmark,denmark,Denmark,Denmark,True,25,1.0936132983377078,55,55
+2024-2024,india,united states,India,United States,False,25,1.0936132983377078,173,646
+2024-2024,australia,united states,Australia,United States,False,23,1.006124234470691,194,646
+2024-2024,canada,united states,Canada,United States,False,23,1.006124234470691,120,646
+2024-2024,sweden,sweden,Sweden,Sweden,True,21,0.9186351706036745,54,54
+2024-2024,germany,united states,Germany,United States,False,18,0.7874015748031497,158,646
+2024-2024,australia,china,Australia,China,False,16,0.6999125109361329,194,572
+2024-2024,mexico,mexico,Mexico,Mexico,True,16,0.6999125109361329,25,25
+2024-2024,turkey,turkey,Turkey,Turkey,True,16,0.6999125109361329,22,22
+2024-2024,italy,united states,Italy,United States,False,15,0.6561679790026247,124,646
+2024-2024,australia,india,Australia,India,False,13,0.5686789151356081,194,173
+2024-2024,colombia,colombia,Colombia,Colombia,True,13,0.5686789151356081,16,16
+2024-2024,malaysia,malaysia,Malaysia,Malaysia,True,13,0.5686789151356081,36,36
+2024-2024,switzerland,switzerland,Switzerland,Switzerland,True,13,0.5686789151356081,54,54
+2024-2024,australia,germany,Australia,Germany,False,12,0.5249343832020997,194,158
+2024-2024,egypt,egypt,Egypt,Egypt,True,12,0.5249343832020997,25,25
+2024-2024,germany,switzerland,Germany,Switzerland,False,12,0.5249343832020997,158,54
+2024-2024,greece,greece,Greece,Greece,True,12,0.5249343832020997,21,21
+2024-2024,ireland,ireland,Ireland,Ireland,True,12,0.5249343832020997,19,19
+2024-2024,israel,israel,Israel,Israel,True,12,0.5249343832020997,19,19
+2024-2024,sweden,united states,Sweden,United States,False,12,0.5249343832020997,54,646
+2024-2024,finland,finland,Finland,Finland,True,11,0.48118985126859143,38,38
+2024-2024,india,saudi arabia,India,Saudi Arabia,False,11,0.48118985126859143,173,68
+2024-2024,pakistan,pakistan,Pakistan,Pakistan,True,11,0.48118985126859143,34,34
+2024-2024,poland,poland,Poland,Poland,True,11,0.48118985126859143,21,21
+2024-2024,thailand,thailand,Thailand,Thailand,True,11,0.48118985126859143,24,24
+2024-2024,australia,singapore,Australia,Singapore,False,10,0.4374453193350831,194,113
+2024-2024,brazil,united states,Brazil,United States,False,10,0.4374453193350831,64,646
+2024-2024,china,singapore,China,Singapore,False,10,0.4374453193350831,572,113
+2024-2024,egypt,saudi arabia,Egypt,Saudi Arabia,False,10,0.4374453193350831,25,68
+2024-2024,singapore,united states,Singapore,United States,False,10,0.4374453193350831,113,646
+2024-2024,france,united states,France,United States,False,9,0.3937007874015748,56,646
+2024-2024,norway,norway,Norway,Norway,True,9,0.3937007874015748,12,12
+2024-2024,republic of korea,united states,Republic OF Korea,United States,False,9,0.3937007874015748,55,646
+2024-2024,romania,romania,Romania,Romania,True,9,0.3937007874015748,13,13
+2024-2024,spain,united states,Spain,United States,False,9,0.3937007874015748,104,646
+2024-2024,united kingdom,united states,United Kingdom,United States,False,9,0.3937007874015748,88,646
+2024-2024,australia,spain,Australia,Spain,False,8,0.34995625546806647,194,104
+2024-2024,australia,united kingdom,Australia,United Kingdom,False,8,0.34995625546806647,194,88
+2024-2024,austria,austria,Austria,Austria,True,8,0.34995625546806647,23,23
+2024-2024,hungary,hungary,Hungary,Hungary,True,8,0.34995625546806647,18,18
+2024-2024,switzerland,united states,Switzerland,United States,False,8,0.34995625546806647,54,646
+2024-2024,australia,finland,Australia,Finland,False,7,0.30621172353455817,194,38
+2024-2024,bangladesh,bangladesh,Bangladesh,Bangladesh,True,7,0.30621172353455817,11,11
+2024-2024,china,united kingdom,China,United Kingdom,False,7,0.30621172353455817,572,88
+2024-2024,germany,italy,Germany,Italy,False,7,0.30621172353455817,158,124
+2024-2024,germany,singapore,Germany,Singapore,False,7,0.30621172353455817,158,113
+2024-2024,israel,united states,Israel,United States,False,7,0.30621172353455817,19,646
+2024-2024,qatar,qatar,Qatar,Qatar,True,7,0.30621172353455817,12,12
+2024-2024,south africa,south africa,South Africa,South Africa,True,7,0.30621172353455817,10,10
+2024-2024,chile,chile,Chile,Chile,True,6,0.26246719160104987,13,13
+2024-2024,china,malaysia,China,Malaysia,False,6,0.26246719160104987,572,36
+2024-2024,finland,united states,Finland,United States,False,6,0.26246719160104987,38,646
+2024-2024,hungary,united states,Hungary,United States,False,6,0.26246719160104987,18,646
+2024-2024,india,singapore,India,Singapore,False,6,0.26246719160104987,173,113
+2024-2024,india,united kingdom,India,United Kingdom,False,6,0.26246719160104987,173,88
+2024-2024,indonesia,indonesia,Indonesia,Indonesia,True,6,0.26246719160104987,6,6
+2024-2024,japan,united states,Japan,United States,False,6,0.26246719160104987,43,646
+2024-2024,mexico,united states,Mexico,United States,False,6,0.26246719160104987,25,646
+2024-2024,netherlands,netherlands,Netherlands,Netherlands,True,6,0.26246719160104987,11,11
+2024-2024,poland,united states,Poland,United States,False,6,0.26246719160104987,21,646
+2024-2024,viet nam,viet nam,Viet NAM,Viet NAM,True,6,0.26246719160104987,6,6
+2024-2024,australia,canada,Australia,Canada,False,5,0.21872265966754156,194,120
+2024-2024,australia,denmark,Australia,Denmark,False,5,0.21872265966754156,194,55
+2024-2024,australia,new zealand,Australia,NEW Zealand,False,5,0.21872265966754156,194,8
+2024-2024,canada,italy,Canada,Italy,False,5,0.21872265966754156,120,124
+2024-2024,canada,united kingdom,Canada,United Kingdom,False,5,0.21872265966754156,120,88
+2024-2024,china,germany,China,Germany,False,5,0.21872265966754156,572,158
+2024-2024,china,india,China,India,False,5,0.21872265966754156,572,173
+2024-2024,china,japan,China,Japan,False,5,0.21872265966754156,572,43
+2024-2024,czech republic,czech republic,Czech Republic,Czech Republic,True,5,0.21872265966754156,11,11
+2024-2024,finland,germany,Finland,Germany,False,5,0.21872265966754156,38,158
+2024-2024,france,italy,France,Italy,False,5,0.21872265966754156,56,124
+2024-2024,iran,united states,Iran,United States,False,5,0.21872265966754156,44,646
+2024-2024,italy,spain,Italy,Spain,False,5,0.21872265966754156,124,104
+2024-2024,italy,sweden,Italy,Sweden,False,5,0.21872265966754156,124,54
+2024-2024,jordan,jordan,Jordan,Jordan,True,5,0.21872265966754156,5,5
+2024-2024,netherlands,united states,Netherlands,United States,False,5,0.21872265966754156,11,646
+2024-2024,pakistan,saudi arabia,Pakistan,Saudi Arabia,False,5,0.21872265966754156,34,68
+2024-2024,pakistan,singapore,Pakistan,Singapore,False,5,0.21872265966754156,34,113
+2024-2024,pakistan,united states,Pakistan,United States,False,5,0.21872265966754156,34,646
+2024-2024,portugal,portugal,Portugal,Portugal,True,5,0.21872265966754156,11,11
+2024-2024,qatar,united states,Qatar,United States,False,5,0.21872265966754156,12,646
+2024-2024,singapore,switzerland,Singapore,Switzerland,False,5,0.21872265966754156,113,54
+2024-2024,singapore,thailand,Singapore,Thailand,False,5,0.21872265966754156,113,24
+2024-2024,slovenia,slovenia,Slovenia,Slovenia,True,5,0.21872265966754156,5,5
+2024-2024,thailand,united states,Thailand,United States,False,5,0.21872265966754156,24,646
+2024-2024,united arab emirates,united arab emirates,United Arab Emirates,United Arab Emirates,True,5,0.21872265966754156,14,14
+2024-2024,united arab emirates,united states,United Arab Emirates,United States,False,5,0.21872265966754156,14,646
+2024-2024,australia,bangladesh,Australia,Bangladesh,False,4,0.17497812773403323,194,11
+2024-2024,australia,brazil,Australia,Brazil,False,4,0.17497812773403323,194,64
+2024-2024,australia,italy,Australia,Italy,False,4,0.17497812773403323,194,124
+2024-2024,australia,malaysia,Australia,Malaysia,False,4,0.17497812773403323,194,36
+2024-2024,austria,germany,Austria,Germany,False,4,0.17497812773403323,23,158
+2024-2024,austria,singapore,Austria,Singapore,False,4,0.17497812773403323,23,113
+2024-2024,austria,switzerland,Austria,Switzerland,False,4,0.17497812773403323,23,54
+2024-2024,belgium,belgium,Belgium,Belgium,True,4,0.17497812773403323,14,14
+2024-2024,belgium,germany,Belgium,Germany,False,4,0.17497812773403323,14,158
+2024-2024,canada,denmark,Canada,Denmark,False,4,0.17497812773403323,120,55
+2024-2024,canada,germany,Canada,Germany,False,4,0.17497812773403323,120,158
+2024-2024,canada,singapore,Canada,Singapore,False,4,0.17497812773403323,120,113
+2024-2024,chile,spain,Chile,Spain,False,4,0.17497812773403323,13,104
+2024-2024,china,pakistan,China,Pakistan,False,4,0.17497812773403323,572,34
+2024-2024,china,saudi arabia,China,Saudi Arabia,False,4,0.17497812773403323,572,68
+2024-2024,china,spain,China,Spain,False,4,0.17497812773403323,572,104
+2024-2024,china,sweden,China,Sweden,False,4,0.17497812773403323,572,54
+2024-2024,denmark,germany,Denmark,Germany,False,4,0.17497812773403323,55,158
+2024-2024,denmark,poland,Denmark,Poland,False,4,0.17497812773403323,55,21
+2024-2024,denmark,united states,Denmark,United States,False,4,0.17497812773403323,55,646
+2024-2024,estonia,united states,Estonia,United States,False,4,0.17497812773403323,4,646
+2024-2024,ethiopia,ethiopia,Ethiopia,Ethiopia,True,4,0.17497812773403323,4,4
+2024-2024,france,germany,France,Germany,False,4,0.17497812773403323,56,158
+2024-2024,france,spain,France,Spain,False,4,0.17497812773403323,56,104
+2024-2024,germany,india,Germany,India,False,4,0.17497812773403323,158,173
+2024-2024,germany,pakistan,Germany,Pakistan,False,4,0.17497812773403323,158,34
+2024-2024,germany,spain,Germany,Spain,False,4,0.17497812773403323,158,104
+2024-2024,germany,united kingdom,Germany,United Kingdom,False,4,0.17497812773403323,158,88
+2024-2024,hungary,romania,Hungary,Romania,False,4,0.17497812773403323,18,13
+2024-2024,india,united arab emirates,India,United Arab Emirates,False,4,0.17497812773403323,173,14
+2024-2024,ireland,united kingdom,Ireland,United Kingdom,False,4,0.17497812773403323,19,88
+2024-2024,italy,singapore,Italy,Singapore,False,4,0.17497812773403323,124,113
+2024-2024,japan,united kingdom,Japan,United Kingdom,False,4,0.17497812773403323,43,88
+2024-2024,kenya,kenya,Kenya,Kenya,True,4,0.17497812773403323,8,8
+2024-2024,kenya,united states,Kenya,United States,False,4,0.17497812773403323,8,646
+2024-2024,malaysia,united states,Malaysia,United States,False,4,0.17497812773403323,36,646
+2024-2024,australia,sweden,Australia,Sweden,False,3,0.13123359580052493,194,54
+2024-2024,australia,switzerland,Australia,Switzerland,False,3,0.13123359580052493,194,54
+2024-2024,austria,united states,Austria,United States,False,3,0.13123359580052493,23,646
+2024-2024,belgium,canada,Belgium,Canada,False,3,0.13123359580052493,14,120
+2024-2024,belgium,united states,Belgium,United States,False,3,0.13123359580052493,14,646
+2024-2024,brazil,chile,Brazil,Chile,False,3,0.13123359580052493,64,13
+2024-2024,brazil,colombia,Brazil,Colombia,False,3,0.13123359580052493,64,16
+2024-2024,brazil,italy,Brazil,Italy,False,3,0.13123359580052493,64,124
+2024-2024,brazil,portugal,Brazil,Portugal,False,3,0.13123359580052493,64,11
+2024-2024,brazil,spain,Brazil,Spain,False,3,0.13123359580052493,64,104
+2024-2024,brazil,united kingdom,Brazil,United Kingdom,False,3,0.13123359580052493,64,88
+2024-2024,canada,china,Canada,China,False,3,0.13123359580052493,120,572
+2024-2024,canada,france,Canada,France,False,3,0.13123359580052493,120,56
+2024-2024,canada,lebanon,Canada,Lebanon,False,3,0.13123359580052493,120,3
+2024-2024,canada,switzerland,Canada,Switzerland,False,3,0.13123359580052493,120,54
+2024-2024,china,italy,China,Italy,False,3,0.13123359580052493,572,124
+2024-2024,czech republic,italy,Czech Republic,Italy,False,3,0.13123359580052493,11,124
+2024-2024,czech republic,sweden,Czech Republic,Sweden,False,3,0.13123359580052493,11,54
+2024-2024,denmark,finland,Denmark,Finland,False,3,0.13123359580052493,55,38
+2024-2024,denmark,sweden,Denmark,Sweden,False,3,0.13123359580052493,55,54
+2024-2024,denmark,united kingdom,Denmark,United Kingdom,False,3,0.13123359580052493,55,88
+2024-2024,egypt,united states,Egypt,United States,False,3,0.13123359580052493,25,646
+2024-2024,finland,sweden,Finland,Sweden,False,3,0.13123359580052493,38,54
+2024-2024,finland,switzerland,Finland,Switzerland,False,3,0.13123359580052493,38,54
+2024-2024,france,switzerland,France,Switzerland,False,3,0.13123359580052493,56,54
+2024-2024,georgia,georgia,Georgia,Georgia,True,3,0.13123359580052493,3,3
+2024-2024,germany,greece,Germany,Greece,False,3,0.13123359580052493,158,21
+2024-2024,greece,italy,Greece,Italy,False,3,0.13123359580052493,21,124
+2024-2024,greece,spain,Greece,Spain,False,3,0.13123359580052493,21,104
+2024-2024,india,italy,India,Italy,False,3,0.13123359580052493,173,124
+2024-2024,india,malaysia,India,Malaysia,False,3,0.13123359580052493,173,36
+2024-2024,india,thailand,India,Thailand,False,3,0.13123359580052493,173,24
+2024-2024,ireland,saudi arabia,Ireland,Saudi Arabia,False,3,0.13123359580052493,19,68
+2024-2024,italy,portugal,Italy,Portugal,False,3,0.13123359580052493,124,11
+2024-2024,italy,united kingdom,Italy,United Kingdom,False,3,0.13123359580052493,124,88
+2024-2024,malaysia,singapore,Malaysia,Singapore,False,3,0.13123359580052493,36,113
+2024-2024,malaysia,spain,Malaysia,Spain,False,3,0.13123359580052493,36,104
+2024-2024,mexico,spain,Mexico,Spain,False,3,0.13123359580052493,25,104
+2024-2024,nepal,nepal,Nepal,Nepal,True,3,0.13123359580052493,6,6
+2024-2024,nepal,united states,Nepal,United States,False,3,0.13123359580052493,6,646
+2024-2024,new zealand,new zealand,NEW Zealand,NEW Zealand,True,3,0.13123359580052493,8,8
+2024-2024,nigeria,nigeria,Nigeria,Nigeria,True,3,0.13123359580052493,3,3
+2024-2024,norway,united states,Norway,United States,False,3,0.13123359580052493,12,646
+2024-2024,philippines,philippines,Philippines,Philippines,True,3,0.13123359580052493,3,3
+2024-2024,republic of korea,spain,Republic OF Korea,Spain,False,3,0.13123359580052493,55,104
+2024-2024,saudi arabia,turkey,Saudi Arabia,Turkey,False,3,0.13123359580052493,68,22
+2024-2024,saudi arabia,united states,Saudi Arabia,United States,False,3,0.13123359580052493,68,646
+2024-2024,singapore,united kingdom,Singapore,United Kingdom,False,3,0.13123359580052493,113,88
+2024-2024,south africa,united states,South Africa,United States,False,3,0.13123359580052493,10,646
+2024-2024,spain,united kingdom,Spain,United Kingdom,False,3,0.13123359580052493,104,88
+2024-2024,sri lanka,sri lanka,SRI Lanka,SRI Lanka,True,3,0.13123359580052493,3,3
+2024-2024,turkey,united states,Turkey,United States,False,3,0.13123359580052493,22,646
+2024-2024,ukraine,ukraine,Ukraine,Ukraine,True,3,0.13123359580052493,3,3
+2025-2025,china,china,China,China,True,855,24.12528216704289,1061,1061
+2025-2025,united states,united states,United States,United States,True,412,11.62528216704289,842,842
+2025-2025,india,india,India,India,True,163,4.599322799097066,312,312
+2025-2025,italy,italy,Italy,Italy,True,82,2.3137697516930023,164,164
+2025-2025,australia,australia,Australia,Australia,True,68,1.9187358916478556,211,211
+2025-2025,republic of korea,republic of korea,Republic OF Korea,Republic OF Korea,True,68,1.9187358916478556,118,118
+2025-2025,canada,canada,Canada,Canada,True,65,1.8340857787810383,170,170
+2025-2025,germany,germany,Germany,Germany,True,63,1.7776523702031604,179,179
+2025-2025,spain,spain,Spain,Spain,True,58,1.636568848758465,134,134
+2025-2025,china,united states,China,United States,False,56,1.580135440180587,1061,842
+2025-2025,japan,japan,Japan,Japan,True,51,1.4390519187358917,96,96
+2025-2025,saudi arabia,saudi arabia,Saudi Arabia,Saudi Arabia,True,49,1.3826185101580135,137,137
+2025-2025,denmark,denmark,Denmark,Denmark,True,44,1.2415349887133182,75,75
+2025-2025,iran,iran,Iran,Iran,True,42,1.18510158013544,58,58
+2025-2025,singapore,singapore,Singapore,Singapore,True,37,1.0440180586907448,105,105
+2025-2025,canada,united states,Canada,United States,False,36,1.0158013544018059,170,842
+2025-2025,united kingdom,united kingdom,United Kingdom,United Kingdom,True,36,1.0158013544018059,124,124
+2025-2025,poland,poland,Poland,Poland,True,31,0.8747178329571106,89,89
+2025-2025,india,united states,India,United States,False,30,0.8465011286681715,312,842
+2025-2025,france,france,France,France,True,29,0.8182844243792325,77,77
+2025-2025,australia,united states,Australia,United States,False,28,0.7900677200902935,211,842
+2025-2025,germany,united states,Germany,United States,False,28,0.7900677200902935,179,842
+2025-2025,brazil,brazil,Brazil,Brazil,True,25,0.7054176072234764,29,29
+2025-2025,sweden,sweden,Sweden,Sweden,True,25,0.7054176072234764,78,78
+2025-2025,china,singapore,China,Singapore,False,23,0.6489841986455982,1061,105
+2025-2025,pakistan,pakistan,Pakistan,Pakistan,True,23,0.6489841986455982,64,64
+2025-2025,italy,united states,Italy,United States,False,22,0.6207674943566591,164,842
+2025-2025,switzerland,switzerland,Switzerland,Switzerland,True,22,0.6207674943566591,76,76
+2025-2025,mexico,mexico,Mexico,Mexico,True,21,0.59255079006772,31,31
+2025-2025,australia,china,Australia,China,False,20,0.5643340857787811,211,1061
+2025-2025,turkey,turkey,Turkey,Turkey,True,20,0.5643340857787811,34,34
+2025-2025,norway,norway,Norway,Norway,True,19,0.536117381489842,34,34
+2025-2025,romania,romania,Romania,Romania,True,19,0.536117381489842,22,22
+2025-2025,india,saudi arabia,India,Saudi Arabia,False,18,0.5079006772009029,312,137
+2025-2025,singapore,united states,Singapore,United States,False,18,0.5079006772009029,105,842
+2025-2025,united kingdom,united states,United Kingdom,United States,False,18,0.5079006772009029,124,842
+2025-2025,israel,israel,Israel,Israel,True,17,0.4796839729119639,22,22
+2025-2025,pakistan,saudi arabia,Pakistan,Saudi Arabia,False,17,0.4796839729119639,64,137
+2025-2025,greece,greece,Greece,Greece,True,15,0.42325056433408575,24,24
+2025-2025,malaysia,malaysia,Malaysia,Malaysia,True,15,0.42325056433408575,34,34
+2025-2025,china,india,China,India,False,14,0.39503386004514673,1061,312
+2025-2025,china,united kingdom,China,United Kingdom,False,14,0.39503386004514673,1061,124
+2025-2025,thailand,thailand,Thailand,Thailand,True,14,0.39503386004514673,26,26
+2025-2025,austria,austria,Austria,Austria,True,13,0.36681715575620766,34,34
+2025-2025,china,republic of korea,China,Republic OF Korea,False,12,0.33860045146726864,1061,118
+2025-2025,indonesia,indonesia,Indonesia,Indonesia,True,12,0.33860045146726864,12,12
+2025-2025,saudi arabia,united states,Saudi Arabia,United States,False,12,0.33860045146726864,137,842
+2025-2025,spain,united states,Spain,United States,False,12,0.33860045146726864,134,842
+2025-2025,switzerland,united states,Switzerland,United States,False,12,0.33860045146726864,76,842
+2025-2025,australia,canada,Australia,Canada,False,11,0.31038374717832956,211,170
+2025-2025,ireland,ireland,Ireland,Ireland,True,11,0.31038374717832956,23,23
+2025-2025,portugal,portugal,Portugal,Portugal,True,11,0.31038374717832956,26,26
+2025-2025,australia,india,Australia,India,False,10,0.28216704288939054,211,312
+2025-2025,australia,singapore,Australia,Singapore,False,10,0.28216704288939054,211,105
+2025-2025,belgium,belgium,Belgium,Belgium,True,10,0.28216704288939054,43,43
+2025-2025,egypt,egypt,Egypt,Egypt,True,10,0.28216704288939054,30,30
+2025-2025,germany,switzerland,Germany,Switzerland,False,10,0.28216704288939054,179,76
+2025-2025,iran,united states,Iran,United States,False,10,0.28216704288939054,58,842
+2025-2025,jordan,jordan,Jordan,Jordan,True,10,0.28216704288939054,25,25
+2025-2025,mexico,united states,Mexico,United States,False,10,0.28216704288939054,31,842
+2025-2025,republic of korea,united states,Republic OF Korea,United States,False,10,0.28216704288939054,118,842
+2025-2025,sweden,united states,Sweden,United States,False,10,0.28216704288939054,78,842
+2025-2025,china,japan,China,Japan,False,9,0.25395033860045146,1061,96
+2025-2025,colombia,colombia,Colombia,Colombia,True,9,0.25395033860045146,12,12
+2025-2025,france,united states,France,United States,False,9,0.25395033860045146,77,842
+2025-2025,poland,united states,Poland,United States,False,9,0.25395033860045146,89,842
+2025-2025,australia,united kingdom,Australia,United Kingdom,False,8,0.22573363431151242,211,124
+2025-2025,canada,united kingdom,Canada,United Kingdom,False,8,0.22573363431151242,170,124
+2025-2025,denmark,united states,Denmark,United States,False,8,0.22573363431151242,75,842
+2025-2025,egypt,saudi arabia,Egypt,Saudi Arabia,False,8,0.22573363431151242,30,137
+2025-2025,germany,spain,Germany,Spain,False,8,0.22573363431151242,179,134
+2025-2025,india,republic of korea,India,Republic OF Korea,False,8,0.22573363431151242,312,118
+2025-2025,italy,poland,Italy,Poland,False,8,0.22573363431151242,164,89
+2025-2025,italy,spain,Italy,Spain,False,8,0.22573363431151242,164,134
+2025-2025,japan,united states,Japan,United States,False,8,0.22573363431151242,96,842
+2025-2025,qatar,qatar,Qatar,Qatar,True,8,0.22573363431151242,11,11
+2025-2025,argentina,argentina,Argentina,Argentina,True,7,0.19751693002257337,7,7
+2025-2025,austria,germany,Austria,Germany,False,7,0.19751693002257337,34,179
+2025-2025,bangladesh,united states,Bangladesh,United States,False,7,0.19751693002257337,13,842
+2025-2025,belgium,germany,Belgium,Germany,False,7,0.19751693002257337,43,179
+2025-2025,canada,india,Canada,India,False,7,0.19751693002257337,170,312
+2025-2025,finland,finland,Finland,Finland,True,7,0.19751693002257337,13,13
+2025-2025,germany,india,Germany,India,False,7,0.19751693002257337,179,312
+2025-2025,india,singapore,India,Singapore,False,7,0.19751693002257337,312,105
+2025-2025,iraq,iraq,Iraq,Iraq,True,7,0.19751693002257337,12,12
+2025-2025,nigeria,nigeria,Nigeria,Nigeria,True,7,0.19751693002257337,11,11
+2025-2025,pakistan,united states,Pakistan,United States,False,7,0.19751693002257337,64,842
+2025-2025,poland,spain,Poland,Spain,False,7,0.19751693002257337,89,134
+2025-2025,united arab emirates,united arab emirates,United Arab Emirates,United Arab Emirates,True,7,0.19751693002257337,7,7
+2025-2025,australia,spain,Australia,Spain,False,6,0.16930022573363432,211,134
+2025-2025,austria,united states,Austria,United States,False,6,0.16930022573363432,34,842
+2025-2025,bangladesh,bangladesh,Bangladesh,Bangladesh,True,6,0.16930022573363432,13,13
+2025-2025,belgium,spain,Belgium,Spain,False,6,0.16930022573363432,43,134
+2025-2025,canada,china,Canada,China,False,6,0.16930022573363432,170,1061
+2025-2025,canada,germany,Canada,Germany,False,6,0.16930022573363432,170,179
+2025-2025,chile,chile,Chile,Chile,True,6,0.16930022573363432,6,6
+2025-2025,china,france,China,France,False,6,0.16930022573363432,1061,77
+2025-2025,china,poland,China,Poland,False,6,0.16930022573363432,1061,89
+2025-2025,china,saudi arabia,China,Saudi Arabia,False,6,0.16930022573363432,1061,137
+2025-2025,china,sweden,China,Sweden,False,6,0.16930022573363432,1061,78
+2025-2025,egypt,united states,Egypt,United States,False,6,0.16930022573363432,30,842
+2025-2025,ethiopia,ethiopia,Ethiopia,Ethiopia,True,6,0.16930022573363432,6,6
+2025-2025,germany,united kingdom,Germany,United Kingdom,False,6,0.16930022573363432,179,124
+2025-2025,ireland,united states,Ireland,United States,False,6,0.16930022573363432,23,842
+2025-2025,jordan,saudi arabia,Jordan,Saudi Arabia,False,6,0.16930022573363432,25,137
+2025-2025,thailand,united states,Thailand,United States,False,6,0.16930022573363432,26,842
+2025-2025,australia,denmark,Australia,Denmark,False,5,0.14108352144469527,211,75
+2025-2025,australia,sweden,Australia,Sweden,False,5,0.14108352144469527,211,78
+2025-2025,austria,switzerland,Austria,Switzerland,False,5,0.14108352144469527,34,76
+2025-2025,china,germany,China,Germany,False,5,0.14108352144469527,1061,179
+2025-2025,china,italy,China,Italy,False,5,0.14108352144469527,1061,164
+2025-2025,china,malaysia,China,Malaysia,False,5,0.14108352144469527,1061,34
+2025-2025,china,pakistan,China,Pakistan,False,5,0.14108352144469527,1061,64
+2025-2025,china,spain,China,Spain,False,5,0.14108352144469527,1061,134
+2025-2025,denmark,germany,Denmark,Germany,False,5,0.14108352144469527,75,179
+2025-2025,denmark,norway,Denmark,Norway,False,5,0.14108352144469527,75,34
+2025-2025,france,germany,France,Germany,False,5,0.14108352144469527,77,179
+2025-2025,ghana,united states,Ghana,United States,False,5,0.14108352144469527,8,842
+2025-2025,hungary,hungary,Hungary,Hungary,True,5,0.14108352144469527,8,8
+2025-2025,india,iraq,India,Iraq,False,5,0.14108352144469527,312,12
+2025-2025,india,italy,India,Italy,False,5,0.14108352144469527,312,164
+2025-2025,india,japan,India,Japan,False,5,0.14108352144469527,312,96
+2025-2025,india,united kingdom,India,United Kingdom,False,5,0.14108352144469527,312,124
+2025-2025,israel,united states,Israel,United States,False,5,0.14108352144469527,22,842
+2025-2025,italy,sweden,Italy,Sweden,False,5,0.14108352144469527,164,78
+2025-2025,kazakhstan,kazakhstan,Kazakhstan,Kazakhstan,True,5,0.14108352144469527,5,5
+2025-2025,nepal,nepal,Nepal,Nepal,True,5,0.14108352144469527,12,12
+2025-2025,netherlands,netherlands,Netherlands,Netherlands,True,5,0.14108352144469527,8,8
+2025-2025,poland,sweden,Poland,Sweden,False,5,0.14108352144469527,89,78
+2025-2025,turkey,united states,Turkey,United States,False,5,0.14108352144469527,34,842
+2025-2025,viet nam,viet nam,Viet NAM,Viet NAM,True,5,0.14108352144469527,8,8
+2025-2025,australia,france,Australia,France,False,4,0.11286681715575621,211,77
+2025-2025,australia,japan,Australia,Japan,False,4,0.11286681715575621,211,96
+2025-2025,australia,malaysia,Australia,Malaysia,False,4,0.11286681715575621,211,34
+2025-2025,australia,switzerland,Australia,Switzerland,False,4,0.11286681715575621,211,76
+2025-2025,belgium,france,Belgium,France,False,4,0.11286681715575621,43,77
+2025-2025,belgium,switzerland,Belgium,Switzerland,False,4,0.11286681715575621,43,76
+2025-2025,brazil,united states,Brazil,United States,False,4,0.11286681715575621,29,842
+2025-2025,canada,denmark,Canada,Denmark,False,4,0.11286681715575621,170,75
+2025-2025,canada,france,Canada,France,False,4,0.11286681715575621,170,77
+2025-2025,canada,poland,Canada,Poland,False,4,0.11286681715575621,170,89
+2025-2025,canada,republic of korea,Canada,Republic OF Korea,False,4,0.11286681715575621,170,118
+2025-2025,denmark,poland,Denmark,Poland,False,4,0.11286681715575621,75,89
+2025-2025,ecuador,ecuador,Ecuador,Ecuador,True,4,0.11286681715575621,4,4
+2025-2025,france,india,France,India,False,4,0.11286681715575621,77,312
+2025-2025,germany,italy,Germany,Italy,False,4,0.11286681715575621,179,164
+2025-2025,italy,japan,Italy,Japan,False,4,0.11286681715575621,164,96
+2025-2025,lithuania,lithuania,Lithuania,Lithuania,True,4,0.11286681715575621,4,4
+2025-2025,luxembourg,luxembourg,Luxembourg,Luxembourg,True,4,0.11286681715575621,7,7
+2025-2025,malaysia,united states,Malaysia,United States,False,4,0.11286681715575621,34,842
+2025-2025,nepal,united states,Nepal,United States,False,4,0.11286681715575621,12,842
+2025-2025,new zealand,new zealand,NEW Zealand,NEW Zealand,True,4,0.11286681715575621,4,4
+2025-2025,nigeria,south africa,Nigeria,South Africa,False,4,0.11286681715575621,11,11
+2025-2025,norway,united states,Norway,United States,False,4,0.11286681715575621,34,842
+2025-2025,peru,peru,Peru,Peru,True,4,0.11286681715575621,4,4
+2025-2025,republic of korea,saudi arabia,Republic OF Korea,Saudi Arabia,False,4,0.11286681715575621,118,137
+2025-2025,saudi arabia,tunisia,Saudi Arabia,Tunisia,False,4,0.11286681715575621,137,7
+2025-2025,saudi arabia,united kingdom,Saudi Arabia,United Kingdom,False,4,0.11286681715575621,137,124
+2025-2025,singapore,united kingdom,Singapore,United Kingdom,False,4,0.11286681715575621,105,124
+2025-2025,slovenia,slovenia,Slovenia,Slovenia,True,4,0.11286681715575621,4,4
+2025-2025,south africa,south africa,South Africa,South Africa,True,4,0.11286681715575621,11,11
+2025-2025,sweden,switzerland,Sweden,Switzerland,False,4,0.11286681715575621,78,76
+2025-2025,australia,belgium,Australia,Belgium,False,3,0.08465011286681716,211,43
+2025-2025,australia,germany,Australia,Germany,False,3,0.08465011286681716,211,179
+2025-2025,australia,ireland,Australia,Ireland,False,3,0.08465011286681716,211,23
+2025-2025,australia,kuwait,Australia,Kuwait,False,3,0.08465011286681716,211,3
+2025-2025,australia,poland,Australia,Poland,False,3,0.08465011286681716,211,89
+2025-2025,australia,saudi arabia,Australia,Saudi Arabia,False,3,0.08465011286681716,211,137
+2025-2025,australia,thailand,Australia,Thailand,False,3,0.08465011286681716,211,26
+2025-2025,australia,viet nam,Australia,Viet NAM,False,3,0.08465011286681716,211,8
+2025-2025,austria,belgium,Austria,Belgium,False,3,0.08465011286681716,34,43
+2025-2025,belgium,italy,Belgium,Italy,False,3,0.08465011286681716,43,164
+2025-2025,belgium,united states,Belgium,United States,False,3,0.08465011286681716,43,842
+2025-2025,bulgaria,bulgaria,Bulgaria,Bulgaria,True,3,0.08465011286681716,3,3
+2025-2025,canada,italy,Canada,Italy,False,3,0.08465011286681716,170,164
+2025-2025,canada,japan,Canada,Japan,False,3,0.08465011286681716,170,96
+2025-2025,canada,portugal,Canada,Portugal,False,3,0.08465011286681716,170,26
+2025-2025,canada,spain,Canada,Spain,False,3,0.08465011286681716,170,134
+2025-2025,canada,sweden,Canada,Sweden,False,3,0.08465011286681716,170,78
+2025-2025,china,switzerland,China,Switzerland,False,3,0.08465011286681716,1061,76
+2025-2025,colombia,united states,Colombia,United States,False,3,0.08465011286681716,12,842
+2025-2025,czech republic,czech republic,Czech Republic,Czech Republic,True,3,0.08465011286681716,3,3
+2025-2025,egypt,jordan,Egypt,Jordan,False,3,0.08465011286681716,30,25
+2025-2025,egypt,pakistan,Egypt,Pakistan,False,3,0.08465011286681716,30,64
+2025-2025,finland,sweden,Finland,Sweden,False,3,0.08465011286681716,13,78
+2025-2025,finland,united states,Finland,United States,False,3,0.08465011286681716,13,842
+2025-2025,france,japan,France,Japan,False,3,0.08465011286681716,77,96
+2025-2025,france,republic of korea,France,Republic OF Korea,False,3,0.08465011286681716,77,118
+2025-2025,france,spain,France,Spain,False,3,0.08465011286681716,77,134
+2025-2025,france,switzerland,France,Switzerland,False,3,0.08465011286681716,77,76
+2025-2025,germany,ireland,Germany,Ireland,False,3,0.08465011286681716,179,23
+2025-2025,germany,japan,Germany,Japan,False,3,0.08465011286681716,179,96
+2025-2025,germany,luxembourg,Germany,Luxembourg,False,3,0.08465011286681716,179,7
+2025-2025,germany,portugal,Germany,Portugal,False,3,0.08465011286681716,179,26
+2025-2025,germany,singapore,Germany,Singapore,False,3,0.08465011286681716,179,105
+2025-2025,ghana,ghana,Ghana,Ghana,True,3,0.08465011286681716,8,8
+2025-2025,greece,italy,Greece,Italy,False,3,0.08465011286681716,24,164
+2025-2025,greece,spain,Greece,Spain,False,3,0.08465011286681716,24,134
+2025-2025,greece,switzerland,Greece,Switzerland,False,3,0.08465011286681716,24,76
+2025-2025,hungary,united states,Hungary,United States,False,3,0.08465011286681716,8,842
+2025-2025,india,jordan,India,Jordan,False,3,0.08465011286681716,312,25
+2025-2025,india,malaysia,India,Malaysia,False,3,0.08465011286681716,312,34
+2025-2025,india,qatar,India,Qatar,False,3,0.08465011286681716,312,11
+2025-2025,india,spain,India,Spain,False,3,0.08465011286681716,312,134
+2025-2025,india,sweden,India,Sweden,False,3,0.08465011286681716,312,78
+2025-2025,india,thailand,India,Thailand,False,3,0.08465011286681716,312,26
+2025-2025,india,tunisia,India,Tunisia,False,3,0.08465011286681716,312,7
+2025-2025,india,uzbekistan,India,Uzbekistan,False,3,0.08465011286681716,312,3
+2025-2025,iran,turkey,Iran,Turkey,False,3,0.08465011286681716,58,34
+2025-2025,iran,united kingdom,Iran,United Kingdom,False,3,0.08465011286681716,58,124
+2025-2025,italy,portugal,Italy,Portugal,False,3,0.08465011286681716,164,26
+2025-2025,italy,saudi arabia,Italy,Saudi Arabia,False,3,0.08465011286681716,164,137
+2025-2025,italy,turkey,Italy,Turkey,False,3,0.08465011286681716,164,34
+2025-2025,italy,united kingdom,Italy,United Kingdom,False,3,0.08465011286681716,164,124
+2025-2025,japan,poland,Japan,Poland,False,3,0.08465011286681716,96,89
+2025-2025,japan,republic of korea,Japan,Republic OF Korea,False,3,0.08465011286681716,96,118
+2025-2025,jordan,pakistan,Jordan,Pakistan,False,3,0.08465011286681716,25,64
+2025-2025,malaysia,singapore,Malaysia,Singapore,False,3,0.08465011286681716,34,105
+2025-2025,morocco,morocco,Morocco,Morocco,True,3,0.08465011286681716,3,3
+2025-2025,nepal,united kingdom,Nepal,United Kingdom,False,3,0.08465011286681716,12,124
+2025-2025,netherlands,united states,Netherlands,United States,False,3,0.08465011286681716,8,842
+2025-2025,norway,spain,Norway,Spain,False,3,0.08465011286681716,34,134
+2025-2025,norway,switzerland,Norway,Switzerland,False,3,0.08465011286681716,34,76
+2025-2025,pakistan,republic of korea,Pakistan,Republic OF Korea,False,3,0.08465011286681716,64,118
+2025-2025,pakistan,united kingdom,Pakistan,United Kingdom,False,3,0.08465011286681716,64,124
+2025-2025,poland,portugal,Poland,Portugal,False,3,0.08465011286681716,89,26
+2025-2025,poland,romania,Poland,Romania,False,3,0.08465011286681716,89,22
+2025-2025,poland,united kingdom,Poland,United Kingdom,False,3,0.08465011286681716,89,124
+2025-2025,portugal,spain,Portugal,Spain,False,3,0.08465011286681716,26,134
+2025-2025,republic of korea,united kingdom,Republic OF Korea,United Kingdom,False,3,0.08465011286681716,118,124
+2025-2025,saudi arabia,turkey,Saudi Arabia,Turkey,False,3,0.08465011286681716,137,34
+2025-2025,serbia,serbia,Serbia,Serbia,True,3,0.08465011286681716,3,3
+2025-2025,south africa,sweden,South Africa,Sweden,False,3,0.08465011286681716,11,78
+2025-2025,spain,sweden,Spain,Sweden,False,3,0.08465011286681716,134,78
+2025-2025,spain,switzerland,Spain,Switzerland,False,3,0.08465011286681716,134,76
+2025-2025,sweden,united kingdom,Sweden,United Kingdom,False,3,0.08465011286681716,78,124
+2025-2025,tanzania,tanzania,Tanzania,Tanzania,True,3,0.08465011286681716,3,3
+2025-2025,uganda,uganda,Uganda,Uganda,True,3,0.08465011286681716,3,3
+2025-2025,ukraine,ukraine,Ukraine,Ukraine,True,3,0.08465011286681716,3,3

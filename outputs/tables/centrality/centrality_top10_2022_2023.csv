@@ -1,0 +1,11 @@
+rank,degree_node,degree_score,betweenness_node,betweenness_score
+1,"Department of Biomedical Sciences, Humanitas University, Milan, Italy.",0.008914956011730205,"Department of Biochemistry, Yong Loo Lin School of Medicine, National University of Singapore, Singapore, Singapore.",0.5013701977623013
+2,"Universite Paris Cite, Paris, France.",0.008504398826979473,"Saw Swee Hock School of Public Health, National University of Singapore, National University Health System, Singapore, Singapore.",0.4882909742390289
+3,"Department of Clinical Science and Education, Sodersjukhuset, Karolinska Institutet, Stockholm, Sweden.",0.00785923753665689,"Novo Nordisk Foundation Center for Basic Metabolic Research, Faculty of Health and Medical Sciences, University of Copenhagen, Copenhagen, Denmark.",0.4477143006754988
+4,"Berlin Institute of Health, Berlin, Germany.",0.00785923753665689,"Duke-NUS Medical School, Singapore, Singapore.",0.37585425315173476
+5,"Faculty of Medicine, University of Ljubljana, Ljubljana, Slovenia.",0.007741935483870968,"Department of Medicine, Harvard Medical School, Boston, MA, USA.",0.2686285804052993
+6,"Usher Institute, The University of Edinburgh, Edinburgh, UK.",0.007741935483870968,"Department of Family Medicine and Continuing Care, Singapore General Hospital, Singapore, Singapore.",0.20401500717780777
+7,"Institute of Allergology, Charite - Universitatsmedizin Berlin, Freie Universitat Berlin and Humboldt-Universitat zu Berlin, Berlin, Germany.",0.0075659824046920825,"Department of Pharmacy, National University of Singapore, Singapore, Singapore.",0.20401500717780777
+8,"University Hospital Montpellier, Montpellier, France.",0.0075659824046920825,"Cardiovascular Disease Initiative, Broad Institute of MIT and Harvard, Cambridge, MA, USA.",0.18054319177532246
+9,"Fraunhofer Institute for Translational Medicine and Pharmacology ITMP, Allergology and Immunology, Berlin, Germany.",0.0075659824046920825,"Department of Endocrinology, Singapore General Hospital, Singapore, Singapore.",0.1666604328278937
+10,"National Heart and Lung Institute (NHLI), Imperial College London, London, UK.",0.0075659824046920825,"Department of Ophthalmology, College of Medicine, Rangsit University, Rajavithi Hospital, Bangkok, Thailand.",0.16188108087359282

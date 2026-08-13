@@ -1,0 +1,11 @@
+rank,degree_node,degree_score,betweenness_node,betweenness_score
+1,"British Heart Foundation Cardiovascular Epidemiology Unit, Department of Public Health and Primary Care, University of Cambridge, Cambridge, UK.",0.010018382352941176,"Yong Loo Lin School of Medicine, National University of Singapore, Singapore, Singapore.",0.40407132549989694
+2,"Victor Phillip Dahdaleh Heart and Lung Research Institute, University of Cambridge, Cambridge, UK.",0.010018382352941176,"Department of Statistics and Data Science, National University of Singapore, Singapore, Singapore.",0.36798853610883725
+3,"Health Data Research UK Cambridge, Wellcome Genome Campus and University of Cambridge, Cambridge, UK.",0.009834558823529412,"Singapore Eye Research Institute, Singapore National Eye Centre, Singapore, Singapore.",0.31341893496114276
+4,"Institute of Ophthalmology, University College London, London, UK.",0.008915441176470588,"Saw Swee Hock School of Public Health, National University of Singapore, Singapore, Singapore.",0.2627943980622552
+5,"Institute of Epidemiology, Helmholtz Zentrum Munchen, German Research Center for Environmental Health, Neuherberg, Germany.",0.0078125,"Institute of Ophthalmology, University College London, London, UK.",0.2605753169389534
+6,"Baker Heart and Diabetes Institute, Melbourne, Victoria, Australia.",0.00744485294117647,"Centre for Chronic Disease Control, New Delhi, India.",0.2322051295265581
+7,"Department of Clinical Medicine, Aarhus University, Aarhus, Denmark.",0.007352941176470588,"Department of Medicine, Faculty of Medicine, University of Malaya, Kuala Lumpur, Malaysia.",0.1770148658460347
+8,"Singapore Eye Research Institute, Singapore National Eye Centre, Singapore, Singapore.",0.006893382352941176,"Centre for Digital Health Interventions, Department of Management, Technology, and Economics, ETH Zurich, Zurich, Switzerland.",0.14861849790421167
+9,"MOE Key Laboratory of AI, School of Electronic, Information, and Electrical Engineering, Shanghai Jiao Tong University, Shanghai, China.",0.006801470588235294,"Department of Endocrinology, Singapore General Hospital, Singapore, Singapore.",0.12526701134869297
+10,"Department of Ophthalmology, Huadong Sanatorium, Wuxi, China.",0.006801470588235294,"Singapore Eye Research Institute, Singapore National Eye Centre, Singapore.",0.10895744707433015
