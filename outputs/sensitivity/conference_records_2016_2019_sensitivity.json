@@ -1,0 +1,29 @@
+{
+ "with": {
+  "nodes": 11158,
+  "edges": 439972,
+  "density": 0.007068402050526129,
+  "avg_degree": 78.86216167772002,
+  "median_degree": 5.0,
+  "lcc": 636,
+  "lcc_share": 0.05699946226922387,
+  "isolated": 312,
+  "isolated_share": 0.027962000358487185,
+  "components": 2168,
+  "publications": 2360
+ },
+ "without": {
+  "nodes": 9448,
+  "edges": 25806,
+  "density": 0.0005782516606080879,
+  "avg_degree": 5.4627434377646065,
+  "median_degree": 4.0,
+  "lcc": 60,
+  "lcc_share": 0.006350550381033023,
+  "isolated": 312,
+  "isolated_share": 0.03302286198137172,
+  "components": 2164,
+  "publications": 2356,
+  "avg_clustering_weighted": 0.294219407673052
+ }
+}

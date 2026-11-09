@@ -1,0 +1,11 @@
+{
+  "title": "AI in Diabetes: Temporal Institutional Collaboration Trends (1988–2025) — analysis pipeline and derived datasets",
+  "description": "Reproducible analysis pipeline and derived datasets for a temporal institutional network analysis of artificial-intelligence research in diabetes, based on 16,953 PubMed-indexed publications (1988–2025). Includes the analytic cohort PMID list, the large-language-model domain classification of 67,973 unique affiliation strings, the expert-labelled validation sample, period-level institutional collaboration networks (GraphML) and network metrics, participation-tier transitions, country- and WHO-region collaboration matrices, funding-stratified metrics, and the sensitivity analyses reported in the Supplementary Information.",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {"name": "Singh, Uday Pratap", "affiliation": "McWilliams School of Biomedical Informatics, University of Texas Health Science Center at Houston"}
+  ],
+  "keywords": ["artificial intelligence", "diabetes", "collaboration networks", "bibliometrics", "institutional network analysis", "interdisciplinarity"],
+  "access_right": "open"
+}
